@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 from collections import Counter
 
 def to_tuple(expression):
+    """ Converts a nested list to nested tuple """
     my_tup=tuple()
     for elem in expression:
         if type(elem)!=list:
@@ -23,6 +24,7 @@ def to_tuple(expression):
 
 
 def algorithm_1(data,env,q_dict,rule_dict,filename="mcmc_reort",max_iterations=1000000):
+    """ Implementation of algorithm 1 given in Bayesian Synthesis paper """
     from algorithm_2_utilities import Likelihood
     from algorithm_2 import generate_new_expression
     from rules_3 import expand,print_expression
