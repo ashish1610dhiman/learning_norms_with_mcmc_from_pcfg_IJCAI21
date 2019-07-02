@@ -7,9 +7,10 @@ Created on Fri May 24 09:39:30 2019
 
 
 def check_pro(obj,task_type,norms):
+    """ Helper function, Check if task can be performed on obj given Prohibitive norms """
     #print ("B")
     from numpy import nan
-    #Return 1 if prohibition exists
+    #Return 1 if permission exists
     for key,rule in norms.items():
         if rule[2][1][1]==obj.colour:
             if rule[2][2][1]==obj.shape:
@@ -19,6 +20,7 @@ def check_pro(obj,task_type,norms):
 
 
 def check_per(obj,task_type,norms):
+    """ Helper function, Check if task can be performed on obj given Permissive norms """
     from numpy import nan
     #Return 1 if permission exists
     for key,rule in norms.items():
@@ -30,6 +32,7 @@ def check_per(obj,task_type,norms):
 
 
 def check_obl(obj,norms):
+    """ Helper function, Check if task can be performed on obj given Obligatory norms """
     from numpy import nan
     #Return 1 if obligation exists
     for key,rule in norms.items():
@@ -41,6 +44,7 @@ def check_obl(obj,norms):
         
     
 def verify_action(obj,check,task_type,rules):
+    """ Check if action can be performed given Norms """
     from numpy import nan
     #print ("Check")
     from verify_action_4 import check_pro,check_per,check_obl

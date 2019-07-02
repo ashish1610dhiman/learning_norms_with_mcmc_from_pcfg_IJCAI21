@@ -8,7 +8,7 @@ Created on Thu May 16 16:17:19 2019
 import weakref
 
 class pickup_action():
-	""" Class to model pickup action of robot """
+    """ Class to model pickup action on object """
     def __init__(self,obj):
         self.obj=obj # Object on which action is to be performed
         self.id=weakref.ref(obj)
@@ -20,7 +20,7 @@ class pickup_action():
             print ("{}-{}:object-{} already picked up".format(self.obj.colour,self.obj.shape,self.obj.obj_id))
 
 class putdown_action():
-	""" Class to model putdown action of robot """
+    """ Class to model putdown action on object """
     def __init__(self,obj,new_zone,ta,zone_dict):
         from environment import position
         import random

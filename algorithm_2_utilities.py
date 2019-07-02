@@ -153,30 +153,35 @@ def violation(norms,env):
     return (violations)   
 
 
-def Likelihood(expression,data,env,w_normative=0.95):
-    """ Calculate Likelihhod of expression in data
+def Likelihood(expression,data,env,w_normative=1.0):
+    """ Calculate log-Likelihhod of expression in data
     Violation function is called on env inside
     Empty expression (i.e. norms) can be passed """
     from algorithm_2_utilities import violation
+    from numpy import log
     #calculate |K|
     mod_K=len(env[3])
     #Find Vioalations
     violations=violation(expression,env)
-    likelihood_data=1
+    log_likelihood_data=0
+    w_normative=float(w_normative)
     for x in data:
         #Each x expresses only 1 object
         obj_id=x[0][1]
         lik_non_norm=1/mod_K
         if obj_id in violations.keys():
             if x in violations[obj_id]:
-                lik_norm=0
+                lik_norm=0.000000001 # To make log(zero) work
+                #print ("check1")
             else:
-                lik_norm=1-(len(violations[obj_id])/mod_K)
+                lik_norm=1/(mod_K-len(violations[obj_id]))
+                #print ("check2")
         else:
             lik_norm=1/mod_K
+            #print ("check3")
         likelihood_x=w_normative*lik_norm+(1-w_normative)*(lik_non_norm)
-        likelihood_data*=likelihood_x
-    return (likelihood_data)
+        log_likelihood_data+=log(likelihood_x)
+    return (log_likelihood_data)
         
 
 

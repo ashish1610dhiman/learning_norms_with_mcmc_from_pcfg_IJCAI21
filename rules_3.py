@@ -6,6 +6,8 @@ Created on Thu May 23 10:51:03 2019
 """
 
 """
+File defines the PCFG and other helper functions
+
 Naming Convention:
 Non-Terminal Symbols are Capitalized
 1st letter of label is capitalized
@@ -77,6 +79,7 @@ def sample(my_dict):
         return (str(choice(a,1,True,p)[0]))
 
 def expand(non_terminal):
+    """ Function to expand the given non-terminal symbol as per the PCFG rules """
     from rules_3 import is_not_recursive
     from rules_3 import sample
     #Randomly chose rule for non-terminal
@@ -88,7 +91,7 @@ def expand(non_terminal):
         return ([chosen_rule] + [expand(nt) for nt in rule_dict[non_terminal][chosen_rule]])
 
 def expand_probability(non_terminal,expression):
-    """ Return probability of each label as per prior probabilities """
+    """ Get probabilities of expanding in form of recusrive list """
     nts=rule_dict[non_terminal][expression[0]]
     if is_not_recursive(nts)==0:
             return ([p_dict[non_terminal][expression[0]]]+[expand_probability(nt,expression[i]) for i,nt in enumerate(nts,1)])
@@ -97,7 +100,7 @@ def expand_probability(non_terminal,expression):
         
 
 def flatten_all(iterable):
-    """ Flatten a nested list """
+    """ Helper function to flatten a recursive list """
     for elem in iterable:
         if not isinstance(elem, list):
             yield elem
@@ -106,7 +109,7 @@ def flatten_all(iterable):
                 yield x
 
 def get_prob(non_terminal,expression):
-    """ Return probability of non-terminal expanding to the given expression as per prior probabilities """
+    """ Returns the probability(Prior) of the given non-terinal expanding to the given expression """
     from operator import mul
     from functools import reduce
     from rules_3 import flatten_all,expand_probability
@@ -117,6 +120,7 @@ def get_prob(non_terminal,expression):
         return (b)
     
 def print_rule(rule,counter):
+    """ Helper function to print a rule """
     print ("------------------------------------------------")
     print ("                NORM Number={}".format(str(counter)))
     print ("------------------------------------------------")
@@ -132,6 +136,7 @@ def print_rule(rule,counter):
         print ("     if you "+rule[1][2][1].upper()+" "+rule[1][1][1][1].upper()+"-"+rule[1][1][2][1].upper()+'s') 
     
 def print_expression(expression):
+    """ Helper function to print a expression """
     from rules_3 import print_rule
     for i in range(1,len(expression)):
         print_rule(expression[i],i)

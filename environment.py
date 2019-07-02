@@ -9,7 +9,7 @@ import random
 import numpy as np
 
 class position():
-    """ Class to model the position of an object """
+    """ Class to represent position of objects """
     def __init__(self,x,y):
         #theta is in degreees
         self.x=x
@@ -32,17 +32,16 @@ class position():
         
 
 class an_object():
-    """ Class to model an object """
+    """ Class to model objects """
     def __init__(self,obj_id,position,colour,shape,last_action=np.nan):
         self.obj_id=obj_id
         self.position=position
         self.colour=colour
         self.shape=shape
         self.last_action=last_action
-        self.current_zone=position.get_zone()
+        self.current_zone=self.position.get_zone()
     def describe(self):
-        print ("color={},shape={},current_zone=Zone-{},last_action={}".
-               format(self.colour,self.shape,self.current_zone,self.last_action))
+        print ("color={},shape={},current_zone=Zone-{},last_action={}".format(self.colour,self.shape,self.current_zone,self.last_action))
 
 def polar_to_cartesian(position):
     from math import sin,cos,radians
@@ -57,7 +56,15 @@ def create_env(N=20,seed=np.nan):
     object_list=[]
     zones={i:-1+i*(2/3) for i,colour in enumerate(colours,1)}
     for i in range(N):
-        p=position(random.uniform(-1,1),random.uniform(-1,1))
+        # To prevent two point from being too close
+        while (True):
+            p=position(round(random.uniform(-1,1),2),round(random.uniform(-1,1),2))
+            if len(object_list)>0:
+                t=[int(p.get_distance(obj.position)<=0.1) for obj in object_list]
+                if sum(t)==0:
+                    break
+            else:
+                break
         c=colours[random.randint(0,2)]
         s=shapes[random.randint(0,2)]
         object_list.append(an_object(i+1,p,c,s))
@@ -65,7 +72,7 @@ def create_env(N=20,seed=np.nan):
 
 
 def plot_env(env,ax,itr=np.nan,legend=False,annotate=True):
-    """ Plot env on the axis object passed """
+    """ Helper function to plot environment """
     ax.set_xlim(-1.1,1.1)
     ax.set_ylim(-1.1,1.1)
     shape_code={"square":"s","circle":"o","triangle":"v"}
@@ -95,7 +102,7 @@ def plot_env(env,ax,itr=np.nan,legend=False,annotate=True):
 
     
 def plot_area(ax,target_area=np.nan,destination_area=np.nan):
-    """ Plot target and destination area """
+    """ Helper function to plot target area """
     import matplotlib.patches as patches
     if type(target_area)==list:
         rect_t = patches.Rectangle((target_area[0].x,target_area[0].y),abs(target_area[0].x-target_area[1].x),
