@@ -20,7 +20,7 @@ def to_tuple(expression):
     return (my_tup)
 
 
-def random_task_func(env,num_actionable,c,s):
+def random_task_func(env,num_actionable,c1,s1):
     """ Genearte random task on environment """
     #num_actionable deifnes the number of objects in the target_area
     from robot_task_new import task,robot
@@ -30,7 +30,7 @@ def random_task_func(env,num_actionable,c,s):
         (a,b)=(uniform(-1,1),uniform(-1,1))
         (c,d)=(uniform(a,1),uniform(b,1))
         target_area=[position(a,b),position(c,d)]
-        task1=task(colour_specific=c,shape_specific=s,target_area=target_area)
+        task1=task(colour_specific=c1,shape_specific=s1,target_area=target_area)
         actionable=len(robot(task1,deepcopy(env)).all_actionable())
         if actionable>0:
             if np.isnan(num_actionable):
@@ -39,8 +39,8 @@ def random_task_func(env,num_actionable,c,s):
                 break
     return (task1)
 
-def create_data(expression,env,name,task1=np.nan,random_task=False,
-                num_actionable=np.nan,num_repeat=500,verbose=True):
+def create_data(expression,env,name,task1=np.nan,random_task=False,limit_task_scope=False,
+	num_actionable=np.nan,num_repeat=500,verbose=True):
     """ Function to create data from either given task or randomised tasks """
     print ("Generating action-profile data for case {}".format(name))
     from robot_task_new import robot,plot_task
@@ -48,6 +48,7 @@ def create_data(expression,env,name,task1=np.nan,random_task=False,
     from tqdm import tnrange, tqdm_notebook
     from time import sleep
     import os,glob,random
+    import numpy as np
     action_profile={}
     #Empty the required directories
     for folder in ["action_profiles","env_states"]:
@@ -60,9 +61,13 @@ def create_data(expression,env,name,task1=np.nan,random_task=False,
         fig,ax=plt.subplots(1, 2, sharex=True, sharey=True,figsize=(14,10))
         #Generate random task with actionable objects specified (random if specidied np.nan)
         if random_task==True:
-            c=random.choice(env[1])
-            s=random.choice(env[2])
-            task1=random_task_func(env,num_actionable,c,s)
+        	if limit_task_scope==True:
+        		c=random.choice(env[1])
+        		s=random.choice(env[2])
+        	else:
+        		c=np.nan
+        		s=np.nan
+        	task1=random_task_func(env,num_actionable,c,s)
         plot_task(env_copy,ax[0],"Before clearing ({})".format(name),task1,True)
         if verbose==True:
             print ("For repetition={} of task".format(itr+1))
