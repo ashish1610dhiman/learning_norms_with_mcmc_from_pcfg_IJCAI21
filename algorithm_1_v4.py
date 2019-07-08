@@ -95,7 +95,7 @@ def algorithm_1(data,env,task1,expression,q_dict,rule_dict,filename="mcmc_reort"
     log_lik_null=Likelihood([],data,env,w_normative)
     while((time.time()-s)<time_threshold):
         time_flag=1
-        if (Likelihood(E_0,data,env,w_normative)>log_lik_null):
+        if (Likelihood(E_0,data,env,w_normative)>=log_lik_null):
             """ Compared to lok(Lik(no_norm) because for large sequences exp(log_Lik) gets to zero"""
             """ >= be cause we do rejection sampling for relevant norms below """
             if isnan(relevance_factor):
