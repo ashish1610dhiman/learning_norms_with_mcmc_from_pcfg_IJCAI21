@@ -98,7 +98,7 @@ def algorithm_1(data,env,task1,expression,q_dict,rule_dict,filename="mcmc_reort"
         if (Likelihood(E_0,data,env,w_normative)>log_lik_null):
             """ Compared to lok(Lik(no_norm) because for large sequences exp(log_Lik) gets to zero"""
             """ >= be cause we do rejection sampling for relevant norms below """
-            if isnan(relevance_factor)==False:
+            if isnan(relevance_factor):
                 break
             else:
                 if (is_relevant(expression,task1,env)==False):
