@@ -30,7 +30,7 @@ def plot_task(env,ax,itr,task,annotate_choice):
     from environment import plot_env,plot_area
     plot_env(env,ax,itr,legend=False,annotate=annotate_choice)
     plot_area(ax,task.target_area,nan)
-    ax.legend(["Target Area"])
+    ax.legend(["Area to clear"])
 
 class robot():
     """ Class to model the robot """
