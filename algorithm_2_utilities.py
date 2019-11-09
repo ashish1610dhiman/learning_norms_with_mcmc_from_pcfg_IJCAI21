@@ -106,7 +106,7 @@ def fill_hole(a,E_hole,E_sub):
 def violation(norms,env):
     """ Returns a dict with key as object_id and value,
     as a list of all apossible violations of norm on that object """
-    from verify_action_4 import check_pro,check_per,check_obl
+    from verify_action_4 import check_pro_or_per,check_per,check_obl
     violations={}
     my_dict={x:norms[x] for x in range(1,len(norms))}
     obl_norms={norm_no:norm for (norm_no,norm) in my_dict.items() if norm[0]=="Obl"}
@@ -118,8 +118,8 @@ def violation(norms,env):
         ob_viol=[]
         """ Pickup stage """
         #check if pickup is prohibited and no permission
-        pro_flag,pro_zone,key=check_pro(obj,"pickup",pro_norms)
-        per_flag,per_zone,key=check_per(obj,"pickup",per_norms)
+        pro_flag,pro_zone,key=check_pro_or_per(obj,"pickup",pro_norms)
+        per_flag,per_zone,key=check_pro_or_per(obj,"pickup",per_norms)
         if pro_flag==1: #Prohibition exists
             if per_flag==0:
                 ob_viol=ob_viol+[(("pickup",obj.obj_id),("putdown",obj.obj_id,zone)) for zone in viol_zones]
@@ -129,7 +129,7 @@ def violation(norms,env):
         """ Putdown stage """
         #check for obl and permission
         obl_flag,obl_zone,key=check_obl(obj,obl_norms)
-        per_flag,per_zone,key=check_per(obj,"putdown",per_norms)
+        per_flag,per_zone,key=check_pro_or_per(obj,"putdown",per_norms)
         if obl_flag==1:
             viol_zones.remove(int(obl_zone))
             if per_flag==0:
@@ -139,8 +139,8 @@ def violation(norms,env):
                     viol_zones.remove(int(per_zone))
                 ob_viol=ob_viol+[(("pickup",obj.obj_id),("putdown",obj.obj_id,zone)) for zone in viol_zones]
         #check for pro and permission
-        pro_flag,pro_zone,key=check_pro(obj,"putdown",pro_norms)
-        per_flag,per_zone,key=check_per(obj,"putdown",per_norms)
+        pro_flag,pro_zone,key=check_pro_or_per(obj,"putdown",pro_norms)
+        per_flag,per_zone,key=check_pro_or_per(obj,"putdown",per_norms)
         viol_zones=list(env[3].keys())
         if pro_flag==1: #Prohibition exists
             if per_flag==0:

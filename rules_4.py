@@ -104,6 +104,7 @@ def get_prob(non_terminal,expression):
     else:
         return (b)
 
+# separate_conds:
 # Converts (e.g.) ['Moved', ['Colour', 'any'], ['Shape', 'any'], ['Zone', '1'], ['Moved', ['Colour', 'r'], ['Shape', 'square'], ['Zone', '2'], ['Next-Move', ['Colour', 'g'], ['Shape', 'square']]]]
 # to:
 # [['Moved', ['Colour', 'any'], ['Shape', 'any'], ['Zone', '1']],
@@ -121,21 +122,42 @@ def print_rule(rule,counter):
     print ("                NORM Number={}".format(str(counter)))
     print ("------------------------------------------------")
     if rule[0]=="Per":
-        print ("   > PERMISSION: action "+rule[1][1].lower())
-        print ("     for colour "+rule[2][1].lower()+", shape "+rule[3][1].lower()+', and zone '+rule[4][1])
+        print ("   > PERMISSION: action "+pro_or_per_action(rule))
+        print ("     for colour "+pro_or_per_colour(rule)+", shape "+pro_or_per_shape(rule)+' and zone '+pro_or_per_zone(rule))
     elif rule[0]=="Pro":
-        print ("   > PROHIBITION: action "+rule[1][1].lower())
-        print ("     for colour "+rule[2][1].lower()+", shape "+rule[3][1].lower()+', and zone '+rule[4][1])
+        print ("   > PROHIBITION: action "+pro_or_per_action(rule))
+        print ("     for colour "+pro_or_per_colour(rule)+", shape "+pro_or_per_shape(rule)+' and zone '+pro_or_per_zone(rule))
     else:
         cond = rule[1]
         conds_list = separate_conds(cond)
-        next_move_cond = conds_list[-1]
+        next_move = conds_list[-1]
         print ("   > OBLIGATION:")
-        print ("     put in zone "+rule[2][1].upper()+" if handling colour "+next_move_cond[1][1].upper()+" and shape "+next_move_cond[2][1].upper())
+        print ("     put in zone "+obl_zone(rule)+" if handling colour "+next_move_colour(next_move)+" and shape "+next_move_shape(next_move))
         if len(conds_list) > 1:
             print ("     and history is ")
             for c in conds_list[:-1]:
-                print(c)
+                print("     ",c)
+
+def pro_or_per_action(rule):
+    return rule[1][1]
+
+def pro_or_per_colour(rule):
+    return rule[2][1]
+
+def pro_or_per_shape(rule):
+    return rule[3][1]
+
+def pro_or_per_zone(rule):
+    return rule[4][1]
+
+def obl_zone(rule):
+    return rule[2][1]
+
+def next_move_colour(next_move):
+    return next_move[1][1]
+
+def next_move_shape(next_move):
+    return next_move[2][1]
 
 def print_expression(expression):
     """ Helper function to print a expression """
