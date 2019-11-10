@@ -22,7 +22,8 @@ q_dict[non-recursive-rule-label]={diff_options:P[diff_actions]}
 #from numpy import nan
     
 rule_dict={}
-rule_dict["NORMS"]={"Norms":["NORM1","NORM2"]}
+rule_dict["NORMS"]={"Norms":["NORM1","NORM2"],
+                    "Norm":["NORM1"]}
 rule_dict["NORM1"]={"Obl":["COND","ZONE"],
                     "Pro":["ACTION","COLOUR","SHAPE","ZONE"]}
 rule_dict["NORM2"]={"Per":["ACTION","COLOUR","SHAPE","PERZONE"]}
@@ -36,7 +37,7 @@ rule_dict["COLOUR"]={"Colour":[]}
 rule_dict["SHAPE"]={"Shape":[]}
 
 p_dict={}
-p_dict["NORMS"]={"Norms":1}
+p_dict["NORMS"]={"Norms":0.5,"Norm":0.5}
 p_dict["NORM1"]={"Obl":1/2,"Pro":1/2}
 p_dict["NORM2"]={"Per":1}
 p_dict["COND"]={"Moved":1/2,"Next-Move":1/2}
