@@ -71,6 +71,7 @@ class robot():
         from copy import deepcopy
         import os
         from numpy import nan,random
+        from collections import defaultdict
         actionable_objects=[]
         (x1,y1)=self.task.target_area[0].coordinates()
         (x2,y2)=self.task.target_area[1].coordinates()
@@ -98,7 +99,7 @@ class robot():
             print ("Order of Acting:",[x.obj_id for x in order])
         sys.stdout = open('./'+name+'.txt', 'x')
         print("Generated Actions for plan")
-        action_list=[]
+        action_pairs_by_obj=defaultdict(set)
         for obj1 in order:
             """ Perform pickup action """
             pro_flag,pro_zone,key=verify_action(obj1,"prohibition","pickup",rules)
@@ -108,13 +109,11 @@ class robot():
                 if per_flag==1 and pro_zone==per_zone: #If permission exists
                     print ("Picking-up {}-{} object from Zone={} permitted by Norm-{}".format(obj1.colour,obj1.shape,pro_zone,key))
                     pickup_action(obj1).perform()
-                    action_list.append(("pickup",obj1.obj_id))
                 else:
                     print ("Action skipped")
                     continue
             else:
                 pickup_action(obj1).perform()
-                action_list.append(("pickup",obj1.obj_id))
             """ Perform putdown action """
             if obj1.last_action=="pickup": #Proceed to put down
                 obl_flag,obl_zone,key=verify_action(obj1,"obligation","putdown",rules)
@@ -124,13 +123,12 @@ class robot():
                     if per_flag==1:
                         print ("But Putting-down {}-{} object in Zone-{} permitted by Norm-{}".format(obj1.colour,obj1.shape,per_zone,key))
                         putdown_action(obj1,int(random.choice([obl_zone,per_zone])),self.task.target_area,self.env[3]).perform()
-                        action_list.append(("putdown",obj1.obj_id,int(obl_zone)))
+                        action_pairs_by_obj[obj1].add( (("pickup",obj1.obj_id), ("putdown",obj1.obj_id,int(obl_zone))) )
                         #For all complying paths
-                        action_list.append(("pickup",obj1.obj_id))
-                        action_list.append(("putdown",obj1.obj_id,int(per_zone)))
+                        action_pairs_by_obj[obj1].add( (("pickup",obj1.obj_id), ("putdown",obj1.obj_id,int(per_zone))) )
                     else:
                         putdown_action(obj1,obl_zone,self.task.target_area,self.env[3]).perform()
-                        action_list.append(("putdown",obj1.obj_id,int(obl_zone)))
+                        action_pairs_by_obj[obj1].add( (("pickup",obj1.obj_id), ("putdown",obj1.obj_id,int(obl_zone))) )
                 else:
                     pro_flag,pro_zone,key=verify_action(obj1,"prohibition","putdown",rules)
                     possible_zones=list(deepcopy(self.env[3]).keys())
@@ -140,22 +138,21 @@ class robot():
                         if per_flag==1 and pro_zone==per_zone:
                             print ("Permission provided for putting down {}-{} object in Zone-{}  by Norm-{}".format(obj1.colour,obj1.shape,per_zone,key))
                             putdown_action(obj1,random.choice(possible_zones),self.task.target_area,self.env[3]).perform()
-                            action_list.append(("putdown",obj1.obj_id,possible_zones[0]))
+                            action_pairs_by_obj[obj1].add( (("pickup",obj1.obj_id), ("putdown",obj1.obj_id,possible_zones[0])) )
                         else:
                             possible_zones.remove(int(pro_zone))
                             putdown_action(obj1,random.choice(possible_zones),self.task.target_area,self.env[3]).perform()
-                            action_list.append(("putdown",obj1.obj_id,possible_zones[0]))
+                            action_pairs_by_obj[obj1].add( (("pickup",obj1.obj_id), ("putdown",obj1.obj_id,possible_zones[0])) )
                     else:
                         #print ("I am King")
                         putdown_action(obj1,random.choice(possible_zones),self.task.target_area,self.env[3]).perform()
-                        action_list.append(("putdown",obj1.obj_id,possible_zones[0])) 
+                        action_pairs_by_obj[obj1].add( (("pickup",obj1.obj_id), ("putdown",obj1.obj_id,possible_zones[0])) )
                     #For all complying paths
                     for i in range(1,len(possible_zones)):
-                        action_list.append(("pickup",obj1.obj_id))
-                        action_list.append(("putdown",obj1.obj_id,possible_zones[i]))
+                        action_pairs_by_obj[obj1].add( (("pickup",obj1.obj_id), ("putdown",obj1.obj_id,possible_zones[i])) )
         sys.stdout.close()
         sys.stdout=original
-        return (action_list)
+        return (action_pairs_by_obj)
     def perform_task(self,rules,name,verbose=True):
         """ Return one out of all possible compliant action plan given norms """
         import sys
@@ -196,7 +193,7 @@ class robot():
             """ Perform pickup action """
             pro_flag,pro_zone,key=verify_action(obj1,"prohibition","pickup",rules)
             if pro_flag==1: #If action is prohibited
-                print ("Picing-up {}-{} object from Zone={} prohibited by Norm-{}".format(obj1.colour,obj1.shape,pro_zone,key))
+                print ("Picking-up {}-{} object from Zone={} prohibited by Norm-{}".format(obj1.colour,obj1.shape,pro_zone,key))
                 per_flag,per_zone,key=verify_action(obj1,"permission","pickup",rules)
                 if per_flag==1 and pro_zone==per_zone: #If permission exists
                     print ("Picking-up {}-{} object from Zone={} permitted by Norm-{}".format(obj1.colour,obj1.shape,pro_zone,key))

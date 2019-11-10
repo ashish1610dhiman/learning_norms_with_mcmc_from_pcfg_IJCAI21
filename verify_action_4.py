@@ -13,9 +13,9 @@ def check_pro_or_per(obj,task_type,norms):
     from numpy import nan
     #Return 1 if matching prohibition or permission exists
     for key,rule in norms.items():
-        if pro_or_per_colour(rule)==obj.colour:
-            if pro_or_per_shape(rule)==obj.shape:
-                if pro_or_per_action(rule)==task_type:
+        if pro_or_per_colour(rule) in {obj.colour, 'any'}:
+            if pro_or_per_shape(rule) in {obj.shape, 'any'}:
+                if pro_or_per_action(rule) in {task_type, 'any'}:
                     return (1,pro_or_per_zone(rule),key)
     return (0,nan,nan)
 
@@ -28,8 +28,8 @@ def check_obl(obj,norms):
         cond = rule[1]
         conds_list = separate_conds(cond)
         next_move = conds_list[-1]
-        if next_move_shape(next_move)==obj.shape:
-            if next_move_colour(next_move)==obj.colour:
+        if next_move_shape(next_move) in {obj.shape, 'any'}:
+            if next_move_colour(next_move) in {obj.colour, 'any'}:
                 return (1,obl_zone(rule),key)
                 break
     return (0,nan,nan)
