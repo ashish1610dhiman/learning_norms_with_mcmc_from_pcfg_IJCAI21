@@ -39,7 +39,7 @@ def verify_action(obj,check,task_type,rules):
     """ Check if action can be performed given Norms """
     from numpy import nan
     #print ("Check")
-    rule_dict={x:rules[x-1] for x in range(1,len(rules)+1)}
+    rule_dict={x+1:rules[x] for x in range(len(rules))}
     if len(rules)==0:
         return (0,nan,nan)
     obl_norms={norm_no:norm for (norm_no,norm) in rule_dict.items() if norm[0]=="Obl"}
