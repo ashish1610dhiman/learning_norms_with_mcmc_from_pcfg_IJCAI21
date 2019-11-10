@@ -72,6 +72,10 @@ def create_env(N=20,seed=np.nan):
         object_list.append(an_object(i+1,p,c,s))
     return (object_list,colours,shapes,zones)
 
+# Indices in the env. object list are one less than the object IDs!
+def get_obj(id,env):
+    return env[0][id-1]
+
 
 def plot_env(env,ax,itr=np.nan,legend=False,annotate=True):
     """ Helper function to plot environment """

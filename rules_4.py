@@ -25,10 +25,11 @@ rule_dict={}
 rule_dict["NORMS"]={"Norms":["NORM1","NORM2"]}
 rule_dict["NORM1"]={"Obl":["COND","ZONE"],
                     "Pro":["ACTION","COLOUR","SHAPE","ZONE"]}
-rule_dict["NORM2"]={"Per":["ACTION","COLOUR","SHAPE","ZONE"]}
+rule_dict["NORM2"]={"Per":["ACTION","COLOUR","SHAPE","PERZONE"]}
 
 rule_dict["COND"]={"Moved":["COLOUR","SHAPE","ZONE","COND"],
                    "Next-Move":["COLOUR","SHAPE"]}
+rule_dict["PERZONE"]={"PerZone":[]}
 rule_dict["ZONE"]={"Zone":[]}
 rule_dict["ACTION"]={"Action":[]}
 rule_dict["COLOUR"]={"Colour":[]}
@@ -39,8 +40,8 @@ p_dict["NORMS"]={"Norms":1}
 p_dict["NORM1"]={"Obl":1/2,"Pro":1/2}
 p_dict["NORM2"]={"Per":1}
 p_dict["COND"]={"Moved":1/2,"Next-Move":1/2}
-
 p_dict["ZONE"]={"Zone":1}
+p_dict["PERZONE"]={"PerZone":1}
 p_dict["ACTION"]={"Action":1}
 p_dict["COLOUR"]={"Colour":1}
 p_dict["SHAPE"]={"Shape":1}
@@ -48,7 +49,8 @@ p_dict["SHAPE"]={"Shape":1}
 q_dict={"Colour":{"r":1/4,"g":1/4,"b":1/4,"any":1/4},
         "Shape":{"triangle":1/4,"square":1/4,"circle":1/4,"any":1/4},
         "Action":{"pickup":1/2,"putdown":1/2},
-        "Zone":{'1':1/4,'2':1/4,'3':1/4,'any':1/4}}
+        "Zone":{'1':1/3,'2':1/3,'3':1/3},
+        "PerZone":{'1':1/4,'2':1/4,'3':1/4,'any':1/4}}
 
 def is_not_recursive(Rik):
     return (len(Rik)==0)
