@@ -16,23 +16,22 @@ def check_pro_or_per(obj,task_type,norms):
         if pro_or_per_colour(rule) in {obj.colour, 'any'}:
             if pro_or_per_shape(rule) in {obj.shape, 'any'}:
                 if pro_or_per_action(rule) in {task_type, 'any'}:
-                    return (1,pro_or_per_zone(rule),key)
-    return (0,nan,nan)
+                    return (1,pro_or_per_zone(rule),rule)
+    return (0,None,None)
 
 
 def check_obl(obj,norms):
     """ Helper function, Check if task can be performed on obj given Obligatory norms """
     from numpy import nan
+    from rules_4 import obl_conds
     #Return 1 if obligation matches obj
     for key,rule in norms.items():
-        cond = rule[1]
-        conds_list = separate_conds(cond)
-        next_move = conds_list[-1]
+        _, next_move = obl_conds(rule)
         if next_move_shape(next_move) in {obj.shape, 'any'}:
             if next_move_colour(next_move) in {obj.colour, 'any'}:
-                return (1,obl_zone(rule),key)
+                return (1,obl_zone(rule),rule)
                 break
-    return (0,nan,nan)
+    return (0,None,None)
         
     
 def verify_action(obj,check,task_type,rules):

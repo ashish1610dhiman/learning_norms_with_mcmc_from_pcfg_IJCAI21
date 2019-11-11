@@ -119,6 +119,13 @@ def separate_conds(cond, prev_cond=[]):
     assert cond[0] == 'Moved'
     return separate_conds(cond[4:][0], prev_cond + [cond[0:4]])
 
+def obl_conds(rule):
+    cond = rule[1]
+    conds_list = separate_conds(cond)
+    hist_conds = conds_list[0:-1]
+    next_move_cond = conds_list[-1]
+    return hist_conds, next_move_cond
+
 def print_rule(rule,counter):
     """ Helper function to print a rule """
     print ("------------------------------------------------")
@@ -131,14 +138,12 @@ def print_rule(rule,counter):
         print ("   > PROHIBITION: action "+pro_or_per_action(rule))
         print ("     for colour "+pro_or_per_colour(rule)+", shape "+pro_or_per_shape(rule)+' and zone '+pro_or_per_zone(rule))
     else:
-        cond = rule[1]
-        conds_list = separate_conds(cond)
-        next_move = conds_list[-1]
+        hist_conds, next_move_cond = obl_conds(rule)
         print ("   > OBLIGATION:")
-        print ("     put in zone "+obl_zone(rule)+" if handling colour "+next_move_colour(next_move)+" and shape "+next_move_shape(next_move))
-        if len(conds_list) > 1:
+        print ("     put in zone "+obl_zone(rule)+" if handling colour "+next_move_colour(next_move_cond)+" and shape "+next_move_shape(next_move_cond))
+        if len(hist_conds) > 0:
             print ("     and history is ")
-            for c in conds_list[:-1]:
+            for c in hist_conds:
                 print("     ",c)
 
 def pro_or_per_action(rule):
