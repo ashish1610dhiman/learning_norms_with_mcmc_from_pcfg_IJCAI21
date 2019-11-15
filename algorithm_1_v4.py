@@ -4,9 +4,8 @@ Created on Mon Jun 10 13:38:10 2019
 
 @author: dhias426
 """
-from rules_3 import *
+from rules_4 import *
 from copy import deepcopy
-import matplotlib.pyplot as plt
 import numpy as np
 
 def to_tuple(expression):
@@ -39,10 +38,10 @@ def random_task_func(env,num_actionable,c1,s1):
                 break
     return (task1)
 
-def create_data(expression,env,name,task1=np.nan,random_task=False,limit_task_scope=False,
+def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_task_scope=False,
 	num_actionable=np.nan,num_repeat=500,verbose=True):
     """ Function to create data from either given task or randomised tasks """
-    print ("Generating action-profile data for case {}".format(name))
+    #print ("Generating action-profile data for case {}".format(name))
     from robot_task_new import robot,plot_task
     from algorithm_1_v4 import random_task_func
     from tqdm import tnrange, tqdm_notebook
@@ -51,14 +50,17 @@ def create_data(expression,env,name,task1=np.nan,random_task=False,limit_task_sc
     import numpy as np
     action_profile={}
     #Empty the required directories
-    for folder in ["action_profiles","env_states"]:
-        for f in glob.glob("./{}/{}/*".format(name,folder)):
-            os.chmod(f, 0o777)
-            os.remove(f)
+    if name != None:
+        import matplotlib.pyplot as plt
+        for folder in ["action_profiles","env_states"]:
+            for f in glob.glob("./{}/{}/*".format(name,folder)):
+                os.chmod(f, 0o777)
+                os.remove(f)
     for itr in tnrange(num_repeat,desc="Repetition of Task"):
         sleep(0.01)
         env_copy=deepcopy(env)
-        fig,ax=plt.subplots(1, 2, sharex=True, sharey=True,figsize=(14,10))
+        if name != None:
+            fig,ax=plt.subplots(1, 2, sharex=True, sharey=True,figsize=(14,10))
         #Generate random task with actionable objects specified (random if specidied np.nan)
         if random_task==True:
         	if limit_task_scope==True:
@@ -67,67 +69,77 @@ def create_data(expression,env,name,task1=np.nan,random_task=False,limit_task_sc
         	else:
         		c=np.nan
         		s=np.nan
-        	task1=random_task_func(env,num_actionable,c,s)
-        plot_task(env_copy,ax[0],"Before clearing ({})".format(name),task1,True)
+        	task=random_task_func(env,num_actionable,c,s)
+        if name != None:
+            plot_task(env_copy,ax[0],"Before clearing ({})".format(name),task,True)
         if verbose==True:
             print ("For repetition={} of task".format(itr+1))
-        action_profile[itr+1]=robot(task1,env_copy).perform_task(expression,"./{}/action_profiles/itr_{}".format(name,itr+1),verbose);
-        plot_task(env_copy,ax[1],"After clearing ({})".format(name),task1,True)
-        plt.savefig("./{}/env_states/itr_{}.jpeg".format(name,itr+1))
-        plt.close()
+        action_profile[itr+1]=robot(task,env_copy).perform_task(expression,"./{}/action_profiles/itr_{}".format(name,itr+1),verbose);
+        if name != None:
+            plot_task(env_copy,ax[1],"After clearing ({})".format(name),task,True)
+            plt.savefig("./{}/env_states/itr_{}.png".format(name,itr+1))
+            plt.close()
     return (action_profile)
 
-def algorithm_1(data,env,task1,expression,q_dict,rule_dict,filename="mcmc_reort",sim_threshold=0,similarity_penalty=1,relevance_factor=0.5,time_threshold=1000,max_iterations=1000000,w_normative=1,verbose=False):  
+def algorithm_1(data,env,task1,q_dict,rule_dict,filename="mcmc_report",sim_threshold=0,similarity_penalty=1,relevance_factor=0.5,time_threshold=1000,max_iterations=1000000,w_normative=1,verbose=False,resume=None):  
     """ For testing algorithm v_2 also similarity factor included """
     from algorithm_2_utilities import Likelihood
     from algorithm_2_v2 import generate_new_expression
     from relevance import is_relevant
-    from rules_3 import expand,print_expression
     import sys
     import os.path
     import time
     from numpy import nan,exp,random,isnan
     from tqdm import tnrange, tqdm_notebook
-    #Generate E0
-    E_0=expand("NORMS")
-    s=time.time()
-    time_flag=0
-    log_lik_null=Likelihood([],data,env,w_normative)
-    while((time.time()-s)<time_threshold):
-        time_flag=1
-        if (Likelihood(E_0,data,env,w_normative)>=log_lik_null):
-            """ Compared to lok(Lik(no_norm) because for large sequences exp(log_Lik) gets to zero"""
-            """ >= be cause we do rejection sampling for relevant norms below """
-            if isnan(relevance_factor):
+    
+    if resume != None:
+        sequence0, lik_list0 = resume
+        sequence = list(sequence0)
+        lik_list = list(lik_list0)
+        E_0 = sequence[-1]
+    else:
+        #Generate E0
+        E_0=expand("NORMS")
+        s=time.time()
+        time_flag=0
+        log_lik_null=Likelihood([],task1,data,env,w_normative)
+        while((time.time()-s)<time_threshold):
+            time_flag=1
+            if (Likelihood(E_0,task1,data,env,w_normative)>log_lik_null):
+                """ Compared to lok(Lik(no_norm) because for large sequences exp(log_Lik) gets to zero"""
+                """ >= be cause we do rejection sampling for relevant norms below """
                 break
-            else:
-                if (is_relevant(expression,task1,env)==False):
-                    if (random.uniform()>relevance_factor):
-                        break
+                """ if isnan(relevance_factor):
+                    break
                 else:
-                    if (random.uniform()<=relevance_factor):
-                        break
-        else:
-            #print(Likelihood(E_0,data,env))
-            E_0=expand("NORMS")
-            time_flag=0
-    print("Time to initialise E_0={:.4f}s".format(time.time()-s))
-    if time_flag==0:
-        print ("Stopping Algorithm, Not able to initialise E_0 in given time_threshold")
-        return (nan,nan)
-    print ("E0 chosen is:")
-    print_expression(E_0)
-    sequence=[E_0]
-    lik_list=[]
-    lik_list.append(exp(Likelihood(sequence[-1],data,env,w_normative)))
-    original = sys.stdout
-    exists = os.path.isfile('./{}.txt'.format(filename))
-    if exists==True:
-        os.remove('./{}.txt'.format(filename))
+                    if (is_relevant(E_0,task1,env)==False):
+                        if (random.uniform()>relevance_factor):
+                            break
+                    else:
+                        if (random.uniform()<=relevance_factor):
+                            break """
+            else:
+                #print(Likelihood(E_0,data,env))
+                print("Trying another E0")
+                E_0=expand("NORMS")
+                time_flag=0
+        print("Time to initialise E_0={:.4f}s".format(time.time()-s))
+        if time_flag==0:
+            print ("Stopping Algorithm, Not able to initialise E_0 in given time_threshold")
+            return (nan,nan)
+        print ("E0 chosen is:")
+        print_expression(E_0)
+        sequence=[E_0]
+        lik_list=[]
+        lik_list.append(exp(Likelihood(sequence[-1],task1,data,env,w_normative)))
+    # original = sys.stdout
+    # exists = os.path.isfile('./{}.txt'.format(filename))
+    #if exists==True:
+    #    os.remove('./{}.txt'.format(filename))
     for i in tnrange(1,max_iterations+1,desc="Length of Sequence"):
         if verbose==True:
             print ("\n--------------Iteration={}--------------".format(i))
-        sys.stdout = open('./{}.txt'.format(filename), 'a+')
+        #sys.stdout = open('./{}.txt'.format(filename), 'a+')
         if i==1:
             print ("\n-----------E0 chosen is:---------------")
             print_expression(E_0)
@@ -135,9 +147,9 @@ def algorithm_1(data,env,task1,expression,q_dict,rule_dict,filename="mcmc_reort"
         print ("\n\n===========================Iteration={}===========================".format(i))
         sequence.append(generate_new_expression(sequence[-1],data,task1,q_dict,rule_dict,env,relevance_factor,sim_threshold,similarity_penalty,w_normative))
         print_expression(sequence[-1])
-        lik_list.append(exp(Likelihood(sequence[-1],data,env,w_normative)))
+        lik_list.append(exp(Likelihood(sequence[-1],task1,data,env,w_normative)))
         print ("===================================================================")
-        sys.stdout=original
+        #sys.stdout=original
     return (sequence,lik_list)
     
 
@@ -151,7 +163,7 @@ def algorithm_1(data,env,task1,expression,q_dict,rule_dict,filename="mcmc_reort"
 # for i in range(100):
 #     z=random.choice([1,2,3],p=[0.45,0.5,0.05])
 #     o=random.choice([2,5,12,18,15])
-#     data.append((("pickup",o),("putdown",o,z)))
+#     data.append((("pickup",o),("putdown",lik_ex_normative
 #     
 # 
 # 
@@ -184,7 +196,7 @@ def algorithm_1(data,env,task1,expression,q_dict,rule_dict,filename="mcmc_reort"
 #     sys.stdout=original
 # 
 # 
-# import seaborn as sns
+# imlik_ex_normativeeaborn as sns
 # sns.set_style("darkgrid")
 # #sns.relplot(x="Different Norms", y="Frequency", kind="line", data=learned_norms)
 # fig,ax=plt.subplots(figsize=(8,6))

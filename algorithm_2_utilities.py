@@ -5,16 +5,18 @@ Created on Thu Jun  6 09:35:38 2019
 @author: dhias426
 """
 
-#from rules_3 import is_not_recursive
+from robot_task_new import all_compliant
+from working import history_matches_cond
+from rules_4 import zones_set
 
 def generate_index(expression,q_dict):
     """ Generate Index of nodes in expression , it starts from 1 """
     label=expression[0]
     #print (label)
-    sub_expressions=[x for x in expression[1:]]
     if label in q_dict.keys():
         return ([])
     else:
+        sub_expressions=[x for x in expression[1:]]
         return ([i+1]+ list(generate_index(sub_expressions[i],q_dict)) for i in range(len(sub_expressions)))
     
 #b=list(generate_index(rules))
@@ -50,9 +52,17 @@ def sub_A(indices,p=[]):
         #print ("A=",A)
     return (A)
 
-def generate_A(expression,q_dict):
-    """ Generate A (set of nodes) for the expression """
-    from algorithm_2_utilities import generate_index,sub_A
+def generate_A(expression, root_label=[]):
+    if hasattr(expression, "__len__") and not isinstance(expression, str):
+        yield root_label
+        if len(expression) > 1:
+            for i,e in enumerate(expression[1:], 1):
+                for a in generate_A(e, root_label+[i]):
+                    yield a
+
+""" def generate_A(expression,q_dict): """
+""" Generate A (set of nodes) for the expression """
+"""    from algorithm_2_utilities import generate_index,sub_A
     indices=(generate_index(expression,q_dict))
     Ae=[[]]
     for sub_index in indices:
@@ -60,12 +70,13 @@ def generate_A(expression,q_dict):
         b.remove([])
         Ae=Ae+b
     final=[tuple(x) for x in Ae]
-    return (final)
+    return (final) """
 
 
 def sever(a,expression,rule_dict):
     """ Sever the expression at node a"""
     from copy import deepcopy
+
     exp_copy=deepcopy(expression)
     sub_expression=exp_copy
     temp_rule_dict=rule_dict["NORMS"].copy()
@@ -101,9 +112,14 @@ def fill_hole(a,E_hole,E_sub):
     eval(code)
     return (E_hole_copy)
 
+def violations(execution, expression, task, env):
+    ac = all_compliant(expression, task, env, "foo")
+    for i, move in enumerate(execution):
+        assert move[0][0]=="pickup"
+        oid = move[0][1]
+        
 
-
-def violation(norms,env):
+def violations(norms,env):
     """ Returns a dict with key as object_id and value,
     as a list of all apossible violations of norm on that object """
     from verify_action_4 import check_pro_or_per,check_per,check_obl
@@ -153,36 +169,44 @@ def violation(norms,env):
     return (violations)   
 
 
-def Likelihood(expression,data,env,w_normative=1.0):
+def Likelihood(expression,task,executions,env,w_normative=1.0):
     """ Calculate log-Likelihhod of expression in data
     Violation function is called on env inside
     Empty expression (i.e. norms) can be passed """
-    from algorithm_2_utilities import violation
     from numpy import log
-    #calculate |K|
-    mod_K=len(env[3])
-    #Find Vioalations
-    violations=violation(expression,env)
-    log_likelihood_data=0
-    w_normative=float(w_normative)
-    for x in data:
-        #Each x expresses only 1 object
-        obj_id=x[0][1]
-        lik_non_norm=1/mod_K
-        if obj_id in violations.keys():
-            if x in violations[obj_id]:
-                lik_norm=0.000000001 # To make log(zero) work
-                #print ("check1")
-            else:
-                lik_norm=1/(mod_K-len(violations[obj_id]))
-                #print ("check2")
-        else:
-            lik_norm=1/mod_K
-            #print ("check3")
-        likelihood_x=w_normative*lik_norm+(1-w_normative)*(lik_non_norm)
-        log_likelihood_data+=log(likelihood_x)
-    return (log_likelihood_data)
-        
+    log_lik = 0
+    ac = all_compliant(expression, task, env, "foo")
+    #print("ac in Likelihood: {}".format(ac))
+    for ex in executions:
+        #print("Execution seen by Likelihood: ", ex)
+        w_normative=float(w_normative)
+        num_zones = len(zones_set())
+        for ex in executions:
+            lik_ex_normative = 1
+            for i,move in enumerate(ex):
+                oid = move[0][1]
+                possible_moves = ac[oid]
+                #print("Possible moves at pos. {}: {}".format(i,possible_moves))
+                zone_options = {
+                    pm.putdown[2]
+                    for pm in possible_moves
+                    if pm.unless == None or not history_matches_cond(ex[max(i-len(pm.unless),0):i], pm.unless, env)
+                }
+                num_poss_zones = len(zone_options)
+                #if num_poss_zones < len(possible_moves):
+                    #print("Likelihood: unless constraint reduced num. options to {} (refined options: {})".format(num_poss_zones, zone_options))
+                assert move[1][0]=="putdown"
+                move_zone = move[1][2]
+                violated = not move_zone in zone_options
+                if violated:
+                    #print("Violation: move zone {} not in {}".format(move_zone, zone_options))
+                    lik_ex_normative *= 0.000000001 # To make log(zero) work
+                else:
+                    lik_ex_normative *= 1/num_poss_zones
+            lik_ex_non_normative = 1/(num_zones**len(ex)) if w_normative != 1.0 else 0
+            lik_ex = w_normative*lik_ex_normative + (1-w_normative)*(lik_ex_non_normative)
+            log_lik += log(lik_ex)
+    return log_lik
 
 
 # =============================================================================

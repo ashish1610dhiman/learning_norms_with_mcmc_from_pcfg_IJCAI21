@@ -49,9 +49,18 @@ p_dict["SHAPE"]={"Shape":1}
 
 q_dict={"Colour":{"r":1/4,"g":1/4,"b":1/4,"any":1/4},
         "Shape":{"triangle":1/4,"square":1/4,"circle":1/4,"any":1/4},
-        "Action":{"pickup":1/2,"putdown":1/2},
+        "Action":{"putdown":1},
         "Zone":{'1':1/3,'2':1/3,'3':1/3},
         "PerZone":{'1':1/4,'2':1/4,'3':1/4,'any':1/4}}
+
+def colours_set():
+    return {'r','g','b'}
+
+def shapes_set():
+    return {'triangle','square','circle'}
+
+def zones_set():
+    return {'1','2','3'}
 
 def is_not_recursive(Rik):
     return (len(Rik)==0)
@@ -160,6 +169,15 @@ def pro_or_per_zone(rule):
 
 def obl_zone(rule):
     return rule[2][1]
+
+def moved_colour(moved_cond):
+    return moved_cond[1][1]
+
+def moved_shape(moved_cond):
+    return moved_cond[2][1]
+
+def moved_zone(moved_cond):
+    return moved_cond[3][1]
 
 def next_move_colour(next_move):
     return next_move[1][1]

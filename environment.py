@@ -42,7 +42,7 @@ class an_object():
         self.current_zone=self.position.get_zone()
     def describe(self):
         print("Object {}: color={},shape={},current_zone={},last_action={}".format(self.obj_id,self.colour,self.shape,self.current_zone,self.last_action))
-    def _repr_(self):
+    def __repr__(self):
         return "(Object {}: color={},shape={},current_zone={},last_action={})".format(self.obj_id,self.colour,self.shape,self.current_zone,self.last_action)
 
 def polar_to_cartesian(position):
