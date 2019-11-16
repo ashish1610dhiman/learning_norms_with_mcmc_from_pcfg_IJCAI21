@@ -81,7 +81,7 @@ def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_tas
             plt.close()
     return (action_profile)
 
-def algorithm_1(data,env,task1,q_dict,rule_dict,filename="mcmc_report",sim_threshold=0,similarity_penalty=1,relevance_factor=0.5,time_threshold=1000,max_iterations=1000000,w_normative=1,verbose=False,resume=None):  
+def algorithm_1(data,env,task1,q_dict,rule_dict,filename="mcmc_report",sim_threshold=0,similarity_penalty=1,relevance_factor=0.5,time_threshold=1000,max_iterations=1000,w_normative=1,verbose=False,resume=None):  
     """ For testing algorithm v_2 also similarity factor included """
     from algorithm_2_utilities import Likelihood
     from algorithm_2_v2 import generate_new_expression
@@ -105,7 +105,8 @@ def algorithm_1(data,env,task1,q_dict,rule_dict,filename="mcmc_report",sim_thres
         log_lik_null=Likelihood([],task1,data,env,w_normative)
         while((time.time()-s)<time_threshold):
             time_flag=1
-            if (Likelihood(E_0,task1,data,env,w_normative)>log_lik_null):
+            log_lik = Likelihood(E_0,task1,data,env,w_normative)
+            if log_lik > log_lik_null:
                 """ Compared to lok(Lik(no_norm) because for large sequences exp(log_Lik) gets to zero"""
                 """ >= be cause we do rejection sampling for relevant norms below """
                 break

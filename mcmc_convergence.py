@@ -85,7 +85,7 @@ def calculate_R(split_halves,step_size):
         result["R"].append((result["var_over_est"][-1]/W)**0.5)
         print ("Time taken for job={:.1f}s".format(time.time()-s))
     result=pd.DataFrame(result)
-    return (result)
+    return (result, split_halves)
 #W,B=calculate_variance(sequence_list)
 
 #import pickle

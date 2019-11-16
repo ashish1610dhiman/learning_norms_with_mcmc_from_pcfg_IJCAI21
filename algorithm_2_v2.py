@@ -13,7 +13,7 @@ from cosine_sim import cos_theta
 
 #expression=expand("NORMS")
 #TO DO: Remove arg. q_dict - no longer used
-def generate_new_expression(expression,execution,task1,q_dict,rule_dict,env,relevance_factor=0.5,sim_threshold=0,similarity_penalty=1,w_normative=1):
+def generate_new_expression(expression,data,task1,q_dict,rule_dict,env,relevance_factor=0.5,sim_threshold=0,similarity_penalty=1,w_normative=1):
     """ Version with jumping distribution change """
     #print ("Original_expression")
     #print_expression(expression)
@@ -33,9 +33,9 @@ def generate_new_expression(expression,execution,task1,q_dict,rule_dict,env,rele
     #print ("\nNew_expression")
     #print_expression(E_new)
     #Step_6
-    old_log_lik = Likelihood(expression,task1,execution,env,w_normative)
+    old_log_lik = Likelihood(expression,task1,data,env,w_normative)
     #Step_7
-    new_log_lik = Likelihood(E_new,task1,execution,env,w_normative)
+    new_log_lik = Likelihood(E_new,task1,data,env,w_normative)
     print ("Old Expression: Log-Likelihood={}".format(old_log_lik))
     print ("New Expression: Log-Likelihood={}".format(new_log_lik))
     #Step_8
@@ -57,7 +57,7 @@ def generate_new_expression(expression,execution,task1,q_dict,rule_dict,env,rele
         adjusting_factor=similarity_penalty
     print ("Adjusting factor:{}".format(adjusting_factor))
     """
-    log_lik_no_norm = Likelihood([],task1,execution,env,w_normative)
+    log_lik_no_norm = Likelihood([],task1,data,env,w_normative)
     if isnan(relevance_factor)==False:
         p_accept_adjust_numerator_log = log(relevance_factor) if new_log_lik <= log_lik_no_norm else 0
         p_accept_adjust_denominator_log = log(relevance_factor) if old_log_lik <= log_lik_no_norm else 0
@@ -65,12 +65,12 @@ def generate_new_expression(expression,execution,task1,q_dict,rule_dict,env,rele
     else:
         factor_log = 0
     print("log(factor) = {}".format(factor_log))
-    # log_p_accept = min(0, factor_log + log(len(Ae)) - log(len(Ae_new)) + new_log_lik - old_log_lik)
-    log_p_accept = min(0, log(len(Ae)) - log(len(Ae_new)) + new_log_lik - old_log_lik)
+    # p_accept = min(1, factor * ((len(Ae)) / len(Ae_new)) * new_log_lik / old_log_lik)
+    log_p_accept = min(0, factor_log + log(len(Ae)) - log(len(Ae_new)) + new_log_lik - old_log_lik)
     print("log(p_accept)={:.7f}".format(log_p_accept))
     #Step 9
-    r=log(random.uniform())
-    if r < log_p_accept:
+    r_log=log(random.uniform())
+    if r_log < log_p_accept:
         print ("E_new accepted")
         return (E_new)
     else:

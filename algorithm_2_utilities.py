@@ -8,6 +8,11 @@ Created on Thu Jun  6 09:35:38 2019
 from robot_task_new import all_compliant
 from working import history_matches_cond
 from rules_4 import zones_set
+from collections import Counter
+import math
+import itertools
+import random
+import sys
 
 def generate_index(expression,q_dict):
     """ Generate Index of nodes in expression , it starts from 1 """
@@ -60,18 +65,18 @@ def generate_A(expression, root_label=[]):
                 for a in generate_A(e, root_label+[i]):
                     yield a
 
-""" def generate_A(expression,q_dict): """
-""" Generate A (set of nodes) for the expression """
-"""    from algorithm_2_utilities import generate_index,sub_A
-    indices=(generate_index(expression,q_dict))
-    Ae=[[]]
-    for sub_index in indices:
-        b=sub_A(sub_index)
-        b.remove([])
-        Ae=Ae+b
-    final=[tuple(x) for x in Ae]
-    return (final) """
+def stratify_A(tree_indices):
+    grouped = itertools.groupby(tree_indices, key=lambda index: len(index)+1)
+    return { len:list(indices) for len,indices in grouped }
 
+def random_tree_index(stratified_indices):
+    level = random.choice(list(stratified_indices.keys()))
+    return random.choice(stratified_indices[level])
+
+def prob_tree_index(index, stratified_indices):
+    num_levels = len(stratified_indices)
+    level = len(index) + 1
+    return 1/num_levels * 1/len(stratified_indices[level])
 
 def sever(a,expression,rule_dict):
     """ Sever the expression at node a"""
@@ -111,13 +116,6 @@ def fill_hole(a,E_hole,E_sub):
             code=code+".__getitem__({})".format(index)
     eval(code)
     return (E_hole_copy)
-
-def violations(execution, expression, task, env):
-    ac = all_compliant(expression, task, env, "foo")
-    for i, move in enumerate(execution):
-        assert move[0][0]=="pickup"
-        oid = move[0][1]
-        
 
 def violations(norms,env):
     """ Returns a dict with key as object_id and value,
@@ -170,7 +168,7 @@ def violations(norms,env):
 
 
 def Likelihood(expression,task,executions,env,w_normative=1.0):
-    """ Calculate log-Likelihhod of expression in data
+    """ Calculate log-Likelihood of expression in data
     Violation function is called on env inside
     Empty expression (i.e. norms) can be passed """
     from numpy import log
@@ -200,13 +198,14 @@ def Likelihood(expression,task,executions,env,w_normative=1.0):
                 violated = not move_zone in zone_options
                 if violated:
                     #print("Violation: move zone {} not in {}".format(move_zone, zone_options))
-                    lik_ex_normative *= 0.000000001 # To make log(zero) work
+                    return float('-inf')
                 else:
                     lik_ex_normative *= 1/num_poss_zones
             lik_ex_non_normative = 1/(num_zones**len(ex)) if w_normative != 1.0 else 0
             lik_ex = w_normative*lik_ex_normative + (1-w_normative)*(lik_ex_non_normative)
             log_lik += log(lik_ex)
     return log_lik
+
 
 
 # =============================================================================
