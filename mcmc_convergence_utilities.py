@@ -5,7 +5,7 @@ Created on Mon Jun 17 14:12:35 2019
 @author: dhias426
 """
 
-from rules_3 import *
+from rules_4 import *
 
 def get_elem(a,E):
     """ Helper function, get the elem at index a of expression """
@@ -15,6 +15,8 @@ def get_elem(a,E):
     if len(a)==0:
         return ("NORMS",sub_exp)
     for counter,index in enumerate(a,1):
+        if isinstance(index,str):
+            print("get_elem found index elt. {} of type str in index {}".format(index, a))
         non_terminal=temp_rule_dict[sub_exp[0]][index-1]
         temp_rule_dict=rule_dict[non_terminal]
         sub_exp=sub_exp[index] 
@@ -35,7 +37,7 @@ def generate_subtrees(expression):
     from algorithm_2_utilities import generate_A
     from mcmc_convergence_utilities import get_elem
     uni_trees=[]
-    Ae=generate_A(expression,q_dict)
+    Ae=list(generate_A(expression))
     for a in Ae:
         nt,sub_exp=get_elem(a,expression)
         end=tuple(rule_dict[nt][sub_exp[0]])

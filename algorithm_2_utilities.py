@@ -57,12 +57,12 @@ def sub_A(indices,p=[]):
         #print ("A=",A)
     return (A)
 
-def generate_A(expression, root_label=[]):
-    if hasattr(expression, "__len__") and not isinstance(expression, str):
+def generate_A(expression, root_label=tuple()):
+    if hasattr(expression, "__getitem__") and not isinstance(expression, str):
         yield root_label
         if len(expression) > 1:
             for i,e in enumerate(expression[1:], 1):
-                for a in generate_A(e, root_label+[i]):
+                for a in generate_A(e, root_label+(i,)):
                     yield a
 
 def stratify_A(tree_indices):
