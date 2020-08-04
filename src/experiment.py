@@ -1,9 +1,9 @@
-from environment import *
-from rules_4 import *
-from robot_task_new import *
-from algorithm_1_v4 import create_data,algorithm_1,to_tuple
-from mcmc_performance import performance
-from mcmc_convergence import prepare_sequences,calculate_R
+from mcmc_norm_learning.environment import *
+from mcmc_norm_learning.rules_4 import *
+from mcmc_norm_learning.robot_task_new import *
+from mcmc_norm_learning.algorithm_1_v4 import create_data,algorithm_1,to_tuple
+from mcmc_norm_learning.mcmc_performance import performance
+from mcmc_norm_learning.mcmc_convergence import prepare_sequences,calculate_R
 #import matplotlib.pyplot as plt
 from collections import Counter
 import pickle
@@ -14,7 +14,7 @@ import sys
 from tqdm import tnrange, tqdm_notebook
 from functools import reduce
 from operator import concat
-from rules_4 import q_dict, rule_dict
+from mcmc_norm_learning.rules_4 import q_dict, rule_dict
 
 def gen_data_for_conv_test(data, env, task1):
     n=500 #Length of sequence after discarding warm-up part and splitting in half
