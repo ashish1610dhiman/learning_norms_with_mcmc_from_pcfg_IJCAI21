@@ -1,6 +1,6 @@
 env_name: default
-colour_specific: null # Should map to Python None
-shape_specific: null 
+colour_specific: ['r', 'g', 'b']
+shape_specific: ['square', 'circle', 'triangle']
 target_area: -0.8, 0.7 ; 0.25, 0.99
 true_norm_name: default
 true_norm_exp: >-
