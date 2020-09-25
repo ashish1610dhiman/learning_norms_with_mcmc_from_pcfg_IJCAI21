@@ -1,7 +1,19 @@
 gen_env:
-  cmd: python scripts/gen_env.py
+  cmd: python -o data/env.pickle scripts/gen_env.py
+  deps:
+  - path: data/default_env.pickle
+    md5: 9000eb1823d338d732bd357a43f5b1ed
   params:
     params.yaml:
+      colour_specific:
+      - r
+      - g
+      - b
+      shape_specific:
+      - square
+      - circle
+      - triangle
+      target_area: -0.8, 0.7 ; 0.25, 0.99
       true_norm:
         name: default
         exp:
