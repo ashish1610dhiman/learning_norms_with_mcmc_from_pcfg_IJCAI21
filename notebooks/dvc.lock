@@ -1,5 +1,5 @@
 gen_env:
-  cmd: python -o data/env.pickle scripts/gen_env.py
+  cmd: python scripts/gen_env.py
   deps:
   - path: data/default_env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
@@ -49,3 +49,18 @@ gen_env:
             - triangle
           - - PerZone
             - '1'
+  outs:
+  - path: data/env.pickle
+    md5: 9000eb1823d338d732bd357a43f5b1ed
+gen_observations:
+  cmd: python scripts/gen_observations.py
+  deps:
+  - path: data/env.pickle
+    md5: 9000eb1823d338d732bd357a43f5b1ed
+  params:
+    params.yaml:
+      num_observations: 100
+      obs_data_set: 1
+  outs:
+  - path: data/observations.pickle
+    md5: f120656adf7cafce605f595131a0afec

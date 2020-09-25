@@ -1,6 +1,6 @@
 stages:
   gen_env:
-    cmd: python -o data/env.pickle scripts/gen_env.py
+    cmd: python scripts/gen_env.py
     wdir: ..
     params:
     - colour_specific
@@ -9,3 +9,15 @@ stages:
     - true_norm
     deps:
     - data/default_env.pickle
+    outs:
+    - data/env.pickle
+  gen_observations:
+    cmd: python scripts/gen_observations.py
+    wdir: ..
+    deps:
+    - data/env.pickle
+    params:
+    - num_observations
+    - obs_data_set
+    outs:
+    - data/observations.pickle
