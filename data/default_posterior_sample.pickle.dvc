@@ -1,0 +1,3 @@
+outs:
+- md5: 6f346c3e8b0de1eed3014257335e8a95
+  path: default_posterior_sample.pickle

@@ -1,0 +1,3 @@
+outs:
+- md5: f120656adf7cafce605f595131a0afec
+  path: default_observations.pickle
