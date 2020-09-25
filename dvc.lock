@@ -1,0 +1,39 @@
+gen_env:
+  cmd: python scripts/gen_env.py
+  params:
+    params.yaml:
+      true_norm:
+        name: default
+        exp:
+        - Rules
+        - - Obl
+          - - Moved
+            - - Colour
+              - any
+            - - Shape
+              - circle
+            - - Zone
+              - '2'
+            - - Moved
+              - - Colour
+                - g
+              - - Shape
+                - square
+              - - Zone
+                - '2'
+              - - Next-Move
+                - - Colour
+                  - b
+                - - Shape
+                  - triangle
+          - - Zone
+            - '3'
+        - - Per
+          - - Action
+            - putdown
+          - - Colour
+            - g
+          - - Shape
+            - triangle
+          - - PerZone
+            - '1'

@@ -1,0 +1,7 @@
+stages:
+  gen_env:
+    cmd: python scripts/gen_env.py
+    params:
+      - true_norm
+#    outs:
+#      - data/true_norm.pickle

@@ -1,7 +1,6 @@
 # local package
 -e .
-
-setuptools
+dvc[gdrive]
 # Default ones from cookiecutter-datascience
 #click
 #Sphinx
