@@ -44,7 +44,7 @@ obs = unpickle('data/observations.pickle')
 
 with open('metrics/chain_likelihoods.csv', 'w', newline='') as csvfile:
     chains=[]
-    csvfile.writerow(('chain_number', 'chain_pos', ''likelihood'))
+    csvfile.writerow(('chain_number', 'chain_pos', 'likelihood'))
     for i in trange(1,int(m/2+1),desc="Loop for Individual Chains"):
         print ("\n:::::::::::::::::::: FOR SEQUENCE {} ::::::::::::::::::::".format(i))
         exp_seq,likelihoods = algorithm_1(obs,env,the_task,q_dict,rule_dict,
