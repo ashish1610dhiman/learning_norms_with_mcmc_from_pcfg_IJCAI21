@@ -2,6 +2,9 @@
 -e .
 dvc[gdrive]
 tqdm
+numpy
+scipy
+ipywidgets
 # Default ones from cookiecutter-datascience
 #click
 #Sphinx
