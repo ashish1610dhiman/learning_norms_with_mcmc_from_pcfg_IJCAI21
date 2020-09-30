@@ -5,13 +5,16 @@ Created on Mon Jun 17 14:12:35 2019
 @author: dhias426
 """
 
-
+from mcmc_convergence_utilities import create_vector
+from collections import Counter
+#from copy import deepcopy
+import time
+import pandas as pd
+from math import log
+from tqdm import tnrange, tqdm_notebook
 
 def calculate_variance(sequence_list):
     """ Return within and between sequence variance for a list of sequences """
-    from mcmc_convergence_utilities import create_vector
-    from collections import Counter
-    #from copy import deepcopy
     m=len(sequence_list)
     sequence_means={}
     sequence_variance={}
@@ -57,11 +60,6 @@ def prepare_sequences(sequence_list,warmup=True,split=True):
 
 def calculate_R(split_halves,step_size):
     """ Calculate R coefficient """
-    import time
-    import pandas as pd
-    from mcmc_convergence import calculate_variance
-    from math import log
-    from tqdm import tnrange, tqdm_notebook
     result={"iterations":[],"R":[],"within_seq_var":[],"between_seq_var":[],"var_over_est":[]}
     counter=0
     flag=0
@@ -77,6 +75,7 @@ def calculate_R(split_halves,step_size):
         s=time.time()
         print ("\nCalculating Variance for 1st {} iterations".format(counter))
         my_seq=[sequence[:counter] for sequence in split_halves]
+        print(f'Temp. check: seq length is {len(my_seq[0])}')
         W,B=calculate_variance(my_seq)
         result["iterations"].append(counter)
         result["within_seq_var"].append(W)

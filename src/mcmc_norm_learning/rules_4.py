@@ -88,7 +88,7 @@ def expand(non_terminal):
         return ([chosen_rule] + [expand(nt) for nt in rule_dict[non_terminal][chosen_rule]])
 
 def expand_probability(non_terminal,expression):
-    """ Get probabilities of expanding in form of recusrive list """
+    """ Get probabilities of expanding in form of recursive list """
     nts=rule_dict[non_terminal][expression[0]]
     if is_not_recursive(nts)==0:
             return ([p_dict[non_terminal][expression[0]]]+[expand_probability(nt,expression[i]) for i,nt in enumerate(nts,1)])
@@ -109,7 +109,6 @@ def get_prob(non_terminal,expression):
     """ Returns the probability(Prior) of the given non-terinal expanding to the given expression """
     from operator import mul
     from functools import reduce
-    from rules_3 import flatten_all,expand_probability
     b=expand_probability(non_terminal,expression)
     if type(b)==list:
         return (reduce(mul,flatten_all(b)))

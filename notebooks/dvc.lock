@@ -64,3 +64,124 @@ gen_observations:
   outs:
   - path: data/observations.pickle
     md5: f120656adf7cafce605f595131a0afec
+gen_mcmc_chains:
+  cmd: python scripts/gen_mcmc_chains.py
+  deps:
+  - path: data/env.pickle
+    md5: 9000eb1823d338d732bd357a43f5b1ed
+  - path: data/observations.pickle
+    md5: f120656adf7cafce605f595131a0afec
+  params:
+    params.yaml:
+      colour_specific:
+      - r
+      - g
+      - b
+      m: 10
+      n: 500
+      rf: 0.6
+      shape_specific:
+      - square
+      - circle
+      - triangle
+      target_area: -0.8, 0.7 ; 0.25, 0.99
+  outs:
+  - path: data/chains_and_log_likelihoods.pickle
+    md5: a4f48d5a6b19b7a6b34dbb152dfcec48
+analyse_chains:
+  cmd: python scripts/analyse_chains.py
+  deps:
+  - path: data/chains_and_log_likelihoods.pickle
+    md5: 714aa5f377b1ccaa846bde1627108068
+  - path: data/env.pickle
+    md5: 9000eb1823d338d732bd357a43f5b1ed
+  - path: data/observations.pickle
+    md5: f120656adf7cafce605f595131a0afec
+  params:
+    params.yaml:
+      colour_specific:
+      - r
+      - g
+      - b
+      m: 10
+      n: 500
+      rf: 0.6
+      shape_specific:
+      - square
+      - circle
+      - triangle
+      target_area: -0.8, 0.7 ; 0.25, 0.99
+  outs:
+  - path: metrics/chain_info.txt
+    md5: 387729eaa215a04aed9135f21db5c49d
+  - path: metrics/chain_likelihoods.csv
+    md5: 34f54e4398ae4fb2f30e3bb0076cf42e
+conv_test:
+  cmd: python scripts/conv_test.py
+  deps:
+  - path: data/chains_and_log_likelihoods.pickle
+    md5: a4f48d5a6b19b7a6b34dbb152dfcec48
+  params:
+    params.yaml:
+      rhat_step_size: 50
+  outs:
+  - path: data/posterior.pickle
+    md5: 2f8c014b4c4124104734d23752e1e6ad
+  - path: metrics/conv_test.txt
+    md5: aa11ecd4e56b9e99ab0c4289d5c06d2b
+extract_top_norms:
+  cmd: python scripts/extract_top_norms.py
+  deps:
+  - path: data/env.pickle
+    md5: 9000eb1823d338d732bd357a43f5b1ed
+  - path: data/posterior.pickle
+    md5: 2f8c014b4c4124104734d23752e1e6ad
+  params:
+    params.yaml:
+      colour_specific:
+      - r
+      - g
+      - b
+      shape_specific:
+      - square
+      - circle
+      - triangle
+      target_area: -0.8, 0.7 ; 0.25, 0.99
+      true_norm:
+        name: default
+        exp:
+        - Rules
+        - - Obl
+          - - Moved
+            - - Colour
+              - any
+            - - Shape
+              - circle
+            - - Zone
+              - '2'
+            - - Moved
+              - - Colour
+                - g
+              - - Shape
+                - square
+              - - Zone
+                - '2'
+              - - Next-Move
+                - - Colour
+                  - b
+                - - Shape
+                  - triangle
+          - - Zone
+            - '3'
+        - - Per
+          - - Action
+            - putdown
+          - - Colour
+            - g
+          - - Shape
+            - triangle
+          - - PerZone
+            - '1'
+  outs:
+  - path: metrics/precision_recall.txt
+    md5: 5b746f94a10ddb43d34ecc43db75a264

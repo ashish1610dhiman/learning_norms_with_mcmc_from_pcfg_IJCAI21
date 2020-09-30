@@ -21,3 +21,63 @@ stages:
     - obs_data_set
     outs:
     - data/observations.pickle
+  gen_mcmc_chains:
+    cmd: python scripts/gen_mcmc_chains.py
+    wdir: ..
+    deps:
+    - data/env.pickle
+    - data/observations.pickle
+    params:
+    - colour_specific
+    - m
+    - n
+    - rf
+    - shape_specific
+    - target_area
+    outs:
+    - data/chains_and_log_likelihoods.pickle
+    always_changed: true
+  analyse_chains:
+    cmd: python scripts/analyse_chains.py
+    wdir: ..
+    deps:
+    - data/chains_and_log_likelihoods.pickle
+    - data/env.pickle
+    - data/observations.pickle
+    params:
+    - colour_specific
+    - m
+    - n
+    - rf
+    - shape_specific
+    - target_area
+    outs:
+    - metrics/chain_info.txt
+    plots:
+    - metrics/chain_likelihoods.csv
+    always_changed: true
+  conv_test:
+    cmd: python scripts/conv_test.py
+    wdir: ..
+    deps:
+    - data/chains_and_log_likelihoods.pickle
+    params:
+    - rhat_step_size
+    outs:
+    - data/posterior.pickle
+    - metrics/conv_test.txt
+    always_changed: true
+  extract_top_norms:
+    cmd: python scripts/extract_top_norms.py
+    wdir: ..
+    deps:
+    - data/env.pickle
+    - data/posterior.pickle
+    params:
+    - colour_specific
+    - shape_specific
+    - target_area
+    - true_norm
+    outs:
+    - metrics/precision_recall.txt
+    always_changed: true

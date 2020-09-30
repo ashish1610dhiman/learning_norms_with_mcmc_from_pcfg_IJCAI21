@@ -5,6 +5,7 @@ tqdm
 numpy
 scipy
 ipywidgets
+dask[delayed,distributed]
 # Default ones from cookiecutter-datascience
 #click
 #Sphinx

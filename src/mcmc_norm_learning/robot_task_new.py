@@ -344,7 +344,7 @@ def all_compliant(rules,task,env,name,verbose=False):
     if (num_actionable_obj)==0:
         return (nan)
     try: 
-        os.mkdir("./"+name[:-len(name.split("/")[-1])])
+        #os.mkdir("./"+name[:-len(name.split("/")[-1])])
         if verbose==True:
             print ("Creating directory to store permutations")
     except:
@@ -353,66 +353,67 @@ def all_compliant(rules,task,env,name,verbose=False):
     order=random.choice(actionable_objects,num_actionable_obj,replace=False)
     #if verbose==True:
         # print ("Order of Acting:",[x.obj_id for x in order])
-    with open('./'+name+'.txt', 'w') as f: # Mode was x. Why?
-        with redirect_stdout(f):
-            action_pairs_by_obj=defaultdict(set)
-            possible_zones_init=set(map(str, deepcopy(env[3]).keys()))
-            for obj1 in order:
-                oid = obj1.obj_id
-                possible_zones=set(possible_zones_init)
-                """ Perform pickup action """
-                pro_flag,pro_zone,rule=verify_action(obj1,"prohibition","pickup",rules)
-                if pro_flag==1: #If action is prohibited
-                    print ("Picking-up {}-{} object from Zone={} prohibited by norm {}".format(obj1.colour,obj1.shape,pro_zone,rule))
-                    per_flag,per_zone,rule=verify_action(obj1,"permission","pickup",rules)
+    # with open('./'+name+'.txt', 'w') as f: # Mode was x. Why?
+    # with redirect_stdout(f):
+    action_pairs_by_obj=defaultdict(set)
+    possible_zones_init=set(map(str, deepcopy(env[3]).keys()))
+    for obj1 in order:
+        oid = obj1.obj_id
+        possible_zones=set(possible_zones_init)
+        """ Perform pickup action """
+        pro_flag,pro_zone,rule=verify_action(obj1,"prohibition","pickup",rules)
+        if pro_flag==1: #If action is prohibited
+            # print ("Picking-up {}-{} object from Zone={} prohibited by norm {}".format(obj1.colour,obj1.shape,pro_zone,rule))
+            per_flag,per_zone,rule=verify_action(obj1,"permission","pickup",rules)
+            per_zones = possible_zones if per_zone == 'any' else {per_zone}
+            if per_flag==1 and pro_zone in per_zones:  #If permission exists and overrides prohibition
+                pass
+                # print ("Picking-up {}-{} object from Zone={} permitted by norm: {}".format(obj1.colour,obj1.shape,pro_zone,rule))
+                # pickup_action(obj1).perform()
+            else:
+                #print ("Action skipped")
+                continue
+        else:
+            pass # Was: pickup_action(obj1).perform() #This is needed to set obj1.last_action t0 "pickup"
+        """ Perform putdown action """
+        if True: # Was: obj1.last_action=="pickup": #Proceed to put down
+            obl_flag,obl_zone,obl_rule = verify_action(obj1,"obligation","putdown",rules)
+            if obl_flag==1: #If obligation exists
+                #print ("Putting-down {}-{} object in Zone-{} obligated by norm {}".format(obj1.colour,obj1.shape,obl_zone,obl_rule))
+                per_flag,per_zone,rule=verify_action(obj1,"permission","putdown",rules)
+                if per_flag==1:
+                    #print ("But Putting-down {}-{} object in Zone-{} permitted by norm {}".format(obj1.colour,obj1.shape,per_zone,rule))
                     per_zones = possible_zones if per_zone == 'any' else {per_zone}
-                    if per_flag==1 and pro_zone in per_zones:  #If permission exists and overrides prohibition
-                        pass
-                        #print ("Picking-up {}-{} object from Zone={} permitted by norm: {}".format(obj1.colour,obj1.shape,pro_zone,rule))
-                        # pickup_action(obj1).perform()
-                    else:
-                        #print ("Action skipped")
-                        continue
+                    # putdown_action(obj1,int(random.choice(tuple({obl_zone}|per_zones))),task.target_area,env[3]).perform()
                 else:
-                    pass # Was: pickup_action(obj1).perform() #This is needed to set obj1.last_action t0 "pickup"
-                """ Perform putdown action """
-                if True: # Was: obj1.last_action=="pickup": #Proceed to put down
-                    obl_flag,obl_zone,obl_rule = verify_action(obj1,"obligation","putdown",rules)
-                    if obl_flag==1: #If obligation exists
-                        #print ("Putting-down {}-{} object in Zone-{} obligated by norm {}".format(obj1.colour,obj1.shape,obl_zone,obl_rule))
-                        per_flag,per_zone,rule=verify_action(obj1,"permission","putdown",rules)
-                        if per_flag==1:
-                            #print ("But Putting-down {}-{} object in Zone-{} permitted by norm {}".format(obj1.colour,obj1.shape,per_zone,rule))
-                            per_zones = possible_zones if per_zone == 'any' else {per_zone}
-                            # putdown_action(obj1,int(random.choice(tuple({obl_zone}|per_zones))),task.target_area,env[3]).perform()
-                        else:
-                            per_zones = set()
-                            # putdown_action(obj1,obl_zone,task.target_area,env[3]).perform()
-                        hist_conds, _ = obl_conds(obl_rule)
-                        for z in possible_zones:
-                            if z in {obl_zone} | per_zones:
-                                action_pairs_by_obj[oid].add(PossMove(("pickup",obj1.obj_id), ("putdown",obj1.obj_id,z)))
-                            else:
-                                action_pairs_by_obj[oid].add(PossMove(("pickup",obj1.obj_id), ("putdown",obj1.obj_id,z), unless=lists_to_tuples(hist_conds)))
+                    per_zones = set()
+                    # putdown_action(obj1,obl_zone,task.target_area,env[3]).perform()
+                hist_conds, _ = obl_conds(obl_rule)
+                for z in possible_zones:
+                    if z in {obl_zone} | per_zones:
+                        action_pairs_by_obj[oid].add(PossMove(("pickup",obj1.obj_id), ("putdown",obj1.obj_id,z)))
                     else:
-                        pro_flag,pro_zone,rule=verify_action(obj1,"prohibition","putdown",rules)
-                        if pro_flag==1: #If putting down is prohibited in pro_zone
-                            print ("Putting down {}-{} object in Zone-{} prohibited by norm {}".format(obj1.colour,obj1.shape,pro_zone,rule))
-                            per_flag,per_zone,rule=verify_action(obj1,"permission","putdown",rules)
-                            per_zones = possible_zones if per_zone == 'any' else {per_zone}
-                            if per_flag==1 and pro_zone in per_zones:
-                                print ("Permission provided for putting down {}-{} object in Zone-{} by norm {}".format(obj1.colour,obj1.shape,per_zone,rule))
-                                # putdown_action(obj1,random.choice(tuple(possible_zones)),task.target_area,env[3]).perform()
-                            else:
-                                print("removing {} from possible_zones: {}".format(pro_zone, possible_zones))
-                                possible_zones.remove(pro_zone)
-                                # putdown_action(obj1,random.choice(tuple(possible_zones)),task.target_area,env[3]).perform()
-                        #else:
-                            #print ("I am King")
-                            # putdown_action(obj1,random.choice(tuple(possible_zones)),task.target_area,env[3]).perform()
-                        #For all complying paths
-                        for z in possible_zones:
-                            action_pairs_by_obj[oid].add(PossMove(("pickup",obj1.obj_id), ("putdown",obj1.obj_id,z)))
+                        action_pairs_by_obj[oid].add(PossMove(("pickup",obj1.obj_id), ("putdown",obj1.obj_id,z), unless=lists_to_tuples(hist_conds)))
+            else:
+                pro_flag,pro_zone,rule=verify_action(obj1,"prohibition","putdown",rules)
+                if pro_flag==1: #If putting down is prohibited in pro_zone
+                    # print ("Putting down {}-{} object in Zone-{} prohibited by norm {}".format(obj1.colour,obj1.shape,pro_zone,rule))
+                    per_flag,per_zone,rule=verify_action(obj1,"permission","putdown",rules)
+                    per_zones = possible_zones if per_zone == 'any' else {per_zone}
+                    if per_flag==1 and pro_zone in per_zones:
+                        pass
+                        # print ("Permission provided for putting down {}-{} object in Zone-{} by norm {}".format(obj1.colour,obj1.shape,per_zone,rule))
+                        # putdown_action(obj1,random.choice(tuple(possible_zones)),task.target_area,env[3]).perform()
+                    else:
+                        # print("removing {} from possible_zones: {}".format(pro_zone, possible_zones))
+                        possible_zones.remove(pro_zone)
+                        # putdown_action(obj1,random.choice(tuple(possible_zones)),task.target_area,env[3]).perform()
+                #else:
+                    #print ("I am King")
+                    # putdown_action(obj1,random.choice(tuple(possible_zones)),task.target_area,env[3]).perform()
+                #For all complying paths
+                for z in possible_zones:
+                    action_pairs_by_obj[oid].add(PossMove(("pickup",obj1.obj_id), ("putdown",obj1.obj_id,z)))
     return action_pairs_by_obj
 
 def lists_to_tuples(x):

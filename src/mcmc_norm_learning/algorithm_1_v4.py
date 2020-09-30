@@ -7,6 +7,22 @@ Created on Mon Jun 10 13:38:10 2019
 from rules_4 import *
 from copy import deepcopy
 import numpy as np
+from numpy import nan,exp,random,isnan
+from algorithm_2_utilities import Likelihood
+from algorithm_2_v2 import generate_new_expression
+from mcmc_convergence import calculate_variance
+from mcmc_convergence_utilities import create_vector
+#from relevance import is_relevant
+import sys
+import os.path
+import time
+import math
+from tqdm import tnrange, tqdm_notebook
+from robot_task_new import robot,plot_task
+import os,glob,random
+from collections import Counter, defaultdict
+import dask
+from dask.distributed import Client
 
 def to_tuple(expression):
     """ Convert nested list to nested tuple """
@@ -20,7 +36,7 @@ def to_tuple(expression):
 
 
 def random_task_func(env,num_actionable,c1,s1):
-    """ Genearte random task on environment """
+    """ Generate random task on environment """
     #num_actionable deifnes the number of objects in the target_area
     from robot_task_new import task,robot
     from environment import position
@@ -42,12 +58,6 @@ def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_tas
 	num_actionable=np.nan,num_repeat=500,verbose=True):
     """ Function to create data from either given task or randomised tasks """
     #print ("Generating action-profile data for case {}".format(name))
-    from robot_task_new import robot,plot_task
-    from algorithm_1_v4 import random_task_func
-    from tqdm import tnrange, tqdm_notebook
-    from time import sleep
-    import os,glob,random
-    import numpy as np
     action_profile={}
     #Empty the required directories
     if name != None:
@@ -57,7 +67,7 @@ def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_tas
                 os.chmod(f, 0o777)
                 os.remove(f)
     for itr in tnrange(num_repeat,desc="Repetition of Task"):
-        sleep(0.01)
+        time.sleep(0.01)
         env_copy=deepcopy(env)
         if name != None:
             fig,ax=plt.subplots(1, 2, sharex=True, sharey=True,figsize=(14,10))
@@ -81,74 +91,108 @@ def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_tas
             plt.close()
     return (action_profile)
 
-def algorithm_1(data,env,task1,q_dict,rule_dict,filename="mcmc_report",sim_threshold=0,similarity_penalty=1,relevance_factor=0.5,time_threshold=1000,max_iterations=1000,w_normative=1,verbose=False,resume=None):  
+def gen_E0(data,env,task1,w_normative=1,time_threshold=1000):
+    #Generate E0
+    E_0=expand("NORMS")
+    s=time.time()
+    time_flag=0
+    iterations = 0
+    log_lik_null=Likelihood([],task1,data,env,w_normative)
+    while((time.time()-s)<time_threshold):
+        iterations += 1
+        time_flag=1
+        log_lik = Likelihood(E_0,task1,data,env,w_normative)
+        if log_lik > log_lik_null:
+            """ Compared to log(Lik(no_norm) because for large sequences exp(log_Lik) gets to zero"""
+            """ >= be cause we do rejection sampling for relevant norms below """
+            break
+            """ if isnan(relevance_factor):
+                break
+            else:
+                if (is_relevant(E_0,task1,env)==False):
+                    if (random.uniform()>relevance_factor):
+                        break
+                else:
+                    if (random.uniform()<=relevance_factor):
+                        break """
+        else:
+            #print(Likelihood(E_0,data,env))
+            #print("Trying another E0")
+            E_0=expand("NORMS")
+            time_flag=0
+    print("Time to initialise E_0={:.4f}s".format(time.time()-s))
+    if time_flag==0:
+        print ("Stopping Algorithm, Not able to initialise E_0 in given time_threshold")
+        return (nan,nan)
+    return (E_0, iterations)
+
+def over_dispersed_starting_points(num_starts,data,env,task1,multiplier=10,w_normative=1,time_threshold=1000):
+    n = multiplier*num_starts
+    gen_E0_results = [dask.delayed(gen_E0)(data,env,task1,w_normative,time_threshold) for _ in range(n)]
+    gen_E0_results = dask.compute(*gen_E0_results)
+    unzipped = list(zip(*gen_E0_results))
+    candidate_starts = unzipped[0]
+    iterations_list = unzipped[1]
+    avg_iterations = sum(iterations_list)/n
+    start_vectors = list(map(create_vector,candidate_starts))
+    vector_sum = sum(start_vectors,Counter())
+    mean_vector = Counter({key:value/n for key,value in vector_sum.items()})
+    # Rank start_vectors by dist. from mean
+    start_dist_pairs = []
+    for i in range(n):
+        start = candidate_starts[i]
+        svec = start_vectors[i]
+        diff = svec.copy()
+        diff.subtract(mean_vector)
+        dist_squared = sum([value**2 for value in diff.values()])
+        start_dist_pairs.append((dist_squared, start))
+    start_dist_pairs.sort(key=lambda x: x[0], reverse=True)
+    info = (
+        f'Number of chains requested: {num_starts}\n'
+        f'Number of candidate starts generated: {n}\n'
+        f'Average iterations to find E0: {avg_iterations}\n'
+        f'Distances of starts from mean: {[math.sqrt(pair[0]) for pair in start_dist_pairs]}\n'
+    )
+    return ([start for d,start in start_dist_pairs[:num_starts]], info)
+
+def algorithm_1(data,env,task1,q_dict,rule_dict,filename="mcmc_report",start=None,sim_threshold=0,similarity_penalty=1,relevance_factor=0.5,time_threshold=1000,max_iterations=1000,w_normative=1,verbose=False,resume=None):  
     """ For testing algorithm v_2 also similarity factor included """
-    from algorithm_2_utilities import Likelihood
-    from algorithm_2_v2 import generate_new_expression
-    from relevance import is_relevant
-    import sys
-    import os.path
-    import time
-    from numpy import nan,exp,random,isnan
-    from tqdm import tnrange, tqdm_notebook
-    
     if resume != None:
         sequence0, lik_list0 = resume
         sequence = list(sequence0)
         lik_list = list(lik_list0)
         E_0 = sequence[-1]
+    elif start != None:
+        E_0 = start
+        sequence=[E_0]
+        lik_list = [Likelihood(E_0,task1,data,env,w_normative)]
     else:
-        #Generate E0
-        E_0=expand("NORMS")
-        s=time.time()
-        time_flag=0
-        log_lik_null=Likelihood([],task1,data,env,w_normative)
-        while((time.time()-s)<time_threshold):
-            time_flag=1
-            log_lik = Likelihood(E_0,task1,data,env,w_normative)
-            if log_lik > log_lik_null:
-                """ Compared to lok(Lik(no_norm) because for large sequences exp(log_Lik) gets to zero"""
-                """ >= be cause we do rejection sampling for relevant norms below """
-                break
-                """ if isnan(relevance_factor):
-                    break
-                else:
-                    if (is_relevant(E_0,task1,env)==False):
-                        if (random.uniform()>relevance_factor):
-                            break
-                    else:
-                        if (random.uniform()<=relevance_factor):
-                            break """
-            else:
-                #print(Likelihood(E_0,data,env))
-                print("Trying another E0")
-                E_0=expand("NORMS")
-                time_flag=0
-        print("Time to initialise E_0={:.4f}s".format(time.time()-s))
-        if time_flag==0:
-            print ("Stopping Algorithm, Not able to initialise E_0 in given time_threshold")
-            return (nan,nan)
-        print ("E0 chosen is:")
-        print_expression(E_0)
+        E_0, E_0_iterations = gen_E0(data,env,task1,w_normative,time_threshold)
+        if verbose:
+            print (f"E0 chosen is (after {E_0_iterations}):")
+            print_expression(E_0)
         sequence=[E_0]
         lik_list=[]
-        lik_list.append(exp(Likelihood(sequence[-1],task1,data,env,w_normative)))
+        #lik_list.append(exp(Likelihood(sequence[-1],task1,data,env,w_normative)))
+        lik_list.append(Likelihood(sequence[-1],task1,data,env,w_normative))
     # original = sys.stdout
     # exists = os.path.isfile('./{}.txt'.format(filename))
     #if exists==True:
     #    os.remove('./{}.txt'.format(filename))
-    for i in tnrange(1,max_iterations+1,desc="Length of Sequence"):
-        if verbose==True:
+    for i in tnrange(1,max_iterations,desc="Length of Sequence"):
+        if verbose:
             print ("\n--------------Iteration={}--------------".format(i))
         #sys.stdout = open('./{}.txt'.format(filename), 'a+')
         if i==1:
             print ("\n-----------E0 chosen is:---------------")
             print_expression(E_0)
             print ("----------------------------------------")
-        print ("\n\n===========================Iteration={}===========================".format(i))
-        sequence.append(generate_new_expression(sequence[-1],data,task1,q_dict,rule_dict,env,relevance_factor,sim_threshold,similarity_penalty,w_normative))
-        print_expression(sequence[-1])
-        lik_list.append(exp(Likelihood(sequence[-1],task1,data,env,w_normative)))
+        #print ("\n\n===========================Iteration={}===========================".format(i))
+        new_expression = generate_new_expression(sequence[-1],data,task1,q_dict,rule_dict,env,relevance_factor,sim_threshold,similarity_penalty,w_normative)
+        sequence.append(new_expression)
+        #print_expression(sequence[-1])
+        #lik_list.append(exp(Likelihood(sequence[-1],task1,data,env,w_normative)))
+        lik_list.append(Likelihood(sequence[-1],task1,data,env,w_normative))
         print ("===================================================================")
         #sys.stdout=original
     return (sequence,lik_list)
@@ -207,3 +251,6 @@ def algorithm_1(data,env,task1,q_dict,rule_dict,filename="mcmc_report",sim_thres
 # plt.title("Frequency of Norms")
 # 
 # =============================================================================
+
+if __name__ == '__main__':
+    client = Client()

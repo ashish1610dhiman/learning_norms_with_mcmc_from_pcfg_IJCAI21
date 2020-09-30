@@ -8,6 +8,6 @@ true_norm:
 num_observations: 100
 obs_data_set: 1
 n: 500 #Length of sequence after discarding warm-up part and splitting in half
-m: 10 #Number of sequences after splitting in half
+m: 10 #Number of sequences after splitting in half- was 10
 rf: 0.6
-mcmc_step_size: 50
+rhat_step_size: 50
