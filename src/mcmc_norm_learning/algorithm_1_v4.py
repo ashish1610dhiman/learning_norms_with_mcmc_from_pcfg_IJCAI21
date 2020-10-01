@@ -179,6 +179,7 @@ def algorithm_1(data,env,task1,q_dict,rule_dict,filename="mcmc_report",start=Non
     # exists = os.path.isfile('./{}.txt'.format(filename))
     #if exists==True:
     #    os.remove('./{}.txt'.format(filename))
+    log_lik_no_norm = Likelihood([],task1,data,env,w_normative)
     for i in tnrange(1,max_iterations,desc="Length of Sequence"):
         if verbose:
             print ("\n--------------Iteration={}--------------".format(i))
@@ -188,7 +189,7 @@ def algorithm_1(data,env,task1,q_dict,rule_dict,filename="mcmc_report",start=Non
             print_expression(E_0)
             print ("----------------------------------------")
         #print ("\n\n===========================Iteration={}===========================".format(i))
-        new_expression = generate_new_expression(sequence[-1],data,task1,q_dict,rule_dict,env,relevance_factor,sim_threshold,similarity_penalty,w_normative)
+        new_expression = generate_new_expression(sequence[-1],data,task1,q_dict,rule_dict,env,log_lik_no_norm,relevance_factor,sim_threshold,similarity_penalty,w_normative)
         sequence.append(new_expression)
         #print_expression(sequence[-1])
         #lik_list.append(exp(Likelihood(sequence[-1],task1,data,env,w_normative)))

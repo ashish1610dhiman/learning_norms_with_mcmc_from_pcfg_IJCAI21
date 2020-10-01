@@ -13,7 +13,7 @@ from cosine_sim import cos_theta
 
 #expression=expand("NORMS")
 #TO DO: Remove arg. q_dict - no longer used
-def generate_new_expression(expression,data,task1,q_dict,rule_dict,env,relevance_factor=0.5,sim_threshold=0,similarity_penalty=1,w_normative=1):
+def generate_new_expression(expression,data,task1,q_dict,rule_dict,env,log_lik_no_norm,relevance_factor=0.5,sim_threshold=0,similarity_penalty=1,w_normative=1):
     """ Version with jumping distribution change """
     #print ("Original_expression")
     #print_expression(expression)
@@ -57,7 +57,6 @@ def generate_new_expression(expression,data,task1,q_dict,rule_dict,env,relevance
         adjusting_factor=similarity_penalty
     print ("Adjusting factor:{}".format(adjusting_factor))
     """
-    log_lik_no_norm = Likelihood([],task1,data,env,w_normative)
     if isnan(relevance_factor)==False:
         p_accept_adjust_numerator_log = log(relevance_factor) if new_log_lik <= log_lik_no_norm else 0
         p_accept_adjust_denominator_log = log(relevance_factor) if old_log_lik <= log_lik_no_norm else 0
