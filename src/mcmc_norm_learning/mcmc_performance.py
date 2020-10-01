@@ -14,9 +14,9 @@ def calculate_pr(true,predicted,env):
 	#true=[(true[2*i],true[2*i+1]) for i in range(int(len(true)/2))]
 	#predicted=[(predicted[2*i],predicted[2*i+1]) for i in range(int(len(predicted)/2))]
 	print("calculate_pr: len(true)={}; len(predicted)={}".format(len(true),len(predicted)))
-	print("Identical lists: {}".format(true == predicted))
 	true=set(true)
 	predicted=set(predicted)
+	print("Identical sets: {}".format(true == predicted))
 	true_inter_pred=true & predicted
 	print("len(intersection)={}".format(len(true_inter_pred)))
 	return((len(true_inter_pred)/len(predicted)),(len(true_inter_pred)/len(true)))

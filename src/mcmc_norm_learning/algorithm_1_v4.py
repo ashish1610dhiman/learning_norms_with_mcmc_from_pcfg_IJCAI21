@@ -12,13 +12,13 @@ from algorithm_2_utilities import Likelihood
 from algorithm_2_v2 import generate_new_expression
 from mcmc_convergence import calculate_variance
 from mcmc_convergence_utilities import create_vector
+from robot_task_new import robot,plot_task
 #from relevance import is_relevant
 import sys
 import os.path
 import time
 import math
 from tqdm import tnrange, tqdm_notebook
-from robot_task_new import robot,plot_task
 import os,glob,random
 from collections import Counter, defaultdict
 import dask
@@ -67,7 +67,7 @@ def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_tas
                 os.chmod(f, 0o777)
                 os.remove(f)
     for itr in tnrange(num_repeat,desc="Repetition of Task"):
-        time.sleep(0.01)
+        #time.sleep(0.01) # WHY IS THIS HERE?
         env_copy=deepcopy(env)
         if name != None:
             fig,ax=plt.subplots(1, 2, sharex=True, sharey=True,figsize=(14,10))
