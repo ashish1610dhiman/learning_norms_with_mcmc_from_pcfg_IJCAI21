@@ -103,7 +103,7 @@ analyse_chains:
       - r
       - g
       - b
-      m: 12
+      m: 10
       n: 500
       rf: 0.6
       shape_specific:
@@ -113,7 +113,7 @@ analyse_chains:
       target_area: -0.8, 0.7 ; 0.25, 0.99
   outs:
   - path: metrics/chain_info.txt
-    md5: 8b1435103bef48cdbf36ef9b4dff5b66
+    md5: 20cd94a634b8fcd75c593148fe190526
   - path: metrics/chain_likelihoods.csv
     md5: 60abdbacc4a11266f93fd17994ffe7d6
 conv_test:
@@ -135,7 +135,7 @@ extract_top_norms:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/posterior.pickle
-    md5: 2f8c014b4c4124104734d23752e1e6ad
+    md5: d7d6ff033f45eded308fb4ca7461fb09
   params:
     params.yaml:
       colour_specific:
@@ -184,4 +184,4 @@ extract_top_norms:
             - '1'
   outs:
   - path: metrics/precision_recall.txt
-    md5: a90bb89d960387df3e5c017f2987b170
+    md5: 1b7c9740b2862d86c841fe08c34228f1

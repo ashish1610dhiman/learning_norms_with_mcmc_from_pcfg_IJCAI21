@@ -23,8 +23,8 @@ true_expression = params['true_norm']['exp']
 
 def calc_precision_and_recall(posterior_sample, env, task1, true_expression, repeat=10000):
     learned_expressions=Counter(map(to_tuple, posterior_sample))
-    info = f"Number of unique Norms in sequence={len(learned_expressions)}"
-    n = 829 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! <<<<<<<<<<< Change back to smaller number !!!! ****
+    info = f"Number of unique Norms in sequence={len(learned_expressions)}\n"
+    n = 20
     info += f"Top {n} norms:\n"
     for freq,expression in learned_expressions.most_common(n):
         info += f"Freq. {freq}"

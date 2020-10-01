@@ -16,9 +16,13 @@ def calculate_pr(true,predicted,env):
 	print("calculate_pr: len(true)={}; len(predicted)={}".format(len(true),len(predicted)))
 	true=set(true)
 	predicted=set(predicted)
-	print("Identical sets: {}".format(true == predicted))
 	true_inter_pred=true & predicted
-	print("len(intersection)={}".format(len(true_inter_pred)))
+	
+	print("Identical sets: {}".format(true == predicted))
+	print(f"Num. distinct executions in observations: {len(true)}\n")
+	print(f"Num. distinct executions given learned exp.: {len(predicted)}\n")
+	print(f"Size of intersection: {len(true_inter_pred)}")
+	
 	return((len(true_inter_pred)/len(predicted)),(len(true_inter_pred)/len(true)))
 
 

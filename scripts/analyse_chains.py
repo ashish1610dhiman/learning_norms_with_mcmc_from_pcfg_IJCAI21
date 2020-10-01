@@ -17,6 +17,9 @@ chains_and_log_likelihoods = unpickle('data/chains_and_log_likelihoods.pickle')
 
 with open('metrics/chain_likelihoods.csv', 'w', newline='') as csvfile, \
      open('metrics/chain_info.txt', 'w') as chain_info:
+    chain_info.write(f'Number of chains: {len(chains_and_log_likelihoods)}\n')
+    chain_info.write(f'Length of each chain: {len(chains_and_log_likelihoods[0]["chain"])}\n')
+    
     csv_writer = csv.writer(csvfile)
     csv_writer.writerow(('chain_number', 'chain_pos', 'expression', 'log_likelihood'))
     exps_in_chains = [None]*len(chains_and_log_likelihoods)
@@ -53,14 +56,14 @@ with open('metrics/chain_likelihoods.csv', 'w', newline='') as csvfile, \
         csv_writer.writerows(((i,j,chain_ll_pair[0],chain_ll_pair[1]) for j,chain_ll_pair in enumerate(chain_ll_pairs)))
 
     all_exps = set(itertools.chain(*exps_in_chains))
-    chain_info.write(f'Total num. distinct exps across all chains: {len(all_exps)}\n')
+    chain_info.write(f'Total num. distinct exps across all chains (including warm-up): {len(all_exps)}\n')
 
     with open("params.yaml", 'r') as fd:
         params = yaml.safe_load(fd)
     true_norm_exp = params['true_norm']['exp']
     true_norm_tuple = to_tuple(true_norm_exp)
     
-    chain_info.write(f'True norm in tuple: {true_norm_tuple in all_exps}\n')
+    chain_info.write(f'True norm in some chain(s): {true_norm_tuple in all_exps}\n')
 
     num_chains_in_to_exps = defaultdict(set)
     for exp in all_exps:

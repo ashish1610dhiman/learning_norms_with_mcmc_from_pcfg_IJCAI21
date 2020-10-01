@@ -26,11 +26,11 @@ env = unpickle('data/env.pickle')
 ll_no_norm = Likelihood([],the_task,obs,env)
 ll_true_exp = Likelihood(true_expression,the_task,obs,env)
 learned_exp = ['Norms', ['Obl', ['Moved', ['Colour', 'b'], ['Shape', 'any'], ['Zone', '2'], ['Next-Move', ['Colour', 'b'], ['Shape', 'any']]], ['Zone', '2']], ['Per', ['Action', 'putdown'], ['Colour', 'any'], ['Shape', 'square'], ['PerZone', '1']]]
-ll_learned_exp = Likelihood(learned_expression,the_task,obs,env)
+ll_learned_exp = Likelihood(learned_exp,the_task,obs,env)
 
-print("Log likelihood of observations given no norm: {ll_no_norm}\n")
-print("Log likelihood of observations given true exp.: {ll_true_exp}\n")
-print("Log likelihood of observations given learned exp.: {ll_learned_exp}\n")
+print(f"Log likelihood of observations given no norm: {ll_no_norm}\n")
+print(f"Log likelihood of observations given true exp.: {ll_true_exp}\n")
+print(f"Log likelihood of observations given learned exp.: {ll_learned_exp}\n")
 
 
 
