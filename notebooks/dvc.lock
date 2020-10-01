@@ -87,12 +87,12 @@ gen_mcmc_chains:
       target_area: -0.8, 0.7 ; 0.25, 0.99
   outs:
   - path: data/chains_and_log_likelihoods.pickle
-    md5: a4f48d5a6b19b7a6b34dbb152dfcec48
+    md5: c74df8b3ba525b8861ccfdff0a385b45
 analyse_chains:
   cmd: python scripts/analyse_chains.py
   deps:
   - path: data/chains_and_log_likelihoods.pickle
-    md5: 714aa5f377b1ccaa846bde1627108068
+    md5: c74df8b3ba525b8861ccfdff0a385b45
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
@@ -103,7 +103,7 @@ analyse_chains:
       - r
       - g
       - b
-      m: 10
+      m: 12
       n: 500
       rf: 0.6
       shape_specific:
@@ -113,22 +113,22 @@ analyse_chains:
       target_area: -0.8, 0.7 ; 0.25, 0.99
   outs:
   - path: metrics/chain_info.txt
-    md5: 387729eaa215a04aed9135f21db5c49d
+    md5: 8b1435103bef48cdbf36ef9b4dff5b66
   - path: metrics/chain_likelihoods.csv
-    md5: 34f54e4398ae4fb2f30e3bb0076cf42e
+    md5: 60abdbacc4a11266f93fd17994ffe7d6
 conv_test:
   cmd: python scripts/conv_test.py
   deps:
   - path: data/chains_and_log_likelihoods.pickle
-    md5: a4f48d5a6b19b7a6b34dbb152dfcec48
+    md5: c74df8b3ba525b8861ccfdff0a385b45
   params:
     params.yaml:
       rhat_step_size: 50
   outs:
   - path: data/posterior.pickle
-    md5: 2f8c014b4c4124104734d23752e1e6ad
+    md5: d7d6ff033f45eded308fb4ca7461fb09
   - path: metrics/conv_test.txt
-    md5: aa11ecd4e56b9e99ab0c4289d5c06d2b
+    md5: 0514bc81dfbd57a591740a39e81d7162
 extract_top_norms:
   cmd: python scripts/extract_top_norms.py
   deps:
@@ -184,4 +184,4 @@ extract_top_norms:
             - '1'
   outs:
   - path: metrics/precision_recall.txt
-    md5: 5b746f94a10ddb43d34ecc43db75a264
+    md5: a90bb89d960387df3e5c017f2987b170

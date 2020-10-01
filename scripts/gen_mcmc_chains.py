@@ -36,7 +36,7 @@ obs = unpickle('data/observations.pickle')
 
 num_chains = int(m/2+1)
 starts, info = over_dispersed_starting_points(num_chains,obs,env,the_task,time_threshold=math.inf)
-with open('metrics/chain_info.txt', 'w') as chain_info:
+with open('metrics/starts_info.txt', 'w') as chain_info:
     chain_info.write(info)
 
 @dask.delayed

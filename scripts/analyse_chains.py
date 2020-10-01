@@ -8,7 +8,7 @@ from mcmc_norm_learning.algorithm_1_v4 import to_tuple
 from collections import defaultdict
 import itertools
 import operator
-
+import yaml
 
 # discard warmup and split remaining halves
 #posterior_sample = prepare_sequences(chains, warmup=True)
@@ -16,7 +16,7 @@ import operator
 chains_and_log_likelihoods = unpickle('data/chains_and_log_likelihoods.pickle')
 
 with open('metrics/chain_likelihoods.csv', 'w', newline='') as csvfile, \
-     open('metrics/chain_info.txt', 'a') as chain_info:
+     open('metrics/chain_info.txt', 'w') as chain_info:
     csv_writer = csv.writer(csvfile)
     csv_writer.writerow(('chain_number', 'chain_pos', 'expression', 'log_likelihood'))
     exps_in_chains = [None]*len(chains_and_log_likelihoods)
@@ -54,9 +54,16 @@ with open('metrics/chain_likelihoods.csv', 'w', newline='') as csvfile, \
 
     all_exps = set(itertools.chain(*exps_in_chains))
     chain_info.write(f'Total num. distinct exps across all chains: {len(all_exps)}\n')
+
+    with open("params.yaml", 'r') as fd:
+        params = yaml.safe_load(fd)
+    true_norm_exp = params['true_norm']['exp']
+    true_norm_tuple = to_tuple(true_norm_exp)
+    
+    chain_info.write(f'True norm in tuple: {true_norm_tuple in all_exps}\n')
+
     num_chains_in_to_exps = defaultdict(set)
     for exp in all_exps:
-        print(f'{exp} in chains list: {list(map(operator.contains, exps_in_chains, (exp for _ in range(len(exps_in_chains)))))}\n')
         num_chains_in = operator.countOf(map(operator.contains, 
                                                 exps_in_chains,
                                                 (exp for _ in range(len(exps_in_chains)))
