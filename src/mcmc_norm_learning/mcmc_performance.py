@@ -10,7 +10,7 @@ from robot_task_new import all_compliant
 from algorithm_1_v4 import create_data
 
 def calculate_pr(true,predicted,env):
-	""" Calculate precscion and recall from true and predicted data """
+	""" Calculate precision and recall from true and predicted data """
 	#true=[(true[2*i],true[2*i+1]) for i in range(int(len(true)/2))]
 	#predicted=[(predicted[2*i],predicted[2*i+1]) for i in range(int(len(predicted)/2))]
 	print("calculate_pr: len(true)={}; len(predicted)={}".format(len(true),len(predicted)))

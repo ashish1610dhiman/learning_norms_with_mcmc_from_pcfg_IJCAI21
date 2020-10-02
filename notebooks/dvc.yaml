@@ -19,6 +19,8 @@ stages:
     params:
     - num_observations
     - obs_data_set
+    - target_area
+    - true_norm
     outs:
     - data/observations.pickle
   gen_mcmc_chains:
@@ -35,13 +37,13 @@ stages:
     - shape_specific
     - target_area
     outs:
-    - data/chains_and_log_likelihoods.pickle
+    - data/chains_and_log_posteriors.pickle
     always_changed: true
   analyse_chains:
     cmd: python scripts/analyse_chains.py
     wdir: ..
     deps:
-    - data/chains_and_log_likelihoods.pickle
+    - data/chains_and_log_posteriors.pickle
     - data/env.pickle
     - data/observations.pickle
     params:
@@ -54,13 +56,13 @@ stages:
     outs:
     - metrics/chain_info.txt
     plots:
-    - metrics/chain_likelihoods.csv
+    - metrics/chain_posteriors.csv
     always_changed: true
   conv_test:
     cmd: python scripts/conv_test.py
     wdir: ..
     deps:
-    - data/chains_and_log_likelihoods.pickle
+    - data/chains_and_log_posteriors.pickle
     params:
     - rhat_step_size
     outs:

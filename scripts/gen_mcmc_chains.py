@@ -6,7 +6,7 @@ from tqdm.notebook import trange
 import pickle
 import csv
 import math
-from mcmc_norm_learning.rules_4 import q_dict, rule_dict, get_prob
+from mcmc_norm_learning.rules_4 import q_dict, rule_dict, get_log_prob
 from mcmc_norm_learning.robot_task_new import task
 from mcmc_norm_learning.algorithm_1_v4 import algorithm_1, over_dispersed_starting_points
 from mcmc_norm_learning.environment import position
@@ -49,14 +49,12 @@ def delayed_alg1(obs,env,the_task,q_dict,rule_dict,start,rf,max_iters):
     for i in range(len(exp_seq)):
         exp = exp_seq[i]
         ll = log_likelihoods[i]
-        prior = get_prob("NORMS",exp) # Note: this imports the rules dict from rules_4.py
-        log_posteriors[i] = math.log(prior) + ll
+        log_prior = get_log_prob("NORMS",exp) # Note: this imports the rules dict from rules_4.py
+        log_posteriors[i] = log_prior + ll
+    return {'chain': exp_seq, 'log_posteriors': log_posteriors}
 
-    return {'chain': exp_seq, 'log_likelihoods': log_posteriors} #!!!!! *** Deliberately misnaming 2nd key name for now
-
-with open('metrics/chain_likelihoods.csv', 'w', newline='') as cl_csvfile:
-    chains_and_log_likelihoods=[]
-    for i in trange(1,num_chains,desc="Loop for Individual Chains"):
-        chains_and_log_likelihoods.append(
-            delayed_alg1(obs,env,the_task,q_dict,rule_dict,starts[i],rf,4*n))
-    pickle_it(dask.compute(*chains_and_log_likelihoods), 'data/chains_and_log_likelihoods.pickle')
+chains_and_log_posteriors=[]
+for i in trange(1,num_chains,desc="Loop for Individual Chains"):
+    chains_and_log_posteriors.append(
+        delayed_alg1(obs,env,the_task,q_dict,rule_dict,starts[i],rf,4*n))
+pickle_it(dask.compute(*chains_and_log_posteriors), 'data/chains_and_log_posteriors.pickle')

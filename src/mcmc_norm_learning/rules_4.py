@@ -19,7 +19,12 @@ p_dict[non-terminal]={T_ik:P[T_ik]}
 
 q_dict[non-recursive-rule-label]={diff_options:P[diff_actions]}
 """
+
+import math
+from operator import add, mul
+from functools import reduce
 #from numpy import nan
+
     
 rule_dict={}
 rule_dict["NORMS"]={"Norms":["NORM1","NORM2"],
@@ -107,13 +112,19 @@ def flatten_all(iterable):
 
 def get_prob(non_terminal,expression):
     """ Returns the probability(Prior) of the given non-terinal expanding to the given expression """
-    from operator import mul
-    from functools import reduce
     b=expand_probability(non_terminal,expression)
     if type(b)==list:
-        return (reduce(mul,flatten_all(b)))
+        return reduce(mul,flatten_all(b))
     else:
-        return (b)
+        return b
+
+def get_log_prob(non_terminal,expression):
+    """ Returns the log probability(Prior) of the given non-terinal expanding to the given expression """
+    b=expand_probability(non_terminal,expression)
+    if type(b)==list:
+        return reduce(add,map(math.log, flatten_all(b)))
+    else:
+        return math.log(b)
 
 # separate_conds:
 # Converts (e.g.) ['Moved', ['Colour', 'any'], ['Shape', 'any'], ['Zone', '1'], ['Moved', ['Colour', 'r'], ['Shape', 'square'], ['Zone', '2'], ['Next-Move', ['Colour', 'g'], ['Shape', 'square']]]]

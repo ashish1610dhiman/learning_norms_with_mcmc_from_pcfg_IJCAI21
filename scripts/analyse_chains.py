@@ -13,47 +13,47 @@ import yaml
 # discard warmup and split remaining halves
 #posterior_sample = prepare_sequences(chains, warmup=True)
 
-chains_and_log_likelihoods = unpickle('data/chains_and_log_likelihoods.pickle')
+chains_and_log_posteriors = unpickle('data/chains_and_log_posteriors.pickle')
 
-with open('metrics/chain_likelihoods.csv', 'w', newline='') as csvfile, \
+with open('metrics/chain_posteriors.csv', 'w', newline='') as csvfile, \
      open('metrics/chain_info.txt', 'w') as chain_info:
-    chain_info.write(f'Number of chains: {len(chains_and_log_likelihoods)}\n')
-    chain_info.write(f'Length of each chain: {len(chains_and_log_likelihoods[0]["chain"])}\n')
+    chain_info.write(f'Number of chains: {len(chains_and_log_posteriors)}\n')
+    chain_info.write(f'Length of each chain: {len(chains_and_log_posteriors[0]["chain"])}\n')
     
     csv_writer = csv.writer(csvfile)
-    csv_writer.writerow(('chain_number', 'chain_pos', 'expression', 'log_likelihood'))
-    exps_in_chains = [None]*len(chains_and_log_likelihoods)
-    for i,chain_data in enumerate(chains_and_log_likelihoods): # Consider skipping first few entries
+    csv_writer.writerow(('chain_number', 'chain_pos', 'expression', 'log_posterior'))
+    exps_in_chains = [None]*len(chains_and_log_posteriors)
+    for i,chain_data in enumerate(chains_and_log_posteriors): # Consider skipping first few entries
         chain = chain_data['chain']
-        log_likelihoods = chain_data['log_likelihoods']
-        chain_ll_pairs = list(zip(chain,log_likelihoods))
+        log_posteriors = chain_data['log_posteriors']
+        exp_lp_pairs = list(zip(chain,log_posteriors))
 
         exps_in_chains[i] = set(map(to_tuple, chain))
 
-        print(sorted(log_likelihoods, reverse=True))
+        print(sorted(log_posteriors, reverse=True))
 
-        lls_to_exps = defaultdict(set)
-        for exp,ll in chain_ll_pairs:
-            lls_to_exps[ll].add(to_tuple(exp))
+        lps_to_exps = defaultdict(set)
+        for exp,lp in exp_lp_pairs:
+            lps_to_exps[lp].add(to_tuple(exp))
 
         num_exps_in_chain = len(exps_in_chains[i])
 
-        print(lls_to_exps.keys())
+        print(lps_to_exps.keys())
         print('\n')
 
         chain_info.write(f'Num. expressions in chain {i}: {num_exps_in_chain}\n')
-        decreasing_lls = sorted(lls_to_exps.keys(), reverse=True)
-        chain_info.write("Expressions by decreasing log likelihood\n")
-        for ll in decreasing_lls:
-            chain_info.write(f'll = {ll} [{len(lls_to_exps[ll])} exps]:\n')
-            for exp in lls_to_exps[ll]:
+        decreasing_lps = sorted(lps_to_exps.keys(), reverse=True)
+        chain_info.write("Expressions by decreasing log posterior\n")
+        for lp in decreasing_lps:
+            chain_info.write(f'lp = {lp} [{len(lps_to_exps[lp])} exps]:\n')
+            for exp in lps_to_exps[lp]:
                 chain_info.write(f'    {exp}\n')
             chain_info.write('\n')
         chain_info.write('\n')
 
         changed_exp_indices = [i for i in range(1,len(chain)) if chain[i] != chain[i-1]]
-        print(f'Writing {len(chain_ll_pairs)} rows to CSV file\n')
-        csv_writer.writerows(((i,j,chain_ll_pair[0],chain_ll_pair[1]) for j,chain_ll_pair in enumerate(chain_ll_pairs)))
+        print(f'Writing {len(exp_lp_pairs)} rows to CSV file\n')
+        csv_writer.writerows(((i,j,chain_lp_pair[0],chain_lp_pair[1]) for j,chain_lp_pair in enumerate(exp_lp_pairs)))
 
     all_exps = set(itertools.chain(*exps_in_chains))
     chain_info.write(f'Total num. distinct exps across all chains (including warm-up): {len(all_exps)}\n')

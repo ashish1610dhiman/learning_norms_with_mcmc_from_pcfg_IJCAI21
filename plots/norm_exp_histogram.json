@@ -10,8 +10,8 @@
     {
       "aggregate": [{
        "op": "mean",
-       "field": "log_likelihood",
-       "as": "ll"
+       "field": "log_posterior",
+       "as": "lp"
       }],
       "groupby": ["expression"]
     }
@@ -24,9 +24,9 @@
       "sort": "-x"
     },
     "x": {
-      "field": "ll",
+      "field": "lp",
       "type": "ordinal",
-      "title": "log likelihood"
+      "title": "log posterior"
     }
   }
 }

@@ -13,6 +13,7 @@ from cosine_sim import cos_theta
 
 #expression=expand("NORMS")
 #TO DO: Remove arg. q_dict - no longer used
+
 def generate_new_expression(expression,data,task1,q_dict,rule_dict,env,log_lik_no_norm,relevance_factor=0.5,sim_threshold=0,similarity_penalty=1,w_normative=1):
     """ Version with jumping distribution change """
     #print ("Original_expression")

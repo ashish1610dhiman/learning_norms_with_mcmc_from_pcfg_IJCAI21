@@ -4,7 +4,7 @@ shape_specific: ['square', 'circle', 'triangle']
 target_area: -0.8, 0.7 ; 0.25, 0.99
 true_norm:
   name: default
-  exp: ['Rules', ['Obl', ['Moved', ['Colour', 'any'], ['Shape', 'circle'], ['Zone', '2'], ['Moved', ['Colour', 'g'], ['Shape', 'square'], ['Zone', '2'], ['Next-Move', ['Colour', 'b'], ['Shape', 'triangle']]]], ['Zone', '3']], ['Per', ['Action', 'putdown'], ['Colour', 'g'], ['Shape', 'triangle'], ['PerZone', '1']]]
+  exp: ['Norm', ['Pro', ['Action', 'putdown'], ['Colour', 'g'], ['Shape', 'square'], ['Zone', '1']]]
 num_observations: 100
 obs_data_set: 1
 n: 500 #Length of sequence after discarding warm-up part and splitting in half

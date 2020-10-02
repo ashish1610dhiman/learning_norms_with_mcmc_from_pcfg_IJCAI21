@@ -26,8 +26,8 @@ def calc_precision_and_recall(posterior_sample, env, task1, true_expression, rep
     info = f"Number of unique Norms in sequence={len(learned_expressions)}\n"
     n = 20
     info += f"Top {n} norms:\n"
-    for freq,expression in learned_expressions.most_common(n):
-        info += f"Freq. {freq}"
+    for expression,freq in learned_expressions.most_common(n):
+        info += f"Freq. {freq}: "
         info += f"{expression}\n"
     # Calculate precision and recall of top_n norms from learned expressions
     pr_result=performance(task1,env,true_expression,learned_expressions,
