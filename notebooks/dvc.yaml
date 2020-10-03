@@ -57,7 +57,6 @@ stages:
     - metrics/chain_info.txt
     plots:
     - metrics/chain_posteriors.csv
-    always_changed: true
   conv_test:
     cmd: python scripts/conv_test.py
     wdir: ..
@@ -68,7 +67,6 @@ stages:
     outs:
     - data/posterior.pickle
     - metrics/conv_test.txt
-    always_changed: true
   extract_top_norms:
     cmd: python scripts/extract_top_norms.py
     wdir: ..
@@ -82,4 +80,3 @@ stages:
     - true_norm
     outs:
     - metrics/precision_recall.txt
-    always_changed: true
