@@ -18,7 +18,7 @@ def conv_test(chains):
         f.write(convergence_result.to_string())
     return reduce(concat, split_data)
     
-chains_and_log_likelihoods = unpickle('data/chains_and_log_likelihoods.pickle')
-chains = list(map(itemgetter('chain'), chains_and_log_likelihoods))
+chains_and_log_posteriors = unpickle('data/chains_and_log_posteriors.pickle')
+chains = list(map(itemgetter('chain'), chains_and_log_posteriors))
 posterior_sample = conv_test(prepare_sequences(chains, warmup=True))
 pickle_it(posterior_sample, 'data/posterior.pickle')

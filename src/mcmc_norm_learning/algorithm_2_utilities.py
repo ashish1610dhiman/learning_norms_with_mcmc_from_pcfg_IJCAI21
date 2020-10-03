@@ -117,9 +117,12 @@ def fill_hole(a,E_hole,E_sub):
     eval(code)
     return (E_hole_copy)
 
+# Obsolete function: function robot_task_new.all_compliant is used now to capture
+# temporal semantics of new grammar
 def violations(norms,env):
     """ Returns a dict with key as object_id and value,
     as a list of all apossible violations of norm on that object """
+    assert "Obsolete function violations should not be used" and False
     from verify_action_4 import check_pro_or_per,check_per,check_obl
     violations={}
     my_dict={x:norms[x] for x in range(1,len(norms))}
@@ -169,7 +172,6 @@ def violations(norms,env):
 
 def Likelihood(expression,task,executions,env,w_normative=1.0):
     """ Calculate log-Likelihood of expression in data
-    Violation function is called on env inside
     Empty expression (i.e. norms) can be passed """
     from numpy import log
     log_lik = 0

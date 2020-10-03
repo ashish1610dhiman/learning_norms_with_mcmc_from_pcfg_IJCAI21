@@ -140,16 +140,16 @@ conv_test:
       rhat_step_size: 50
   outs:
   - path: data/posterior.pickle
-    md5: d7d6ff033f45eded308fb4ca7461fb09
+    md5: b24b28a637ac807662e160dae6133fb2
   - path: metrics/conv_test.txt
-    md5: 0514bc81dfbd57a591740a39e81d7162
+    md5: ab86bb18a6d65604308bc0f563edb2bc
 extract_top_norms:
   cmd: python scripts/extract_top_norms.py
   deps:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/posterior.pickle
-    md5: d7d6ff033f45eded308fb4ca7461fb09
+    md5: b24b28a637ac807662e160dae6133fb2
   params:
     params.yaml:
       colour_specific:
@@ -176,4 +176,4 @@ extract_top_norms:
             - '1'
   outs:
   - path: metrics/precision_recall.txt
-    md5: 76593676f9613cb084f0ed048d83c4e1
+    md5: 1b9bc854ae4d4c58e6ad1f3a3bf8c181
