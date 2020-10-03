@@ -101,12 +101,12 @@ gen_mcmc_chains:
       target_area: -0.8, 0.7 ; 0.25, 0.99
   outs:
   - path: data/chains_and_log_posteriors.pickle
-    md5: f90b6fe5d80015227e619e7360e00525
+    md5: 180ccfbc3e194d95e6d1e329cbd43a99
 analyse_chains:
   cmd: python scripts/analyse_chains.py
   deps:
   - path: data/chains_and_log_posteriors.pickle
-    md5: f90b6fe5d80015227e619e7360e00525
+    md5: 180ccfbc3e194d95e6d1e329cbd43a99
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
@@ -127,29 +127,29 @@ analyse_chains:
       target_area: -0.8, 0.7 ; 0.25, 0.99
   outs:
   - path: metrics/chain_info.txt
-    md5: 918901025a94a6a38dcf75de56bbdd98
+    md5: c77efea64a826a67ed1b32f3056e8929
   - path: metrics/chain_posteriors.csv
-    md5: efac4ff573ecfabcd308a735840cd902
+    md5: 83737417143a31531771d28515102541
 conv_test:
   cmd: python scripts/conv_test.py
   deps:
   - path: data/chains_and_log_posteriors.pickle
-    md5: f90b6fe5d80015227e619e7360e00525
+    md5: 180ccfbc3e194d95e6d1e329cbd43a99
   params:
     params.yaml:
       rhat_step_size: 50
   outs:
   - path: data/posterior.pickle
-    md5: b24b28a637ac807662e160dae6133fb2
+    md5: 0f7b46582861e1f29e2a105535ad4a98
   - path: metrics/conv_test.txt
-    md5: ab86bb18a6d65604308bc0f563edb2bc
+    md5: aad48705231146ad5e71f7b47883f7ed
 extract_top_norms:
   cmd: python scripts/extract_top_norms.py
   deps:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/posterior.pickle
-    md5: b24b28a637ac807662e160dae6133fb2
+    md5: 0f7b46582861e1f29e2a105535ad4a98
   params:
     params.yaml:
       colour_specific:
@@ -176,4 +176,4 @@ extract_top_norms:
             - '1'
   outs:
   - path: metrics/precision_recall.txt
-    md5: 1b9bc854ae4d4c58e6ad1f3a3bf8c181
+    md5: c22423dd9df846aad2b9303eaf1228e0

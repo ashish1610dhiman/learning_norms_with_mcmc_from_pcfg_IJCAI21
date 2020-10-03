@@ -32,7 +32,7 @@ env = unpickle('data/env.pickle')
 
 the_task = task(colour_specific, shape_specific,target_area)
 
-obs = unpickle('data/observations.pickle')
+obs = unpickle('data/observations.pickle')[:50] #### Keeping only 50 observations
 
 num_chains = int(m/2+1)
 starts, info = over_dispersed_starting_points(num_chains,obs,env,the_task,time_threshold=math.inf)
