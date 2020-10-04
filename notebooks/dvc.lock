@@ -149,7 +149,7 @@ extract_top_norms:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/posterior.pickle
-    md5: b24b28a637ac807662e160dae6133fb2
+    md5: 0729b4f07c27704dad970080bdbeeb07
   params:
     params.yaml:
       colour_specific:
@@ -175,5 +175,36 @@ extract_top_norms:
           - - Zone
             - '1'
   outs:
+  - path: data/top_norms.pickle
+    md5: d13f6f636477a72f26283db21cea5a25
   - path: metrics/precision_recall.txt
-    md5: 1b9bc854ae4d4c58e6ad1f3a3bf8c181
+    md5: 9c95bcdc934e0563f6ac770faf9574dd
+test_obs_log_likelihood1:
+  cmd: python scripts/test_obs_likelihood.py none true
+  deps:
+  - path: data/env.pickle
+    md5: 9000eb1823d338d732bd357a43f5b1ed
+  - path: data/observations.pickle
+    md5: 5a0bafff59dc3f9d4de2eab91ea05884
+  params:
+    params.yaml:
+      true_norm.exp:
+      - Norm
+      - - Pro
+        - - Action
+          - putdown
+        - - Colour
+          - g
+        - - Shape
+          - square
+        - - Zone
+          - '1'
+test_obs_log_likelihood2:
+  cmd: python scripts/test_obs_likelihood.py top
+  deps:
+  - path: data/env.pickle
+    md5: 9000eb1823d338d732bd357a43f5b1ed
+  - path: data/observations.pickle
+    md5: 5a0bafff59dc3f9d4de2eab91ea05884
+  - path: data/top_norms.pickle
+    md5: d13f6f636477a72f26283db21cea5a25

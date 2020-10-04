@@ -8,6 +8,9 @@ from mcmc_norm_learning.robot_task_new import task
 from mcmc_norm_learning.algorithm_1_v4 import to_tuple
 from mcmc_norm_learning.mcmc_performance import performance
 from collections import Counter
+import operator
+import pickle
+import pickle_wrapper
 
 with open("params.yaml", 'r') as fd:
     params = yaml.safe_load(fd)
@@ -26,7 +29,8 @@ def calc_precision_and_recall(posterior_sample, env, task1, true_expression, rep
     info = f"Number of unique Norms in sequence={len(learned_expressions)}\n"
     n = 5
     info += f"Top {n} norms:\n"
-    for expression,freq in learned_expressions.most_common(n):
+    top_norms_with_freq = learned_expressions.most_common(n)
+    for expression,freq in top_norms_with_freq:
         info += f"Freq. {freq}: "
         info += f"{expression}\n"
     # Calculate precision and recall of top_n norms from learned expressions
@@ -34,11 +38,14 @@ def calc_precision_and_recall(posterior_sample, env, task1, true_expression, rep
                           folder_name="temp",file_name="top_norm",
                           top_n=n,beta=1,repeat=repeat,verbose=False)
     #pr_result.head()
-    return pr_result, info
+    return pr_result, info, list(map(operator.itemgetter(0), top_norms_with_freq))
 
 posterior_sample = unpickle('data/posterior.pickle')
 env = unpickle('data/env.pickle')
-pr_result, info = calc_precision_and_recall(posterior_sample, env, the_task, true_expression)
+pr_result, info, top_norms = calc_precision_and_recall(posterior_sample, env, the_task, true_expression)
+
+pickle_it(top_norms, 'data/top_norms.pickle')
+
 with open('metrics/precision_recall.txt', 'w') as f:
     f.write(info)
     f.write("\n")

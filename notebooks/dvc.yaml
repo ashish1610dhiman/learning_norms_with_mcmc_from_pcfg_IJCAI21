@@ -81,5 +81,21 @@ stages:
     - target_area
     - true_norm
     outs:
+    - data/top_norms.pickle
     - metrics/precision_recall.txt
     always_changed: true
+  test_obs_log_likelihood1:
+    cmd: python scripts/test_obs_likelihood.py none true
+    wdir: ..
+    deps:
+    - data/env.pickle
+    - data/observations.pickle
+    params:
+    - true_norm.exp
+  test_obs_log_likelihood2:
+    cmd: python scripts/test_obs_likelihood.py top
+    wdir: ..
+    deps:
+    - data/env.pickle
+    - data/observations.pickle
+    - data/top_norms.pickle
