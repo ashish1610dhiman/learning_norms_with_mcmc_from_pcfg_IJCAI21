@@ -105,6 +105,7 @@ def gen_E0(data,env,task1,w_normative=1,time_threshold=1000):
         if log_lik > log_lik_null:
             """ Compared to log(Lik(no_norm) because for large sequences exp(log_Lik) gets to zero"""
             """ >= be cause we do rejection sampling for relevant norms below """
+            print(log_lik)
             break
             """ if isnan(relevance_factor):
                 break
@@ -116,8 +117,8 @@ def gen_E0(data,env,task1,w_normative=1,time_threshold=1000):
                     if (random.uniform()<=relevance_factor):
                         break """
         else:
-            #print(Likelihood(E_0,data,env))
-            #print("Trying another E0")
+            print(log_lik)
+            print("Trying another E0")
             E_0=expand("NORMS")
             time_flag=0
     print("Time to initialise E_0={:.4f}s".format(time.time()-s))

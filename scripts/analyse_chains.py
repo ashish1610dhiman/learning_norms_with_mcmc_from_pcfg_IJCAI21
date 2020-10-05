@@ -9,11 +9,14 @@ from collections import defaultdict
 import itertools
 import operator
 import yaml
+import math
 
-# discard warmup and split remaining halves
-#posterior_sample = prepare_sequences(chains, warmup=True)
+with open("params.yaml", 'r') as fd:
+    params = yaml.safe_load(fd)
+m = params['m']
+num_chains = math.ceil(m/2)
 
-chains_and_log_posteriors = unpickle('data/chains_and_log_posteriors.pickle')
+chains_and_log_posteriors = unpickle('data/chains_and_log_posteriors.pickle')[:num_chains]
 
 with open('metrics/chain_posteriors.csv', 'w', newline='') as csvfile, \
      open('metrics/chain_info.txt', 'w') as chain_info:

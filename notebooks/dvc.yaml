@@ -38,7 +38,6 @@ stages:
     - target_area
     outs:
     - data/chains_and_log_posteriors.pickle
-    always_changed: true
   analyse_chains:
     cmd: python scripts/analyse_chains.py
     wdir: ..
@@ -57,7 +56,6 @@ stages:
     - metrics/chain_info.txt
     plots:
     - metrics/chain_posteriors.csv
-    always_changed: true
   conv_test:
     cmd: python scripts/conv_test.py
     wdir: ..
@@ -68,7 +66,6 @@ stages:
     outs:
     - data/posterior.pickle
     - metrics/conv_test.txt
-    always_changed: true
   extract_top_norms:
     cmd: python scripts/extract_top_norms.py
     wdir: ..
@@ -83,7 +80,6 @@ stages:
     outs:
     - data/top_norms.pickle
     - metrics/precision_recall.txt
-    always_changed: true
   test_obs_log_likelihood1:
     cmd: python scripts/test_obs_likelihood.py none true
     wdir: ..
@@ -92,6 +88,7 @@ stages:
     - data/observations.pickle
     params:
     - true_norm.exp
+    always_changed: true
   test_obs_log_likelihood2:
     cmd: python scripts/test_obs_likelihood.py top
     wdir: ..
@@ -99,3 +96,4 @@ stages:
     - data/env.pickle
     - data/observations.pickle
     - data/top_norms.pickle
+    always_changed: true

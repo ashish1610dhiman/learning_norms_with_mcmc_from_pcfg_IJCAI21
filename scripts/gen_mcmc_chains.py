@@ -34,7 +34,7 @@ the_task = task(colour_specific, shape_specific,target_area)
 
 obs = unpickle('data/observations.pickle')
 
-num_chains = int(m/2+1)
+num_chains = math.ceil(m/2)
 starts, info = over_dispersed_starting_points(num_chains,obs,env,the_task,time_threshold=math.inf)
 with open('metrics/starts_info.txt', 'w') as chain_info:
     chain_info.write(info)
