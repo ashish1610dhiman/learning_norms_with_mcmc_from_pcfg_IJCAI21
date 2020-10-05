@@ -59,7 +59,7 @@ gen_observations:
     md5: 9000eb1823d338d732bd357a43f5b1ed
   params:
     params.yaml:
-      num_observations: 100
+      num_observations: 50
       obs_data_set: 1
       target_area: -0.8, 0.7 ; 0.25, 0.99
       true_norm:
@@ -92,14 +92,14 @@ gen_observations:
             - '3'
   outs:
   - path: data/observations.pickle
-    md5: 0a216a41252585365432ec58e7e2b59f
+    md5: a27de805f166999ac74843d8fb08667f
 gen_mcmc_chains:
   cmd: python scripts/gen_mcmc_chains.py
   deps:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: 0a216a41252585365432ec58e7e2b59f
+    md5: a27de805f166999ac74843d8fb08667f
   params:
     params.yaml:
       colour_specific:
@@ -116,16 +116,16 @@ gen_mcmc_chains:
       target_area: -0.8, 0.7 ; 0.25, 0.99
   outs:
   - path: data/chains_and_log_posteriors.pickle
-    md5: 1b590b202bca48ac740cd706439663ab
+    md5: fffcae616885a636189288da160b9a20
 analyse_chains:
   cmd: python scripts/analyse_chains.py
   deps:
   - path: data/chains_and_log_posteriors.pickle
-    md5: 1b590b202bca48ac740cd706439663ab
+    md5: fffcae616885a636189288da160b9a20
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: 0a216a41252585365432ec58e7e2b59f
+    md5: a27de805f166999ac74843d8fb08667f
   params:
     params.yaml:
       colour_specific:
@@ -142,29 +142,29 @@ analyse_chains:
       target_area: -0.8, 0.7 ; 0.25, 0.99
   outs:
   - path: metrics/chain_info.txt
-    md5: 96a52642a209284d6c2a93a4fad1581b
+    md5: 784df4f18c3c60fc3510f631226515d0
   - path: metrics/chain_posteriors.csv
-    md5: 4fe0d419e171ae4e619ed1be74506e31
+    md5: a63094a56817ea5bbec752dc8a76e2a1
 conv_test:
   cmd: python scripts/conv_test.py
   deps:
   - path: data/chains_and_log_posteriors.pickle
-    md5: 1b590b202bca48ac740cd706439663ab
+    md5: fffcae616885a636189288da160b9a20
   params:
     params.yaml:
       rhat_step_size: 50
   outs:
   - path: data/posterior.pickle
-    md5: acc210d64611b06eda6569ffe9fbfc83
+    md5: 93cb9008228dffa02d56784fbbe69eb2
   - path: metrics/conv_test.txt
-    md5: 016199d720f960a6c1b7da25c1dacf5e
+    md5: 66ea4936e327987cf111092fe8e983e7
 extract_top_norms:
   cmd: python scripts/extract_top_norms.py
   deps:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/posterior.pickle
-    md5: acc210d64611b06eda6569ffe9fbfc83
+    md5: 93cb9008228dffa02d56784fbbe69eb2
   params:
     params.yaml:
       colour_specific:
@@ -206,16 +206,16 @@ extract_top_norms:
             - '3'
   outs:
   - path: data/top_norms.pickle
-    md5: 0ea3c598d009de51a7b6d6d7ea05bb4a
+    md5: a644e0a392b303b53c3f9c503b6529cd
   - path: metrics/precision_recall.txt
-    md5: 3cb767fba06dca3835829cefea331868
+    md5: 6fad6e11e309df430035f1050e8dbb82
 test_obs_log_likelihood1:
   cmd: python scripts/test_obs_likelihood.py none true
   deps:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: 0a216a41252585365432ec58e7e2b59f
+    md5: a27de805f166999ac74843d8fb08667f
   params:
     params.yaml:
       true_norm.exp:
@@ -250,6 +250,6 @@ test_obs_log_likelihood2:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: 0a216a41252585365432ec58e7e2b59f
+    md5: a27de805f166999ac74843d8fb08667f
   - path: data/top_norms.pickle
-    md5: 0ea3c598d009de51a7b6d6d7ea05bb4a
+    md5: a644e0a392b303b53c3f9c503b6529cd

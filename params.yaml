@@ -1,4 +1,4 @@
-description: 5 block task; obligation (1 moved conditions) + permission norms; 100 observations
+description: 5 block task; obligation (1 moved conditions) + permission norms; 50 observations
 env_name: default
 colour_specific: ['r', 'g', 'b']
 shape_specific: ['square', 'circle', 'triangle']
@@ -6,7 +6,7 @@ target_area: -0.8, 0.7 ; 0.25, 0.99
 true_norm:
   name: default
   exp: ['Norms', ['Obl', ['Moved', ['Colour', 'b'], ['Shape', 'any'], ['Zone', '1'], ['Next-Move', ['Colour', 'any'], ['Shape', 'square']]], ['Zone', '2']], ['Per', ['Action', 'putdown'], ['Colour', 'g'], ['Shape', 'square'], ['PerZone', '3']]]
-num_observations: 100
+num_observations: 50
 obs_data_set: 1
 n: 500 #Length of sequence after discarding warm-up part and splitting in half
 m: 10 #Number of sequences after splitting in half

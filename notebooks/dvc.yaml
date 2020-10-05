@@ -23,6 +23,7 @@ stages:
     - true_norm
     outs:
     - data/observations.pickle
+    always_changed: true
   gen_mcmc_chains:
     cmd: python scripts/gen_mcmc_chains.py
     wdir: ..
