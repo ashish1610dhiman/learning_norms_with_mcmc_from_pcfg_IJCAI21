@@ -6,6 +6,7 @@ stages:
     - data/default_env.pickle
     outs:
     - data/env.pickle
+    always_changed: true
   gen_observations:
     cmd: python scripts/gen_observations.py
     wdir: ..

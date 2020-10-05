@@ -10,7 +10,7 @@ from pickle_wrapper import unpickle, pickle_it
 from mcmc_norm_learning.algorithm_1_v4 import create_data
 from mcmc_norm_learning.rules_4 import get_prob, get_log_prob
 from mcmc_norm_learning.environment import position
-from mcmc_norm_learning.robot_task_new import task
+from mcmc_norm_learning.robot_task_new import task, robot
 
 with open("params.yaml", 'r') as fd:
     params = yaml.safe_load(fd)
@@ -25,9 +25,15 @@ target_area_parts = params['target_area'].replace(' ','').split(';')
 target_area_part0 = position(*map(float, target_area_parts[0].split(',')))
 target_area_part1 = position(*map(float, target_area_parts[1].split(',')))
 target_area = (target_area_part0, target_area_part1)
+print(target_area_part0.coordinates())
+print(target_area_part1.coordinates())
 the_task = task(colour_specific, shape_specific,target_area)
 
 env = unpickle('data/env.pickle')
+
+rob = robot(the_task,env)
+actionable = rob.all_actionable()
+print(actionable)
 
 true_norm_prior = get_prob("NORMS",true_norm_exp) 
 true_norm_log_prior = get_log_prob("NORMS",true_norm_exp) 
