@@ -1,9 +1,10 @@
 description: >-
-  12 block task; more generic obligation (1 moved conditions) + permission norms; 50 observations
+  Same as exp 9, but with 5 block task.
+  5 block task; more generic obligation (1 moved conditions) + permission norms; 50 observations
 env_name: default
 colour_specific: ['r', 'g', 'b']
 shape_specific: ['square', 'circle', 'triangle']
-target_area: -0.8, 0.4 ; 0.7, 0.99
+target_area: -0.8, 0.7 ; 0.25, 0.99
 true_norm:
   name: default
   exp: ['Norms', ['Obl', ['Moved', ['Colour', 'r'], ['Shape', 'any'], ['Zone', '1'], ['Next-Move', ['Colour', 'any'], ['Shape', 'any']]], ['Zone', '2']], ['Per', ['Action', 'putdown'], ['Colour', 'any'], ['Shape', 'square'], ['PerZone', '3']]]

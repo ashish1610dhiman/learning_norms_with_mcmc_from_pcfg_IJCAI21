@@ -169,7 +169,7 @@ test_obs_log_likelihood1:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: 040abb637bbc8745fbff4b4b91155459
+    md5: b4a3af8ac15b9b2112b2b9fef6b607c9
   params:
     params.yaml:
       true_norm.exp:
