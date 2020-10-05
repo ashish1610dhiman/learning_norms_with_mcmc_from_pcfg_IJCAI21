@@ -2,11 +2,6 @@ stages:
   gen_env:
     cmd: python scripts/gen_env.py
     wdir: ..
-    params:
-    - colour_specific
-    - shape_specific
-    - target_area
-    - true_norm
     deps:
     - data/default_env.pickle
     outs:
