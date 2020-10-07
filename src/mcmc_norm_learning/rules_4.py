@@ -53,11 +53,11 @@ p_dict["ACTION"]={"Action":1}
 p_dict["COLOUR"]={"Colour":1}
 p_dict["SHAPE"]={"Shape":1}
 
-q_dict={"Colour":{"r":1/4,"g":1/4,"b":1/4,"any":1/4},
-        "Shape":{"triangle":1/4,"square":1/4,"circle":1/4,"any":1/4},
+q_dict={"Colour":{"r":1/6,"g":1/6,"b":1/6,"any":1/2},
+        "Shape":{"triangle":1/6,"square":1/6,"circle":1/6,"any":1/2},
         "Action":{"putdown":1},
         "Zone":{'1':1/3,'2':1/3,'3':1/3},
-        "PerZone":{'1':1/4,'2':1/4,'3':1/4,'any':1/4},
+        "PerZone":{'1':1/6,'2':1/6,'3':1/6,'any':1/2},
         "No-norm": {'true':1}}
 
 def colours_set():

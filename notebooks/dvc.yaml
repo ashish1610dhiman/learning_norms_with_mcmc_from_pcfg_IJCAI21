@@ -35,7 +35,6 @@ stages:
     - target_area
     outs:
     - data/chains_and_log_posteriors.pickle
-    always_changed: true
   analyse_chains:
     cmd: python scripts/analyse_chains.py
     wdir: ..
