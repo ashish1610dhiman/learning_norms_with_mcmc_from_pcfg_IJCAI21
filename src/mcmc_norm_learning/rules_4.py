@@ -27,7 +27,8 @@ from functools import reduce
 
     
 rule_dict={}
-rule_dict["NORMS"]={"Norms":["NORM1","NORM2"],
+rule_dict["NORMS"]={"No-norm":[],
+                    "Norms":["NORM1","NORM2"],
                     "Norm":["NORM1"]}
 rule_dict["NORM1"]={"Obl":["COND","ZONE"],
                     "Pro":["ACTION","COLOUR","SHAPE","ZONE"]}
@@ -42,10 +43,10 @@ rule_dict["COLOUR"]={"Colour":[]}
 rule_dict["SHAPE"]={"Shape":[]}
 
 p_dict={}
-p_dict["NORMS"]={"Norms":0.5,"Norm":0.5}
+p_dict["NORMS"]={"No-norm": 0.5,"Norms":0.25,"Norm":0.25}
 p_dict["NORM1"]={"Obl":1/2,"Pro":1/2}
 p_dict["NORM2"]={"Per":1}
-p_dict["COND"]={"Moved":1/2,"Next-Move":1/2}
+p_dict["COND"]={"Moved":1/3,"Next-Move":2/3}
 p_dict["ZONE"]={"Zone":1}
 p_dict["PERZONE"]={"PerZone":1}
 p_dict["ACTION"]={"Action":1}
@@ -56,7 +57,8 @@ q_dict={"Colour":{"r":1/4,"g":1/4,"b":1/4,"any":1/4},
         "Shape":{"triangle":1/4,"square":1/4,"circle":1/4,"any":1/4},
         "Action":{"putdown":1},
         "Zone":{'1':1/3,'2':1/3,'3':1/3},
-        "PerZone":{'1':1/4,'2':1/4,'3':1/4,'any':1/4}}
+        "PerZone":{'1':1/4,'2':1/4,'3':1/4,'any':1/4},
+        "No-norm": {'true':1}}
 
 def colours_set():
     return {'r','g','b'}
@@ -98,7 +100,7 @@ def expand_probability(non_terminal,expression):
     if is_not_recursive(nts)==0:
             return ([p_dict[non_terminal][expression[0]]]+[expand_probability(nt,expression[i]) for i,nt in enumerate(nts,1)])
     else:
-        return (q_dict[expression[0]][expression[1]])
+        return p_dict[non_terminal][expression[0]] * q_dict[expression[0]][expression[1]]
         
 
 def flatten_all(iterable):

@@ -33,7 +33,7 @@ def performance(task1,env,true_expression,learned_expressions,folder_name="top_e
 	#Genearte original data from the task
 	#true_data=all_compliant(true_expression,task1,deepcopy(env),"{}/precision_recall/true_{}".format(folder_name,file_name),verbose=False)
 	true_data = create_data(true_expression,env,name=None,task=task1,random_task=False,
-                num_actionable=np.nan,num_repeat=repeat,verbose=False)
+                num_actionable=np.nan,num_repeat=repeat,verbose=verbose)
 	print(f"true_data[0]: {true_data[0]}")
 	#Sort the learned expresions and select top_n out of them
 	if np.isnan(top_n):
@@ -48,7 +48,7 @@ def performance(task1,env,true_expression,learned_expressions,folder_name="top_e
 		result["weight"].append(exp[1]/t)
 		#predicted_data=all_compliant(exp[0],task1,deepcopy(env),"{}/precision_recall/{}_{}".format(folder_name,file_name,rank),verbose=False)
 		predicted_data = create_data(exp[0],env,name=None,task=task1,random_task=False,
-                num_actionable=np.nan,num_repeat=repeat,verbose=False)
+                num_actionable=np.nan,num_repeat=repeat,verbose=verbose)
 		print(f"predicted_data[0]: {predicted_data[0]}")
 		p,r=calculate_pr(true_data,predicted_data)
 		result["precision"].append(p)

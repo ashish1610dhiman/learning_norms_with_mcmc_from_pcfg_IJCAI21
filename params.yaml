@@ -1,5 +1,5 @@
 description: >-
-  Same as exp 9, but with 5 block task.
+  Same as exp 8, but with 5 block task, no E0 no-norm ll filter, no-norm in grammar and prod. probs. changed
   5 block task; more generic obligation (1 moved conditions) + permission norms; 50 observations
 env_name: default
 colour_specific: ['r', 'g', 'b']

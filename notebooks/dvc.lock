@@ -53,7 +53,7 @@ gen_mcmc_chains:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: 040abb637bbc8745fbff4b4b91155459
+    md5: 1ee36b321de40548390e6d2ce4ade9a1
   params:
     params.yaml:
       colour_specific:
@@ -67,10 +67,10 @@ gen_mcmc_chains:
       - square
       - circle
       - triangle
-      target_area: -0.8, 0.4 ; 0.7, 0.99
+      target_area: -0.8, 0.7 ; 0.25, 0.99
   outs:
   - path: data/chains_and_log_posteriors.pickle
-    md5: 7dc2a0cb6582919d41d723f927f091b7
+    md5: 06e5cd2b810ae42f297d923145278841
 analyse_chains:
   cmd: python scripts/analyse_chains.py
   deps:
@@ -169,7 +169,7 @@ test_obs_log_likelihood1:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: b4a3af8ac15b9b2112b2b9fef6b607c9
+    md5: 1ee36b321de40548390e6d2ce4ade9a1
   params:
     params.yaml:
       true_norm.exp:
@@ -204,6 +204,6 @@ test_obs_log_likelihood2:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: c8b7ee4da76fc9086f3ab0eb854437c7
+    md5: 1ee36b321de40548390e6d2ce4ade9a1
   - path: data/top_norms.pickle
-    md5: e93aaf6e0b9ea06e1dcb41b313a079fa
+    md5: 87c52dcb09a18428977707ebe16db3eb

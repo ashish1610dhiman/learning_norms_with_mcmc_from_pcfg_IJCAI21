@@ -18,7 +18,7 @@ import sys
 import os.path
 import time
 import math
-from tqdm import tnrange, tqdm_notebook
+from tqdm import tqdm, tnrange, tqdm_notebook
 import os,glob,random
 from collections import Counter, defaultdict
 import dask
@@ -66,7 +66,8 @@ def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_tas
             for f in glob.glob("./{}/{}/*".format(name,folder)):
                 os.chmod(f, 0o777)
                 os.remove(f)
-    for itr in tnrange(num_repeat,desc="Repetition of Task"):
+    #for itr in tnrange(num_repeat,desc="Repetition of Task"):
+    for itr in tqdm(range(num_repeat),desc="Repetition of Task"):
         #time.sleep(0.01) # WHY IS THIS HERE?
         env_copy=deepcopy(env)
         if name != None:
@@ -102,7 +103,8 @@ def gen_E0(data,env,task1,w_normative=1,time_threshold=1000):
         iterations += 1
         time_flag=1
         log_lik = Likelihood(E_0,task1,data,env,w_normative)
-        if log_lik > log_lik_null:
+        if log_lik != -math.inf:
+        # if log_lik > log_lik_null:
             """ Compared to log(Lik(no_norm) because for large sequences exp(log_Lik) gets to zero"""
             """ >= be cause we do rejection sampling for relevant norms below """
             print(log_lik)
@@ -181,11 +183,12 @@ def algorithm_1(data,env,task1,q_dict,rule_dict,filename="mcmc_report",start=Non
     #if exists==True:
     #    os.remove('./{}.txt'.format(filename))
     log_lik_no_norm = Likelihood([],task1,data,env,w_normative)
-    for i in tnrange(1,max_iterations,desc="Length of Sequence"):
+    #for i in tnrange(1,max_iterations,desc="Length of Sequence"):
+    for i in tqdm(range(1,max_iterations),desc="Length of Sequence"):
         if verbose:
             print ("\n--------------Iteration={}--------------".format(i))
         #sys.stdout = open('./{}.txt'.format(filename), 'a+')
-        if i==1:
+        if verbose and i==1:
             print ("\n-----------E0 chosen is:---------------")
             print_expression(E_0)
             print ("----------------------------------------")
@@ -195,7 +198,7 @@ def algorithm_1(data,env,task1,q_dict,rule_dict,filename="mcmc_report",start=Non
         #print_expression(sequence[-1])
         #lik_list.append(exp(Likelihood(sequence[-1],task1,data,env,w_normative)))
         lik_list.append(Likelihood(sequence[-1],task1,data,env,w_normative))
-        print ("===================================================================")
+        #print ("===================================================================")
         #sys.stdout=original
     return (sequence,lik_list)
     

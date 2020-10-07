@@ -7,7 +7,8 @@ Created on Thu Jun  6 09:35:38 2019
 
 from algorithm_2_utilities import generate_A,sever,fill_hole,Likelihood
 from relevance import is_relevant
-from numpy import random,exp,log,isnan
+from numpy import exp,log,isnan #random - doesn't like choosing from [()]
+import random
 from rules_4 import expand,expand_probability
 from cosine_sim import cos_theta
 
@@ -20,6 +21,8 @@ def generate_new_expression(expression,data,task1,q_dict,rule_dict,env,log_lik_n
     #print_expression(expression)
     #Step 2
     Ae=list(generate_A(expression))
+    #print(f'Expression {expression} has indices {Ae}')
+    #print(type(Ae[0]))
     a=random.choice(Ae)
     #print ("Node chosen={}".format(a))
     #Step 3
@@ -37,8 +40,8 @@ def generate_new_expression(expression,data,task1,q_dict,rule_dict,env,log_lik_n
     old_log_lik = Likelihood(expression,task1,data,env,w_normative)
     #Step_7
     new_log_lik = Likelihood(E_new,task1,data,env,w_normative)
-    print ("Old Expression: Log-Likelihood={}".format(old_log_lik))
-    print ("New Expression: Log-Likelihood={}".format(new_log_lik))
+    #print ("Old Expression: Log-Likelihood={}".format(old_log_lik))
+    #print ("New Expression: Log-Likelihood={}".format(new_log_lik))
     #Step_8
     Ae_new=list(generate_A(E_new))
     #Adjusting for relevance of norms
@@ -56,7 +59,7 @@ def generate_new_expression(expression,data,task1,q_dict,rule_dict,env,log_lik_n
     adjusting_factor=1
     if sim>=sim_threshold:
         adjusting_factor=similarity_penalty
-    print ("Adjusting factor:{}".format(adjusting_factor))
+    #print ("Adjusting factor:{}".format(adjusting_factor))
     """
     if isnan(relevance_factor)==False:
         p_accept_adjust_numerator_log = log(relevance_factor) if new_log_lik <= log_lik_no_norm else 0
@@ -64,15 +67,15 @@ def generate_new_expression(expression,data,task1,q_dict,rule_dict,env,log_lik_n
         factor_log = p_accept_adjust_numerator_log - p_accept_adjust_denominator_log
     else:
         factor_log = 0
-    print("log(factor) = {}".format(factor_log))
+    #print("log(factor) = {}".format(factor_log))
     # p_accept = min(1, factor * ((len(Ae)) / len(Ae_new)) * new_log_lik / old_log_lik)
     log_p_accept = min(0, factor_log + log(len(Ae)) - log(len(Ae_new)) + new_log_lik - old_log_lik)
-    print("log(p_accept)={:.7f}".format(log_p_accept))
+    #print("log(p_accept)={:.7f}".format(log_p_accept))
     #Step 9
-    r_log=log(random.uniform())
+    r_log=log(random.random())
     if r_log < log_p_accept:
-        print ("E_new accepted")
+        #print ("E_new accepted")
         return (E_new)
     else:
-        print ("E_new rejected")
+        #print ("E_new rejected")
         return (expression)

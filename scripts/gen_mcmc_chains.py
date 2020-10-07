@@ -2,7 +2,8 @@ import sys
 sys.path.append('src')
 
 import yaml
-from tqdm.notebook import trange
+import tqdm
+#from tqdm.notebook import tqdm, trange
 import pickle
 import csv
 import math
@@ -54,7 +55,22 @@ def delayed_alg1(obs,env,the_task,q_dict,rule_dict,start,rf,max_iters):
     return {'chain': exp_seq, 'log_posteriors': log_posteriors}
 
 chains_and_log_posteriors=[]
-for i in trange(1,num_chains,desc="Loop for Individual Chains"):
-    chains_and_log_posteriors.append(
-        delayed_alg1(obs,env,the_task,q_dict,rule_dict,starts[i],rf,4*n))
-pickle_it(dask.compute(*chains_and_log_posteriors), 'data/chains_and_log_posteriors.pickle')
+#for i in trange(1,num_chains,desc="Loop for Individual Chains"):
+for i in tqdm.tqdm(range(num_chains),desc="Loop for Individual Chains"):
+    #chains_and_log_posteriors.append(
+    #    delayed_alg1(obs,env,the_task,q_dict,rule_dict,starts[i],rf,4*n))
+    # Replaced with all the lines in the loop body below:
+    exp_seq,log_likelihoods = algorithm_1(obs,env,the_task,q_dict,rule_dict,
+                                        "dummy value",
+                                        start = starts[i],
+                                        relevance_factor=rf,max_iterations=4*n,verbose=False)
+    log_posteriors = [None]*len(exp_seq)
+    for i in range(len(exp_seq)):
+        exp = exp_seq[i]
+        ll = log_likelihoods[i]
+        log_prior = get_log_prob("NORMS",exp) # Note: this imports the rules dict from rules_4.py
+        log_posteriors[i] = log_prior + ll
+    chains_and_log_posteriors.append({'chain': exp_seq, 'log_posteriors': log_posteriors})
+#pickle_it(dask.compute(*chains_and_log_posteriors), 'data/chains_and_log_posteriors.pickle')
+pickle_it(chains_and_log_posteriors, 'data/chains_and_log_posteriors.pickle')
+
