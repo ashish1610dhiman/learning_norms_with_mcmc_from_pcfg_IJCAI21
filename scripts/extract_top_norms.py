@@ -28,7 +28,7 @@ true_expression = params['true_norm']['exp']
 
 posterior_sample = unpickle('data/posterior.pickle')
 learned_expressions=Counter(map(to_tuple, posterior_sample))
-n = 20
+n = 5
 top_norms_with_freq = learned_expressions.most_common(n)
 top_norms = list(map(operator.itemgetter(0), top_norms_with_freq))
 pickle_it(top_norms, 'data/top_norms.pickle')
@@ -56,7 +56,7 @@ with open('metrics/precision_recall.txt', 'w') as f:
 # Calculate precision and recall of top_n norms from learned expressions
 pr_result=performance(the_task,env,true_expression,learned_expressions,
                         folder_name="temp",file_name="top_norm",
-                        top_n=n,beta=1,repeat=50000,verbose=False)
+                        top_n=n,beta=1,repeat=100000,verbose=False)
 
 with open('metrics/precision_recall.txt', 'a') as f:
     f.write(pr_result.to_string())

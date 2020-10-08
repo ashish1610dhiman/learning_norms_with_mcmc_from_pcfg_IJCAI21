@@ -162,9 +162,9 @@ extract_top_norms:
             - '3'
   outs:
   - path: data/top_norms.pickle
-    md5: a80055a3fee604b54649b312b5c4eb99
+    md5: 480b3c4b3f2023169b562047c4aa3979
   - path: metrics/precision_recall.txt
-    md5: dae7e51ff0ad5076da42de56b6ade779
+    md5: b146de9e0c82c071904e6ce136c5acfd
 test_obs_log_likelihood1:
   cmd: python scripts/test_obs_likelihood.py none true
   deps:
