@@ -6,7 +6,6 @@ stages:
     - data/default_env.pickle
     outs:
     - data/env.pickle
-    always_changed: true
   gen_observations:
     cmd: python scripts/gen_observations.py
     wdir: ..
@@ -19,7 +18,6 @@ stages:
     - true_norm
     outs:
     - data/observations.pickle
-    always_changed: true
   gen_mcmc_chains:
     cmd: python scripts/gen_mcmc_chains.py
     wdir: ..
@@ -69,6 +67,7 @@ stages:
     deps:
     - data/env.pickle
     - data/posterior.pickle
+    - metrics/chain_posteriors.csv
     params:
     - colour_specific
     - shape_specific
@@ -77,6 +76,7 @@ stages:
     outs:
     - data/top_norms.pickle
     - metrics/precision_recall.txt
+    always_changed: true
   test_obs_log_likelihood1:
     cmd: python scripts/test_obs_likelihood.py none true
     wdir: ..
@@ -85,7 +85,6 @@ stages:
     - data/observations.pickle
     params:
     - true_norm.exp
-    always_changed: true
   test_obs_log_likelihood2:
     cmd: python scripts/test_obs_likelihood.py top
     wdir: ..
@@ -93,4 +92,3 @@ stages:
     - data/env.pickle
     - data/observations.pickle
     - data/top_norms.pickle
-    always_changed: true
