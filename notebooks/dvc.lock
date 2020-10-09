@@ -103,9 +103,9 @@ extract_top_norms:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/posterior.pickle
-    md5: e7b5b795680c295a287393c619f5a094
+    md5: 6093be73dfb810368ed3c43a250826d1
   - path: metrics/chain_posteriors.csv
-    md5: bf6b2aab16705f1b37f660ea8c701e6f
+    md5: eb7c8d112c28c15c5e6ce63f47b7d950
   params:
     params.yaml:
       colour_specific:
@@ -120,21 +120,36 @@ extract_top_norms:
       true_norm:
         name: default
         exp:
-        - Norm
-        - - Pro
+        - Norms
+        - - Obl
+          - - Moved
+            - - Colour
+              - r
+            - - Shape
+              - any
+            - - Zone
+              - '1'
+            - - Next-Move
+              - - Colour
+                - any
+              - - Shape
+                - any
+          - - Zone
+            - '2'
+        - - Per
           - - Action
             - putdown
           - - Colour
-            - g
+            - any
           - - Shape
             - square
-          - - Zone
-            - '1'
+          - - PerZone
+            - '3'
   outs:
   - path: data/top_norms.pickle
-    md5: fc5c7172b3c8b376c5f080ed31cceed9
+    md5: 188301dcf15470099e00d97bb107dae1
   - path: metrics/precision_recall.txt
-    md5: fc6651084b6587cdbbb91da87bca95ef
+    md5: 5659d2af6c105c2f83004eb27c1545b2
 test_obs_log_likelihood1:
   cmd: python scripts/test_obs_likelihood.py none true
   deps:
@@ -176,6 +191,6 @@ test_obs_log_likelihood2:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: 0772d00f8357fc852891427de1690a36
+    md5: cbad2e4441200d05bbe6db46c58e1eb6
   - path: data/top_norms.pickle
-    md5: fc5c7172b3c8b376c5f080ed31cceed9
+    md5: 188301dcf15470099e00d97bb107dae1
