@@ -38,7 +38,7 @@ gen_mcmc_chains:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: 0772d00f8357fc852891427de1690a36
+    md5: cbad2e4441200d05bbe6db46c58e1eb6
   params:
     params.yaml:
       colour_specific:
@@ -46,7 +46,7 @@ gen_mcmc_chains:
       - g
       - b
       m: 10
-      n: 500
+      n: 5000
       rf: 0.6
       shape_specific:
       - square
@@ -55,16 +55,16 @@ gen_mcmc_chains:
       target_area: -0.8, 0.7 ; 0.25, 0.99
   outs:
   - path: data/chains_and_log_posteriors.pickle
-    md5: de7497b22359f7576b609cbeabb98747
+    md5: c0e852bf2076d31ada7455f5da8319d8
 analyse_chains:
   cmd: python scripts/analyse_chains.py
   deps:
   - path: data/chains_and_log_posteriors.pickle
-    md5: de7497b22359f7576b609cbeabb98747
+    md5: c0e852bf2076d31ada7455f5da8319d8
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: 0772d00f8357fc852891427de1690a36
+    md5: cbad2e4441200d05bbe6db46c58e1eb6
   params:
     params.yaml:
       colour_specific:
@@ -72,7 +72,7 @@ analyse_chains:
       - g
       - b
       m: 10
-      n: 500
+      n: 5000
       rf: 0.6
       shape_specific:
       - square
@@ -81,22 +81,22 @@ analyse_chains:
       target_area: -0.8, 0.7 ; 0.25, 0.99
   outs:
   - path: metrics/chain_info.txt
-    md5: 38f758e4dfed6f1277767355e4e3a6af
+    md5: fdfd23170572b74a0728cdf089acc776
   - path: metrics/chain_posteriors.csv
-    md5: bf6b2aab16705f1b37f660ea8c701e6f
+    md5: eb7c8d112c28c15c5e6ce63f47b7d950
 conv_test:
   cmd: python scripts/conv_test.py
   deps:
   - path: data/chains_and_log_posteriors.pickle
-    md5: de7497b22359f7576b609cbeabb98747
+    md5: c0e852bf2076d31ada7455f5da8319d8
   params:
     params.yaml:
       rhat_step_size: 50
   outs:
   - path: data/posterior.pickle
-    md5: e7b5b795680c295a287393c619f5a094
+    md5: 6093be73dfb810368ed3c43a250826d1
   - path: metrics/conv_test.txt
-    md5: 602ace0e1b43d706aab1a2d8ba82341b
+    md5: e6e63e07c3acd92a2acba6e80a7eef7c
 extract_top_norms:
   cmd: python scripts/extract_top_norms.py
   deps:
@@ -141,20 +141,35 @@ test_obs_log_likelihood1:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: 0772d00f8357fc852891427de1690a36
+    md5: cbad2e4441200d05bbe6db46c58e1eb6
   params:
     params.yaml:
       true_norm.exp:
-      - Norm
-      - - Pro
+      - Norms
+      - - Obl
+        - - Moved
+          - - Colour
+            - r
+          - - Shape
+            - any
+          - - Zone
+            - '1'
+          - - Next-Move
+            - - Colour
+              - any
+            - - Shape
+              - any
+        - - Zone
+          - '2'
+      - - Per
         - - Action
           - putdown
         - - Colour
-          - g
+          - any
         - - Shape
           - square
-        - - Zone
-          - '1'
+        - - PerZone
+          - '3'
 test_obs_log_likelihood2:
   cmd: python scripts/test_obs_likelihood.py top
   deps:

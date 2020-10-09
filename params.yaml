@@ -1,5 +1,5 @@
 description: >-
-  Same as exp 9, but with a single prohibition norm
+  Same as exp 11, but with extra long chain length: n = 5000
   5 block task, no E0 no-norm ll filter, no-norm in grammar and prod. probs. changed; more generic obligation (1 moved conditions, mostly 'any') + permission norms; 50 observations
 env_name: default
 colour_specific: ['r', 'g', 'b']
@@ -7,10 +7,10 @@ shape_specific: ['square', 'circle', 'triangle']
 target_area: -0.8, 0.7 ; 0.25, 0.99
 true_norm:
   name: default
-  exp: ['Norm', ['Pro', ['Action', 'putdown'], ['Colour', 'g'], ['Shape', 'square'], ['Zone', '1']]]
+  exp: ['Norms', ['Obl', ['Moved', ['Colour', 'r'], ['Shape', 'any'], ['Zone', '1'], ['Next-Move', ['Colour', 'any'], ['Shape', 'any']]], ['Zone', '2']], ['Per', ['Action', 'putdown'], ['Colour', 'any'], ['Shape', 'square'], ['PerZone', '3']]]
 num_observations: 50
 obs_data_set: 1
-n: 500 #Length of sequence after discarding warm-up part and splitting in half
+n: 5000 #Length of sequence after discarding warm-up part and splitting in half
 m: 10 #Number of sequences after splitting in half
 rf: 0.6
 rhat_step_size: 50
