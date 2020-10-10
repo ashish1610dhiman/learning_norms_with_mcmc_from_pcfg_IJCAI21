@@ -1,0 +1,653 @@
+Number of chains: 5
+Length of each chain: 4000
+Num. expressions in chain 0: 66
+Expressions by decreasing log posterior
+lp = -13639.611361887388 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any'))))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'square'))))), ('Zone', '1')))
+
+lp = -13640.709974176056 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'square'))))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any'))))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'square'))))), ('Zone', '1')))
+
+lp = -13641.808586464724 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'square'))))), ('Zone', '1')))
+
+lp = -13694.541976320781 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any'))))), ('Zone', '1')))
+
+lp = -13695.640588609449 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'square'))))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any'))))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any'))))), ('Zone', '1')))
+
+lp = -13696.739200898117 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'square'))))), ('Zone', '1')))
+
+lp = -13733.346755531122 [1 exps]:
+    ('No-norm', 'true')
+
+lp = -13739.297398083709 [1 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13739.415181119366 [6 exps]:
+    ('Norm', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '2')))
+    ('Norm', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'triangle'), ('Zone', '2')))
+    ('Norm', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '1')))
+    ('Norm', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'triangle'), ('Zone', '1')))
+    ('Norm', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '3')))
+    ('Norm', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'triangle'), ('Zone', '3')))
+
+lp = -13739.820646227474 [11 exps]:
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')), ('Zone', '3')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle')), ('Zone', '1')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')), ('Zone', '2')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle')), ('Zone', '2')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')), ('Zone', '3')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'circle')), ('Zone', '3')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'circle')), ('Zone', '2')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'square')), ('Zone', '2')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'circle')), ('Zone', '1')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'square')), ('Zone', '1')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'square')), ('Zone', '3')))
+
+lp = -13740.396010372377 [3 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13741.494622661046 [2 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('PerZone', 'any')))
+
+lp = -13742.593234949714 [8 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('PerZone', 'any')))
+
+lp = -13743.691847238382 [8 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'circle'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '3')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '3')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'square'), ('PerZone', 'any')))
+
+lp = -13744.79045952705 [5 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'triangle'), ('PerZone', '1')))
+
+lp = -13750.571203042842 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any'))))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any'))))), ('Zone', '2')))
+
+lp = -13751.66981533151 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))))), ('Zone', '2')))
+
+lp = -13752.768427620178 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle'))))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '2'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle'))))), ('Zone', '2')))
+
+lp = -13753.867039908846 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle'))))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle'))))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '2'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle'))))), ('Zone', '2')))
+
+
+Num. expressions in chain 1: 62
+Expressions by decreasing log posterior
+lp = -13645.215941969302 [3 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+
+lp = -13646.31455425797 [12 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'square'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'square'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '1')))
+
+lp = -13647.413166546638 [15 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'square'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'square'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'square'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'square'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', '1')))
+
+lp = -13648.511778835305 [7 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'square'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'square'), ('PerZone', '1')))
+
+lp = -13711.005521485064 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+
+lp = -13712.104133773732 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '1')))
+
+lp = -13733.346755531122 [1 exps]:
+    ('No-norm', 'true')
+
+lp = -13739.702863191818 [1 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'any'), ('Shape', 'any')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13740.801475480486 [1 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'any'), ('Shape', 'square')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13741.900087769154 [5 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'square')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle')), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'square')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+
+lp = -13742.998700057822 [5 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'square')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+
+lp = -13744.09731234649 [4 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'square')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '1')))
+
+lp = -13745.195924635158 [3 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'square'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'square')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'square'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'square'), ('PerZone', '1')))
+
+lp = -13750.165737934734 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+
+lp = -13750.97666815095 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'square'), ('Zone', '2'), ('Next-Move', ('Colour', 'r'), ('Shape', 'square'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'square'), ('PerZone', '1')))
+
+lp = -13751.552032295855 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+
+
+Num. expressions in chain 2: 76
+Expressions by decreasing log posterior
+lp = -13358.88986413218 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')))
+
+lp = -13359.988476420847 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '2')))
+
+lp = -13361.087088709515 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '2')))
+
+lp = -13413.820478565573 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle'))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any'))), ('Zone', '2')))
+
+lp = -13688.473550732537 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'any'))), ('Zone', '3')))
+
+lp = -13689.572163021205 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'triangle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'any'))), ('Zone', '3')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'square'))), ('Zone', '3')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'square'))), ('Zone', '3')))
+
+lp = -13690.670775309873 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'triangle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'square'))), ('Zone', '3')))
+
+lp = -13692.057069670993 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '1'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '3')))
+
+lp = -13693.15568195966 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '1'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any')))), ('Zone', '3')))
+
+lp = -13733.346755531122 [1 exps]:
+    ('No-norm', 'true')
+
+lp = -13739.415181119366 [3 exps]:
+    ('Norm', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'triangle'), ('Zone', '1')))
+    ('Norm', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'triangle'), ('Zone', '3')))
+    ('Norm', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '1')))
+
+lp = -13739.820646227474 [3 exps]:
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')), ('Zone', '2')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle')), ('Zone', '1')))
+    ('Norm', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle')), ('Zone', '2')))
+
+lp = -13740.396010372377 [1 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13740.801475480486 [1 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'any'), ('Shape', 'square')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13741.494622661046 [2 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13741.900087769154 [1 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'b'), ('Shape', 'square')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13742.593234949714 [3 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13743.40416516593 [4 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'g'), ('Shape', 'circle'))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'circle'))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle'))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle'))), ('Zone', '1')))
+
+lp = -13743.691847238382 [6 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('PerZone', '2')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('PerZone', '2')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('PerZone', 'any')))
+
+lp = -13744.384994418942 [2 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '2'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13744.502777454598 [4 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'triangle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'triangle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '1')))
+
+lp = -13744.79045952705 [4 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'circle'), ('PerZone', '3')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'circle'), ('PerZone', '2')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'circle'), ('PerZone', '3')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', '2')))
+
+lp = -13745.48360670761 [5 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'b'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '2'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '2'), ('Next-Move', ('Colour', 'any'), ('Shape', 'square'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13745.601389743266 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '1')))
+
+lp = -13746.582218996278 [2 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'circle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '2'), ('Next-Move', ('Colour', 'b'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13746.987684104386 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'circle')))), ('Zone', '1')))
+
+lp = -13747.680831284946 [9 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'circle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '2'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '2'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '2'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '2'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '2'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '2'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'circle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13748.086296393054 [4 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'circle')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13748.779443573614 [2 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'circle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13749.184908681722 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'circle')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'circle')))), ('Zone', '1')))
+
+
+Num. expressions in chain 3: 119
+Expressions by decreasing log posterior
+lp = -12708.1121448758 [2 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))
+
+lp = -12709.210757164468 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))
+
+lp = -13031.385619073504 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', 'any')))
+
+lp = -13362.067917962528 [9 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13363.166530251196 [27 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'circle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'circle'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'any'), ('PerZone', '3')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', '3')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'square'), ('PerZone', 'any')))
+
+lp = -13364.265142539864 [17 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'circle'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('PerZone', '3')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'triangle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'circle'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'triangle'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'triangle'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'circle'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('PerZone', '3')))
+
+lp = -13365.363754828531 [3 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'triangle'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'triangle'), ('PerZone', '3')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'triangle'), ('PerZone', '2')))
+
+lp = -13416.99853239592 [2 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13582.195840804206 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13583.294453092874 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13584.393065381542 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13638.225067526268 [5 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')))), ('Zone', '1')))
+
+lp = -13639.323679814936 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'circle')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'circle')))), ('Zone', '1')))
+
+lp = -13692.057069670993 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13693.15568195966 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13694.254294248329 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13733.346755531122 [1 exps]:
+    ('No-norm', 'true')
+
+lp = -13739.297398083709 [2 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13739.702863191818 [2 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'any'), ('Shape', 'any')), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'any'), ('Shape', 'any')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13740.396010372377 [1 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13740.801475480486 [1 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'any')), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13741.494622661046 [4 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13741.900087769154 [1 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'circle')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13742.593234949714 [3 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'square'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'square'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13742.998700057822 [1 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'circle')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13744.09731234649 [1 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'g'), ('Shape', 'circle')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '2')))
+
+lp = -13746.582218996278 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'circle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+
+lp = -13747.680831284946 [6 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'circle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'square'), ('Zone', '2'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'square'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'r'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+
+lp = -13748.779443573614 [3 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'g'), ('Shape', 'any'), ('PerZone', '2')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '2')))
+
+lp = -13749.067125646066 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'any')))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13751.264350223402 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13752.36296251207 [3 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+
+lp = -13753.461574800738 [5 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '2'), ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', '1')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'b'), ('Shape', 'circle'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', 'any')))
+
+
+Num. expressions in chain 4: 57
+Expressions by decreasing log posterior
+lp = -13582.195840804206 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13583.294453092874 [4 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13584.393065381542 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13637.1264552376 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13638.225067526268 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'square'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '1'), ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13692.057069670993 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13693.15568195966 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'b'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any')))), ('Zone', '1')))
+
+lp = -13733.346755531122 [1 exps]:
+    ('No-norm', 'true')
+
+lp = -13739.702863191818 [1 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'any'), ('Shape', 'any')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13740.396010372377 [1 exps]:
+    ('Norms', ('Pro', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13740.801475480486 [2 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'any'), ('Shape', 'circle')), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13742.998700057822 [3 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'b'), ('Shape', 'triangle')), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'triangle'), ('PerZone', 'any')))
+
+lp = -13743.40416516593 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')))
+
+lp = -13744.09731234649 [3 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '3')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', '3')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'triangle'), ('PerZone', 'any')))
+
+lp = -13744.384994418942 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13744.502777454598 [3 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'square'), ('Zone', '2'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '3')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'triangle'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'circle'))), ('Zone', '1')))
+
+lp = -13745.195924635158 [2 exps]:
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'circle'), ('PerZone', '3')))
+    ('Norms', ('Obl', ('Next-Move', ('Colour', 'b'), ('Shape', 'circle')), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'circle'), ('PerZone', '3')))
+
+lp = -13745.601389743266 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '2'), ('Next-Move', ('Colour', 'g'), ('Shape', 'circle'))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'circle'))), ('Zone', '2')))
+
+lp = -13746.987684104386 [4 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')))), ('Zone', '3')))
+
+lp = -13747.680831284946 [1 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'square'), ('Zone', '3'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13748.086296393054 [5 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '2')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'triangle'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'square')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '2'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')))), ('Zone', '1')))
+
+lp = -13748.779443573614 [3 exps]:
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'square'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'triangle'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'square'), ('Zone', '3'), ('Next-Move', ('Colour', 'g'), ('Shape', 'square'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+    ('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'square'), ('Zone', '3'), ('Next-Move', ('Colour', 'r'), ('Shape', 'square'))), ('Zone', '1')), ('Per', ('Action', 'putdown'), ('Colour', 'b'), ('Shape', 'any'), ('PerZone', 'any')))
+
+lp = -13749.184908681722 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '2'), ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'square')))), ('Zone', '1')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'square'), ('Zone', '2'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')))), ('Zone', '1')))
+
+lp = -13750.28352097039 [1 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'triangle'), ('Zone', '3'), ('Moved', ('Colour', 'r'), ('Shape', 'square'), ('Zone', '2'), ('Next-Move', ('Colour', 'r'), ('Shape', 'triangle')))), ('Zone', '1')))
+
+lp = -13753.867039908846 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '2'), ('Moved', ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any'))))), ('Zone', '3')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '2'), ('Moved', ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '3'), ('Moved', ('Colour', 'any'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any'))))), ('Zone', '3')))
+
+lp = -13754.965652197514 [2 exps]:
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '2'), ('Moved', ('Colour', 'g'), ('Shape', 'square'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any'))))), ('Zone', '3')))
+    ('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'circle'), ('Zone', '2'), ('Moved', ('Colour', 'g'), ('Shape', 'circle'), ('Zone', '3'), ('Moved', ('Colour', 'g'), ('Shape', 'any'), ('Zone', '3'), ('Next-Move', ('Colour', 'r'), ('Shape', 'any'))))), ('Zone', '3')))
+
+
+Total num. distinct exps across all chains (including warm-up): 359
+True norm in some chain(s): True
+Out of 5 chains ...
+1 exps are in 5 chains.
+Out of 5 chains ...
+17 exps are in 2 chains.
+Out of 5 chains ...
+341 exps are in 1 chains.
