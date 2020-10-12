@@ -27,8 +27,8 @@
     "y": {
       "field": "lp",
       "type": "ordinal",
-      "title": "log posterior"
+      "title": "log posterior",
+      "sort": "-y"
     }
   }
 }
-
