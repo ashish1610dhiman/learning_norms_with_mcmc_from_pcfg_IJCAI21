@@ -76,7 +76,6 @@ stages:
     outs:
     - data/top_norms.pickle
     - metrics/precision_recall.txt
-    always_changed: true
   test_obs_log_likelihood1:
     cmd: python scripts/test_obs_likelihood.py none true
     wdir: ..

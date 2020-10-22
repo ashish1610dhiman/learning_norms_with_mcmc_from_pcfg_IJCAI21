@@ -206,6 +206,6 @@ test_obs_log_likelihood2:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
   - path: data/observations.pickle
-    md5: cbad2e4441200d05bbe6db46c58e1eb6
+    md5: 0772d00f8357fc852891427de1690a36
   - path: data/top_norms.pickle
-    md5: 480b3c4b3f2023169b562047c4aa3979
+    md5: fc5c7172b3c8b376c5f080ed31cceed9

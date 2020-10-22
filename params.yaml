@@ -1,4 +1,4 @@
-description: >-
+meta: >-
   Same as exp 9, but with longer chains (len 1000 after warm-up removal and splitting).
   Same observations as exp 9 (not regenerated)
   5 block task, no E0 no-norm ll filter, no-norm in grammar and prod. probs. changed; more generic obligation (1 moved conditions, mostly 'any') + permission norms; 50 observations
