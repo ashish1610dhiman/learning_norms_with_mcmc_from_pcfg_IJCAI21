@@ -1,0 +1,93 @@
+stages:
+  gen_env:
+    cmd: python scripts/gen_env.py
+    wdir: ..
+    deps:
+    - data/default_env.pickle
+    outs:
+    - data/env.pickle
+  gen_observations:
+    cmd: python scripts/gen_observations.py
+    wdir: ..
+    deps:
+    - data/env.pickle
+    params:
+    - num_observations
+    - obs_data_set
+    - target_area
+    - true_norm
+    outs:
+    - data/observations.pickle
+  gen_mcmc_chains:
+    cmd: python scripts/gen_mcmc_chains.py
+    wdir: ..
+    deps:
+    - data/env.pickle
+    - data/observations.pickle
+    params:
+    - colour_specific
+    - m
+    - n
+    - rf
+    - shape_specific
+    - target_area
+    outs:
+    - data/chains_and_log_posteriors.pickle
+  analyse_chains:
+    cmd: python scripts/analyse_chains.py
+    wdir: ..
+    deps:
+    - data/chains_and_log_posteriors.pickle
+    - data/env.pickle
+    - data/observations.pickle
+    params:
+    - colour_specific
+    - m
+    - n
+    - rf
+    - shape_specific
+    - target_area
+    outs:
+    - metrics/chain_info.txt
+    plots:
+    - metrics/chain_posteriors.csv
+  conv_test:
+    cmd: python scripts/conv_test.py
+    wdir: ..
+    deps:
+    - data/chains_and_log_posteriors.pickle
+    params:
+    - rhat_step_size
+    outs:
+    - data/posterior.pickle
+    - metrics/conv_test.txt
+  extract_top_norms:
+    cmd: python scripts/extract_top_norms.py
+    wdir: ..
+    deps:
+    - data/env.pickle
+    - data/posterior.pickle
+    - metrics/chain_posteriors.csv
+    params:
+    - colour_specific
+    - shape_specific
+    - target_area
+    - true_norm
+    outs:
+    - data/top_norms.pickle
+    - metrics/precision_recall.txt
+  test_obs_log_likelihood1:
+    cmd: python scripts/test_obs_likelihood.py none true
+    wdir: ..
+    deps:
+    - data/env.pickle
+    - data/observations.pickle
+    params:
+    - true_norm.exp
+  test_obs_log_likelihood2:
+    cmd: python scripts/test_obs_likelihood.py top
+    wdir: ..
+    deps:
+    - data/env.pickle
+    - data/observations.pickle
+    - data/top_norms.pickle
