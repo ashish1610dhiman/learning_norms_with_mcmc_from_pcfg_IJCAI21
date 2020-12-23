@@ -110,12 +110,12 @@ def plot_env(env,ax,itr=np.nan,legend=False,annotate=True):
 def plot_area(ax,target_area=np.nan,destination_area=np.nan):
     """ Helper function to plot target area """
     import matplotlib.patches as patches
-    if type(target_area)==list:
+    if type(target_area) in [list,tuple]:
         rect_t = patches.Rectangle((target_area[0].x,target_area[0].y),abs(target_area[0].x-target_area[1].x),
                            abs(target_area[0].y-target_area[1].y),linewidth=1,edgecolor='k',
                            facecolor=(32/255,178/255,170/255,0.25))
         ax.add_patch(rect_t)
-    if type(destination_area)==list:
+    if type(destination_area)in [list,tuple]:
         rect_p = patches.Rectangle((destination_area[0].x,destination_area[0].y),abs(destination_area[0].x-destination_area[1].x),
                            abs(destination_area[0].y-destination_area[1].y),linewidth=1,edgecolor='k',
                            facecolor=(240/255,230/255,140/255,0.43))
