@@ -3,6 +3,7 @@ gen_env:
   deps:
   - path: data/default_env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
+    size: 3260
   outs:
   - path: data/env.pickle
     md5: 9000eb1823d338d732bd357a43f5b1ed
