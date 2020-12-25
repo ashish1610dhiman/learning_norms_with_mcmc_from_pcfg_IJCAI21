@@ -85,7 +85,9 @@ def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_tas
             plot_task(env_copy,ax[0],"Before clearing ({})".format(name),task,True)
         if verbose==True:
             print ("For repetition={} of task".format(itr+1))
-        action_profile[itr+1]=robot(task,env_copy).perform_task(expression,"./{}/action_profiles/itr_{}".format(name,itr+1),verbose);
+        action_profile[itr+1]=robot(task,env_copy\
+                                    ).perform_task(expression,"./{}/action_profiles/itr_{}".format(name,itr+1),\
+                                                   verbose);
         if name != None:
             plot_task(env_copy,ax[1],"After clearing ({})".format(name),task,True)
             plt.savefig("./{}/env_states/itr_{}.png".format(name,itr+1))
