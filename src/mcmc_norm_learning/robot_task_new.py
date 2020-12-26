@@ -316,7 +316,7 @@ class robot():
         print ("       Task Completion Index={:.2f}".format(tci_val))
         print ("-------------------------------------------")
         return (task_df)
-
+#TODO Non compliant = All- All_Compliant maybe
 def all_compliant(rules,task,env,name,verbose=False):
     """ Return all possible compliant action given norms/rules """
     import sys
@@ -350,6 +350,7 @@ def all_compliant(rules,task,env,name,verbose=False):
     except:
         if verbose==True:
             print ("Directory already available")
+    #Order of object action is chosen randomly everytime
     order=random.choice(actionable_objects,num_actionable_obj,replace=False)
     #if verbose==True:
         # print ("Order of Acting:",[x.obj_id for x in order])

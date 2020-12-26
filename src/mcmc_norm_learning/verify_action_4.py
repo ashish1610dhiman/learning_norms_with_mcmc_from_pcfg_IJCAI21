@@ -41,7 +41,7 @@ def verify_action(obj,check,task_type,rules):
     rule_dict={x+1:rules[x] for x in range(len(rules))}
     if len(rules)==0:
         return (0,nan,nan)
-    obl_norms={norm_no:norm for (norm_no,norm) in rule_dict.items() if norm[0]=="Obl"}
+    obl_norms={norm_no:norm for (norm_no,norm) in rule_dict.items() if norm[0]=="Obl"} #should it be norm_no-1
     pro_norms={norm_no:norm for (norm_no,norm) in rule_dict.items() if norm[0]=="Pro"}
     per_norms={norm_no:norm for (norm_no,norm) in rule_dict.items() if norm[0]=="Per"}
     if check=="prohibition":
