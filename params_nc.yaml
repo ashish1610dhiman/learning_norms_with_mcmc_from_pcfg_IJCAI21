@@ -1,7 +1,6 @@
 meta: >-
-  Same as exp 9, but with longer chains (len 1000 after warm-up removal and splitting).
-  Same observations as exp 9 (not regenerated)
-  5 block task, no E0 no-norm ll filter, no-norm in grammar and prod. probs. changed; more generic obligation (1 moved conditions, mostly 'any') + permission norms; 50 observations
+  Non Compliance exp 1
+  Same Env,task as default
 env_name: default
 colour_specific: ['r', 'g', 'b']
 shape_specific: ['square', 'circle', 'triangle']
@@ -12,7 +11,8 @@ true_norm:
 num_observations: 50 #Times to generate observations for task
 obs_data_set: 1
 w_nc: 0.1
-n: 1000 #Length of sequence after discarding warm-up part and splitting in half
-m: 10 #Number of sequences after splitting in half
+n: 200 #Length of sequence after discarding warm-up part and splitting in half
+m: 4 #Number of sequences after splitting in half
 rf: 0.6
+top_norms_n: 10
 rhat_step_size: 50

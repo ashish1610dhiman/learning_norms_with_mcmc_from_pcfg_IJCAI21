@@ -200,7 +200,12 @@ def Likelihood(expression,task,executions,env,w_normative=1.0):
                 violated = not move_zone in zone_options
                 if violated:
                     #print("Violation: move zone {} not in {}".format(move_zone, zone_options))
-                    return float('-inf')
+                    if w_normative==1.0:
+                        return float('-inf')
+                    else:
+                        # TODO: Need to check this, logic is if exe violates norm, contribution then is 0
+                        lik_ex_normative=0
+                        pass
                 else:
                     lik_ex_normative *= 1/num_poss_zones
             lik_ex_non_normative = 1/(num_zones**len(ex)) if w_normative != 1.0 else 0
