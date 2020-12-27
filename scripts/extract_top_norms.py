@@ -46,7 +46,7 @@ def log_posterior(exp, exp_lp_df):
     return exp_lp_df.loc[exp_lp_df['expression'] == exp]['log_posterior'].iloc[0]
 
 with open('metrics/precision_recall.txt', 'w') as f:
-    f.write("Number of unique Norms in sequence={len(learned_expressions)}\n")
+    f.write(f"Number of unique Norms in sequence={len(learned_expressions)}\n")
     f.write(f"Top {n} norms:\n")
     for expression,freq in top_norms_with_freq:
         f.write(f"Freq. {freq}, lp {log_posterior(expression, exp_posterior_df)}: ")
