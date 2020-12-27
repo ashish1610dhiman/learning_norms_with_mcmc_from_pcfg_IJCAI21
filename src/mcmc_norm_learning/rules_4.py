@@ -137,7 +137,7 @@ def get_log_prob(non_terminal,expression):
 def separate_conds(cond, prev_cond=[]):
     if cond[0] == 'Next-Move':
         return prev_cond + [cond]
-    assert cond[0] == 'Moved'
+    assert cond[0] == 'Moved' #Unit condition
     return separate_conds(cond[4:][0], prev_cond + [cond[0:4]])
 
 def obl_conds(rule):

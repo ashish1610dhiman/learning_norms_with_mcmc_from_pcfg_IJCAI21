@@ -19,11 +19,12 @@ PossMove.__new__.__defaults__ = (None,None,None) # Just use 'defaults' param abo
 
 class task():
     """ Class to model the task """
-    def __init__(self,colour_specific=np.nan,shape_specific=np.nan,target_area=np.nan):
+    def __init__(self,colour_specific=np.nan,shape_specific=np.nan,target_area=np.nan,w_nc=np.nan):
         self.task_type="clear"
         self.colour_specific=colour_specific
         self.shape_specific=shape_specific
         self.target_area=target_area
+        self.w_nc=np.nan
     def print_task(self):
         print ("---------------------------------")
         print (self.task_type.upper())
@@ -84,9 +85,11 @@ class robot():
         num_objects = len(objects)
         compliant_exec = False
         while not compliant_exec:
-            p = np.random.permutation(objects)
+            p = np.random.permutation(objects) #Why order and permutaions both ???
             if verbose:
                 print("permutation: ", p)
+            ## gen_moves has all 243 possible execs
+            ## TODO Non-compliance can be added directly here
             for exe in gen_moves_from_all_compliant_dict(p, ac_dict):
                 if verbose:
                     print("Considering execution: ", exe)
@@ -96,7 +99,7 @@ class robot():
                         print("Checking unless constraint: ", um)
                     constrained_obj = um[0]
                     constraint_history_length = len(um[2])
-                    assert isinstance(constraint_history_length, int)
+                    assert isinstance(constraint_history_length, int), "Prev move history length not int"
                     if verbose:
                         print("Constrained history length: ", constraint_history_length)
                     co_index = np.argwhere(p==constrained_obj)[0][0]
@@ -108,7 +111,7 @@ class robot():
                         print("exec's zone for constrained obj: ", exe[co_index][1][2])
                         print("Unless constraint triggering zones: ", um[1])
                         print("Exec. puts {} in {} (it is in {}?)".format(um[0], exe[co_index][1][2], um[1]))
-                    if exe[co_index][1][2] not in um[1]: # exec's zone for constrained object doesn't matche a zone of the unless constraint
+                    if exe[co_index][1][2] not in um[1]: # exec's zone for constrained object doesn't match a zone of the unless constraint
                         continue
                     sub_exec = exe[max(co_index-constraint_history_length,0):co_index]
                     if verbose:
@@ -117,12 +120,12 @@ class robot():
                         if verbose:
                             print("Matched!")
                         matched_constraint = True
-                        break
+                        break #Unless History macthes, therefore exec zone not allowed
                 if not matched_constraint:
                     return exe
             if verbose:
                 print("Trying another permutation")      
-        assert compliant_exec == True
+        assert compliant_exec == True, "No compliant exec found"
         return None # Will never get here due to the assert
 
     # Old version kept for reference
@@ -351,6 +354,7 @@ def all_compliant(rules,task,env,name,verbose=False):
         if verbose==True:
             print ("Directory already available")
     #Order of object action is chosen randomly everytime
+    #TODO order actually does not really matter here, can be only actionable_objects instead of random.choice
     order=random.choice(actionable_objects,num_actionable_obj,replace=False)
     #if verbose==True:
         # print ("Order of Acting:",[x.obj_id for x in order])
@@ -391,10 +395,12 @@ def all_compliant(rules,task,env,name,verbose=False):
                     # putdown_action(obj1,obl_zone,task.target_area,env[3]).perform()
                 hist_conds, _ = obl_conds(obl_rule)
                 for z in possible_zones:
-                    if z in {obl_zone} | per_zones:
+                    if z in {obl_zone} | per_zones: #obl_zone is as per next-zone part
                         action_pairs_by_obj[oid].add(PossMove(("pickup",obj1.obj_id), ("putdown",obj1.obj_id,z)))
                     else:
-                        action_pairs_by_obj[oid].add(PossMove(("pickup",obj1.obj_id), ("putdown",obj1.obj_id,z), unless=lists_to_tuples(hist_conds)))
+                        action_pairs_by_obj[oid].add(PossMove(("pickup",obj1.obj_id), \
+                                                              ("putdown",obj1.obj_id,z),\
+                                                              unless=lists_to_tuples(hist_conds)))
             else:
                 pro_flag,pro_zone,rule=verify_action(obj1,"prohibition","putdown",rules)
                 if pro_flag==1: #If putting down is prohibited in pro_zone
@@ -424,7 +430,11 @@ def lists_to_tuples(x):
         return x
 
 def gen_moves_from_all_compliant_dict(obj_order, compliant_moves_dict):
-    move_options_in_order = [ list(map(lambda pm: (pm.pickup,pm.putdown), shuffled(compliant_moves_dict[o])))  for o in obj_order ]
+    # What is the use of shuffle ???
+    # If we have unless, why are we generating moves ignoring it ???
+    move_options_in_order = [list(map(lambda pm: (pm.pickup,pm.putdown),\
+                                      shuffled(compliant_moves_dict[o]))\
+                                  ) for o in obj_order]
     #print("Move options in order: ", move_options_in_order)
     for execution in product(*move_options_in_order):
         yield execution
