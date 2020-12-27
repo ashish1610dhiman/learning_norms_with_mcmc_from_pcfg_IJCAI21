@@ -55,7 +55,7 @@ def random_task_func(env,num_actionable,c1,s1):
     return (task1)
 
 def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_task_scope=False,
-	num_actionable=np.nan,num_repeat=500,verbose=True):
+	num_actionable=np.nan,num_repeat=500,w_nc=0.0,verbose=True):
     """ Function to create data from either given task or randomised tasks """
     #print ("Generating action-profile data for case {}".format(name))
     action_profile={}
@@ -85,7 +85,7 @@ def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_tas
             plot_task(env_copy,ax[0],"Before clearing ({})".format(name),task,True)
         if verbose==True:
             print ("For repetition={} of task".format(itr+1))
-        action_profile[itr+1]=robot(task,env_copy\
+        action_profile[itr+1]=robot(task,env_copy,w_nc\
                                     ).perform_task(expression,"./{}/action_profiles/itr_{}".format(name,itr+1),\
                                                    verbose);
         if name != None:

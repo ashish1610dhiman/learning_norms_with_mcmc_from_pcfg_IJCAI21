@@ -19,12 +19,11 @@ PossMove.__new__.__defaults__ = (None,None,None) # Just use 'defaults' param abo
 
 class task():
     """ Class to model the task """
-    def __init__(self,colour_specific=np.nan,shape_specific=np.nan,target_area=np.nan,w_nc=np.nan):
+    def __init__(self,colour_specific=np.nan,shape_specific=np.nan,target_area=np.nan):
         self.task_type="clear"
         self.colour_specific=colour_specific
         self.shape_specific=shape_specific
         self.target_area=target_area
-        self.w_nc=np.nan
     def print_task(self):
         print ("---------------------------------")
         print (self.task_type.upper())
@@ -43,10 +42,12 @@ def plot_task(env,ax,itr,task,annotate_choice):
 
 class robot():
     """ Class to model the robot """
-    def __init__(self,task,env):
+    def __init__(self,task,env,w_nc=0.0):
         import numpy as np
         self.task=task
         self.env=env
+        assert (isinstance(w_nc,float)) and (0.0<=w_nc<=1) , "Invalid w_nc"
+        self.w_nc=w_nc
         if type(self.task.colour_specific)!=list:
             try:
                 if np.isnan(self.task.colour_specific):
@@ -84,6 +85,11 @@ class robot():
         objects = list(ac_dict.keys())
         num_objects = len(objects)
         compliant_exec = False
+        if random.uniform(0.0,1)<=self.w_nc:
+            ## all possible executions
+            all_moves_iter=gen_moves_from_all_compliant_dict(np.random.permutation(objects), ac_dict)
+            ## return 1 of all possible executions
+            return random.choice(list(all_moves_iter))
         while not compliant_exec:
             p = np.random.permutation(objects) #Why order and permutaions both ???
             if verbose:
@@ -319,7 +325,6 @@ class robot():
         print ("       Task Completion Index={:.2f}".format(tci_val))
         print ("-------------------------------------------")
         return (task_df)
-#TODO Non compliant = All- All_Compliant maybe
 def all_compliant(rules,task,env,name,verbose=False):
     """ Return all possible compliant action given norms/rules """
     import sys
