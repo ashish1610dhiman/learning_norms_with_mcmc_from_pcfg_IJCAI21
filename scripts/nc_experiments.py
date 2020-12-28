@@ -54,8 +54,8 @@ w_nc = parser.parse_args().w_nc
 
 output_dir = f"{bas_dir}/data_nc/{exp_no}/"
 
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
+assert not os.path.exists(output_dir), "Output dir already present"
+os.makedirs(output_dir)
 
 with open(f"{bas_dir}/params_nc.yaml", 'r') as fd:
     params = yaml.safe_load(fd)
