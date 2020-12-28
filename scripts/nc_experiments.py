@@ -231,6 +231,7 @@ print(f"log_post_no_norm={log_post_no_norm},log_post_true_norm={log_post_true_no
 print(result.groupby("chain_number")[["log_posterior"]].agg(['min', 'max', 'mean', 'std']))
 
 hist_plot = result['log_posterior'].hist(by=result['chain_number'])
+plt.xticks(rotation=45,fontsize=7)
 plt.savefig(f"{output_dir}/nc_hist.jpg")
 plt.close()
 
