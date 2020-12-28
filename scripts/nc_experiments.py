@@ -31,6 +31,7 @@ from collections import defaultdict
 from functools import reduce
 from operator import concat, itemgetter
 import ast
+import time
 
 from pickle_wrapper import unpickle, pickle_it
 from mcmc_norm_learning.algorithm_1_v4 import to_tuple
@@ -45,12 +46,16 @@ from algorithm_2_utilities import Likelihood
 from mcmc_norm_learning.mcmc_performance import performance
 from collections import Counter
 
+""" Step 0: Process setup """
+s=time.time()
 parser = argparse.ArgumentParser()
 parser.add_argument('-exp', metavar='exp_no', type=str, nargs='+', help='Experiment directory', default="exp0")
-parser.add_argument('-w_nc', metavar='w_nc', type=int, nargs='+', help='w non-compliance', default=None)
+parser.add_argument('-w_nc', metavar='w_nc', type=float, nargs='+', help='w non-compliance', default=None)
+parser.add_argument('-n_threads', metavar='n_threads', type=float, nargs='+', help='n_threads used', default=-1)
 
-exp_no = parser.parse_args().exp
-w_nc = parser.parse_args().w_nc
+exp_no = parser.parse_args().exp[0]
+w_nc = float(parser.parse_args().w_nc[0])
+n_threads=int(parser.parse_args().n_threads[0])
 
 output_dir = f"{bas_dir}/data_nc/{exp_no}/"
 
@@ -60,6 +65,8 @@ os.makedirs(output_dir)
 with open(f"{bas_dir}/params_nc.yaml", 'r') as fd:
     params = yaml.safe_load(fd)
 
+print ("########## * -------- * ########## ||  Time for step 0 {:.2f}s ||\
+ ########## * -------- * ##########".format(time.time()-s))
 """ Step 1: Default Environment and params"""
 
 ##Get default env
@@ -88,13 +95,15 @@ print(target_area_part0.coordinates())
 print(target_area_part1.coordinates())
 the_task = task(colour_specific, shape_specific, target_area)
 
-fig, axs = plt.subplots(1, 2, figsize=(9, 4), dpi=100);
+fig, axs = plt.subplots(1, 2, figsize=(11, 4), dpi=100);
 plot_task(env, axs[0], "Initial Task State", the_task, True)
 axs[1].text(0, 0.5, "\n".join([str(x) for x in true_norm_exp]), wrap=True)
 axs[1].axis("off")
 axs[1].title.set_text("True Norm")
-plt.savefig(f"{output_dir}/nc_hist.jpg")
+plt.savefig(f"{output_dir}/env_task_setup.jpg")
 plt.close()
+print ("########## * -------- * ########## ||  Time for step 1 {:.2f}s ||\
+ ########## * -------- * ##########".format(time.time()-s))
 
 """ Step 2: Gen Observations """
 
@@ -103,6 +112,8 @@ obs = nc_obs = create_data(true_norm_exp, env, name=None, task=the_task, random_
 true_norm_prior = get_prob("NORMS", true_norm_exp)
 true_norm_log_prior = get_log_prob("NORMS", true_norm_exp)
 print(f"For True Norm, prior={true_norm_prior}, log_prior={true_norm_log_prior}")
+print ("########## * -------- * ########## ||  Time for step 2 {:.2f}s ||\
+ ########## * -------- * ##########".format(time.time()-s))
 
 """ Step 3: Gen MCMC chains """
 
@@ -136,11 +147,14 @@ def delayed_alg1_joblib(start_i):
 
 
 chains_and_log_posteriors = []
-chains_and_log_posteriors = Parallel(verbose=2, n_jobs=-1 \
+chains_and_log_posteriors = Parallel(verbose=2, n_jobs=n_threads \
                                      )(delayed(delayed_alg1_joblib)(starts[run]) \
                                        for run in tqdm.tqdm(range(num_chains), desc="Loop for Individual Chains"))
 
 pickle_it(chains_and_log_posteriors, f'{output_dir}/chains_and_log_posteriors.pickle')
+
+print ("########## * -------- * ########## ||  Time for step 3 {:.2f}s ||\
+ ########## * -------- * ##########".format(time.time()-s))
 
 """ Step 4: Pass to analyse chains """
 
@@ -233,6 +247,8 @@ for (key, ax) in zip(grouped.groups.keys(), axes.flatten()):
 plt.savefig(f"{output_dir}/cnc_movement.jpg")
 plt.close()
 
+print ("########## * -------- * ########## ||  Time for step 4 {:.2f}s ||\
+ ########## * -------- * ##########".format(time.time()-s))
 
 """ Step 5: Convergence Tests """
 
@@ -246,6 +262,9 @@ def conv_test(chains):
 chains = list(map(itemgetter('chain'), chains_and_log_posteriors))
 posterior_sample = conv_test(prepare_sequences(chains, warmup=True))
 pickle_it(posterior_sample, f'{output_dir}/posterior_nc.pickle')
+
+print ("########## * -------- * ########## ||  Time for step 5 {:.2f}s ||\
+ ########## * -------- * ##########".format(time.time()-s))
 
 """ Step 6: Extract Top Norms """
 
@@ -279,3 +298,7 @@ with open(f'{output_dir}/precision_recall_nc.txt', 'w') as f:
 # pr_result=performance(the_task,env,true_norm_exp,learned_expressions,
 #                         folder_name="temp",file_name="top_norm",
 #                         top_n=n,beta=1,repeat=100000,verbose=False)
+
+
+print ("########## * -------- * ########## ||  Time for step 6 {:.2f}s ||\
+ ########## * -------- * ##########".format(time.time()-s))

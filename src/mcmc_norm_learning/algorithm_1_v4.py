@@ -135,7 +135,9 @@ def gen_E0(data,env,task1,w_normative=1,time_threshold=1000,verbose=False):
 def over_dispersed_starting_points(num_starts,data,env,task1,multiplier=10,w_normative=1,time_threshold=1000):
     n = multiplier*num_starts
     gen_E0_results = [dask.delayed(gen_E0)(data,env,task1,w_normative,time_threshold) for _ in range(n)]
+    s=time.time()
     gen_E0_results = dask.compute(*gen_E0_results)
+    avg_time=(time.time()-s)/n
     unzipped = list(zip(*gen_E0_results))
     candidate_starts = unzipped[0]
     iterations_list = unzipped[1]
@@ -157,6 +159,7 @@ def over_dispersed_starting_points(num_starts,data,env,task1,multiplier=10,w_nor
         f'Number of chains requested: {num_starts}\n'
         f'Number of candidate starts generated: {n}\n'
         f'Average iterations to find E0: {avg_iterations}\n'
+        f'Average time to find E0: {avg_time}s\n'
         f'Distances of starts from mean: {[math.sqrt(pair[0]) for pair in start_dist_pairs]}\n'
     )
     return ([start for d,start in start_dist_pairs[:num_starts]], info)
