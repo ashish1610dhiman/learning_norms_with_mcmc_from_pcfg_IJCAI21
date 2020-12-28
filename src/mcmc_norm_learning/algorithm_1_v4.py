@@ -94,7 +94,7 @@ def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_tas
             plt.close()
     return list(action_profile.values())
 
-def gen_E0(data,env,task1,w_normative=1,time_threshold=1000):
+def gen_E0(data,env,task1,w_normative=1,time_threshold=1000,verbose=False):
     #Generate E0
     E_0=expand("NORMS")
     s=time.time()
@@ -121,8 +121,9 @@ def gen_E0(data,env,task1,w_normative=1,time_threshold=1000):
                     if (random.uniform()<=relevance_factor):
                         break """
         else:
-            print(log_lik)
-            print("Trying another E0")
+            if verbose:
+                print(log_lik)
+                print("Trying another E0")
             E_0=expand("NORMS")
             time_flag=0
     print("Time to initialise E_0={:.4f}s".format(time.time()-s))
