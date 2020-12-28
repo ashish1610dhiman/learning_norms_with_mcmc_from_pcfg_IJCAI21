@@ -230,7 +230,7 @@ print(f"log_post_no_norm={log_post_no_norm},log_post_true_norm={log_post_true_no
 
 print(result.groupby("chain_number")[["log_posterior"]].agg(['min', 'max', 'mean', 'std']))
 
-hist_plot = result['log_posterior'].hist(by=result['chain_number'], bins=10)
+hist_plot = result['log_posterior'].hist(by=result['chain_number'])
 plt.savefig(f"{output_dir}/nc_hist.jpg")
 plt.close()
 
@@ -280,7 +280,7 @@ exp_posterior_df.sort_values('post_rank', inplace=True)
 exp_posterior_df['expression'] = exp_posterior_df['expression'].transform(ast.literal_eval)
 exp_posterior_df['expression'] = exp_posterior_df['expression'].transform(to_tuple)
 
-print(exp_posterior_df)
+exp_posterior_df.to_csv(f'{output_dir}/ranked_posteriors.csv')
 
 def log_posterior(exp, exp_lp_df):
     return exp_lp_df.loc[exp_lp_df['expression'] == exp]['log_posterior'].iloc[0]
