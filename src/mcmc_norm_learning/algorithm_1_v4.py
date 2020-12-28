@@ -89,9 +89,10 @@ def create_data(expression,env,name=None,task=np.nan,random_task=False,limit_tas
                                     ).perform_task(expression,"./{}/action_profiles/itr_{}".format(name,itr+1),\
                                                    verbose);
         if name != None:
-            plot_task(env_copy,ax[1],"After clearing ({})".format(name),task,True)
-            plt.savefig("./{}/env_states/itr_{}.png".format(name,itr+1))
-            plt.close()
+            pass
+            #plot_task(env_copy,ax[1],"After clearing ({})".format(name),task,True)
+            #plt.savefig("./{}/env_states/itr_{}.png".format(name,itr+1))
+            #plt.close()
     return list(action_profile.values())
 
 def gen_E0(data,env,task1,w_normative=1,time_threshold=1000,verbose=False):
