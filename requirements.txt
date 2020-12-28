@@ -6,6 +6,7 @@ numpy
 scipy
 ipywidgets
 dask[delayed,distributed]
+joblib
 # Default ones from cookiecutter-datascience
 #click
 #Sphinx
