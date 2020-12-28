@@ -1,0 +1,5 @@
+outs:
+- md5: 4a3f2818e4b5e513fbea03cccef064d9.dir
+  size: 10674344
+  nfiles: 12
+  path: exp_nc_1.w_nc=0.1
