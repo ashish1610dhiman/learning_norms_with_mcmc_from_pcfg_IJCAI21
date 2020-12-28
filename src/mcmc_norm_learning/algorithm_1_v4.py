@@ -105,7 +105,7 @@ def gen_E0(data,env,task1,w_normative=1,time_threshold=1000):
         iterations += 1
         time_flag=1
         log_lik = Likelihood(E_0,task1,data,env,w_normative)
-        if log_lik != -math.inf:
+        if log_lik > log_lik_null:
         # if log_lik > log_lik_null:
             """ Compared to log(Lik(no_norm) because for large sequences exp(log_Lik) gets to zero"""
             """ >= be cause we do rejection sampling for relevant norms below """
