@@ -223,10 +223,10 @@ chain_info.close()
 
 result = pd.read_csv(f"{output_dir}/chain_posteriors_nc.csv")
 
-log_post_no_norm = Likelihood(["Norms", ["No-Norm"]], the_task, obs, env, w_normative=1 - w_nc)
-log_post_true_norm = Likelihood(true_norm_exp, the_task, obs, env, w_normative=1 - w_nc)
+lik_no_norm = Likelihood(["Norms", ["No-Norm"]], the_task, obs, env, w_normative=1 - w_nc)
+lik_true_norm = Likelihood(true_norm_exp, the_task, obs, env, w_normative=1 - w_nc)
 
-print(f"log_post_no_norm={log_post_no_norm},log_post_true_norm={log_post_true_norm}")
+print(f"lik_no_norm={lik_no_norm},lik_true_norm={lik_true_norm}")
 
 print(result.groupby("chain_number")[["log_posterior"]].agg(['min', 'max', 'mean', 'std']))
 
