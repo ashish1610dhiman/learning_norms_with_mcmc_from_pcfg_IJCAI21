@@ -112,8 +112,12 @@ obs = nc_obs = create_data(true_norm_exp, env, name=None, task=the_task, random_
 true_norm_prior = get_prob("NORMS", true_norm_exp)
 true_norm_log_prior = get_log_prob("NORMS", true_norm_exp)
 print(f"For True Norm, prior={true_norm_prior}, log_prior={true_norm_log_prior}")
+
+pickle_it(obs, f'{output_dir}/obs.pickle')
+
 print ("########## * -------- * ########## ||  Time for step 2 {:.2f}s ||\
  ########## * -------- * ##########".format(time.time()-s))
+
 
 """ Step 3: Gen MCMC chains """
 
