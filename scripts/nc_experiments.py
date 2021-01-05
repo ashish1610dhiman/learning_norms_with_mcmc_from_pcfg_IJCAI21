@@ -151,7 +151,7 @@ def delayed_alg1_joblib(start_i):
 
 
 chains_and_log_posteriors = []
-chains_and_log_posteriors = Parallel(verbose=2, n_jobs=n_threads \
+chains_and_log_posteriors = Parallel(verbose=2, n_jobs=n_threads,prefer="threads" \
                                      )(delayed(delayed_alg1_joblib)(starts[run]) \
                                        for run in tqdm.tqdm(range(num_chains), desc="Loop for Individual Chains"))
 
