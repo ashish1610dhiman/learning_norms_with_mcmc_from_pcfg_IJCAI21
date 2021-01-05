@@ -134,9 +134,25 @@ def gen_E0(data,env,task1,w_normative=1,time_threshold=1000,verbose=False):
     return (E_0, iterations)
 
 def over_dispersed_starting_points(num_starts,data,env,task1,multiplier=10,w_normative=1,time_threshold=1000):
+    from joblib import Parallel, delayed, parallel_backend
+    from dask.distributed import Client
+    s = time.time()
+    client = Client(threads_per_worker=4,processes=False)
     n = multiplier*num_starts
-    gen_E0_results = [dask.delayed(gen_E0)(data,env,task1,w_normative,time_threshold) for _ in range(n)]
-    s=time.time()
+    #TODO parallelise this
+    #http://localhost:8787/info/main/workers.html
+    @dask.delayed
+    def delayed_gen_E0_joblib(start_i):
+        result_E0 = gen_E0(data=data,env=env,task1=task1,w_normative=w_normative,\
+                           time_threshold=time_threshold)
+        return (result_E0)
+    #gen_E0_results = [dask.delayed(gen_E0)(data,env,task1,w_normative,time_threshold) for _ in range(n)]
+    #gen_E0_results = dask.compute(*gen_E0_results)
+    gen_E0_results=[]
+    with parallel_backend('dask'):
+        gen_E0_results = Parallel(verbose=2\
+                              )(delayed(delayed_gen_E0_joblib)(run)\
+                                for run in tqdm(range(n), desc="Loop for n_starts"))
     gen_E0_results = dask.compute(*gen_E0_results)
     avg_time=(time.time()-s)/n
     unzipped = list(zip(*gen_E0_results))
