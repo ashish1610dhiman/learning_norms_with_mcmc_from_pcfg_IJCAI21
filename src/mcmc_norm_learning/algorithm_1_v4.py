@@ -137,7 +137,7 @@ def over_dispersed_starting_points(num_starts,data,env,task1,multiplier=10,w_nor
     from joblib import Parallel, delayed, parallel_backend
     from dask.distributed import Client
     s = time.time()
-    client = Client(threads_per_worker=2,processes=False) #can maybe change to True, not sure how GLI would play
+    #client = Client(threads_per_worker=1,processes=False) #can maybe change to True, not sure how GLI would play
     n = multiplier*num_starts
     #TODO parallelise this
     #http://localhost:8787/info/main/workers.html
@@ -150,7 +150,7 @@ def over_dispersed_starting_points(num_starts,data,env,task1,multiplier=10,w_nor
     #gen_E0_results = dask.compute(*gen_E0_results)
     gen_E0_results=[]
     with parallel_backend('dask'):
-        gen_E0_results = Parallel(verbose=2\
+        gen_E0_results = Parallel(verbose=4,n_jobs=-1\
                               )(delayed(delayed_gen_E0_joblib)(run)\
                                 for run in tqdm(range(n), desc="Loop for n_starts"))
     gen_E0_results = dask.compute(*gen_E0_results)

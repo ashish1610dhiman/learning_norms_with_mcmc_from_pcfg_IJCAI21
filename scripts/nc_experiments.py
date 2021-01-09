@@ -25,7 +25,7 @@ import argparse
 from operator import concat, itemgetter
 import matplotlib.pyplot as plt
 import dask
-from joblib import Parallel, delayed
+from joblib import Parallel, delayed, parallel_backend
 from dask.distributed import Client
 from collections import defaultdict
 from functools import reduce
@@ -68,6 +68,9 @@ with open(f"{bas_dir}/params_nc.yaml", 'r') as fd:
 print ("########## * -------- * ########## ||  Time for step 0 {:.2f}s ||\
  ########## * -------- * ##########".format(time.time()-s))
 """ Step 1: Default Environment and params"""
+
+#Set Dask Env
+client = Client(threads_per_worker=1,processes=False)
 
 ##Get default env
 env = unpickle(f'{bas_dir}/data/env.pickle')
@@ -151,9 +154,12 @@ def delayed_alg1_joblib(start_i):
 
 
 chains_and_log_posteriors = []
-chains_and_log_posteriors = Parallel(verbose=2, n_jobs=n_threads,prefer="threads" \
-                                     )(delayed(delayed_alg1_joblib)(starts[run]) \
-                                       for run in tqdm.tqdm(range(num_chains), desc="Loop for Individual Chains"))
+client = Client()
+#with parallel_backend('dask'):
+chains_and_log_posteriors = Parallel(verbose=4, n_jobs=n_threads, prefer="processes"\
+                                     )(delayed(delayed_alg1_joblib)(starts[run])\
+                                       for run in tqdm.tqdm(range(num_chains),\
+                                                            desc="Loop for Individual Chains"))
 
 pickle_it(chains_and_log_posteriors, f'{output_dir}/chains_and_log_posteriors.pickle')
 
@@ -227,10 +233,13 @@ chain_info.close()
 
 result = pd.read_csv(f"{output_dir}/chain_posteriors_nc.csv")
 
-lik_no_norm = Likelihood(["Norms", ["No-Norm"]], the_task, obs, env, w_normative=1 - w_nc)
+lik_no_norm = Likelihood(['No-norm', 'true'], the_task, obs, env, w_normative=1 - w_nc)
 lik_true_norm = Likelihood(true_norm_exp, the_task, obs, env, w_normative=1 - w_nc)
 
 print(f"lik_no_norm={lik_no_norm},lik_true_norm={lik_true_norm}")
+
+log_post_no_norm = get_log_prob("NORMS", ['No-norm', 'true']) + lik_no_norm
+log_post_true_norm = true_norm_log_prior + lik_true_norm
 
 print(result.groupby("chain_number")[["log_posterior"]].agg(['min', 'max', 'mean', 'std']))
 
