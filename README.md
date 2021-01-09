@@ -2,6 +2,7 @@ MCMC norm learning
 ==================
 
 TO DO: Add a description
+Can we add mutation to chain if its stuck at one point for long ??
 
 Project Organization
 --------------------
