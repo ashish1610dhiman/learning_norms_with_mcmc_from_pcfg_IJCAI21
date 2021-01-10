@@ -11,7 +11,7 @@ true_norm:
 num_observations: 40 #Times to generate observations for task
 obs_data_set: 1
 w_nc: 0.1
-n: 12 #Length of sequence after discarding warm-up part and splitting in half
+n: 1200 #Length of sequence after discarding warm-up part and splitting in half
 m: 20 #Number of sequences after splitting in half
 rf: 0.6
 top_norms_n: 40
