@@ -154,7 +154,7 @@ def delayed_alg1_joblib(start_i):
 
 
 chains_and_log_posteriors = []
-client = Client()
+client.shutdown()
 #with parallel_backend('dask'):
 chains_and_log_posteriors = Parallel(verbose=4, n_jobs=n_threads, prefer="processes"\
                                      )(delayed(delayed_alg1_joblib)(starts[run])\
