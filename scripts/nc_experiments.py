@@ -52,10 +52,14 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-exp', metavar='exp_no', type=str, nargs='+', help='Experiment directory', default="exp0")
 parser.add_argument('-w_nc', metavar='w_nc', type=float, nargs='+', help='w non-compliance', default=None)
 parser.add_argument('-n_threads', metavar='n_threads', type=float, nargs='+', help='n_threads used', default=-1)
+parser.add_argument('-seed', metavar='random_seed', type=int, nargs='+', help='random_seed used', default=None)
 
 exp_no = parser.parse_args().exp[0]
 w_nc = float(parser.parse_args().w_nc[0])
 n_threads=int(parser.parse_args().n_threads[0])
+seed = parser.parse_args().seed
+if seed != None:
+    seed = int(seed[0])
 
 output_dir = f"{bas_dir}/data_nc/{exp_no}/"
 
@@ -87,6 +91,9 @@ m = params['m']
 rf = params['rf']
 rhat_step_size = params['rhat_step_size']
 top_n = params["top_norms_n"]
+if not isinstance(seed,int): #If Not supplied as CLI arg
+    seed = params["random_seed"]
+seed=None
 
 colour_specific = params['colour_specific']
 shape_specific = params['shape_specific']
@@ -109,9 +116,9 @@ print ("########## * -------- * ########## ||  Time for step 1 {:.2f}s ||\
  ########## * -------- * ##########".format(time.time()-s))
 
 """ Step 2: Gen Observations """
-
+print (f"log::: seed={seed}")
 obs = nc_obs = create_data(true_norm_exp, env, name=None, task=the_task, random_task=False,
-                           num_actionable=np.nan, num_repeat=num_observations, w_nc=w_nc, verbose=False)
+                           num_actionable=np.nan, num_repeat=num_observations, w_nc=w_nc,seed=seed, verbose=False)
 true_norm_prior = get_prob("NORMS", true_norm_exp)
 true_norm_log_prior = get_log_prob("NORMS", true_norm_exp)
 print(f"For True Norm, prior={true_norm_prior}, log_prior={true_norm_log_prior}")
@@ -120,7 +127,6 @@ pickle_it(obs, f'{output_dir}/obs.pickle')
 
 print ("########## * -------- * ########## ||  Time for step 2 {:.2f}s ||\
  ########## * -------- * ##########".format(time.time()-s))
-
 
 """ Step 3: Gen MCMC chains """
 

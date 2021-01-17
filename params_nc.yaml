@@ -16,3 +16,4 @@ m: 20 #Number of sequences after splitting in half
 rf: 0.6
 top_norms_n: 40
 rhat_step_size: 50
+random_seed: None

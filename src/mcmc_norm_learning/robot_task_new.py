@@ -74,8 +74,11 @@ class robot():
                             actionable_objects.append(obj.obj_id)
         return (actionable_objects)
 
-    def perform_task(self,rules,name,verbose=True):
-        ac_dict = all_compliant(rules,self.task,self.env,name,verbose)
+    def perform_task(self,rules,name,seed=None,verbose=True):
+        if isinstance(seed, int):
+            random.seed(seed)
+            np.random.seed(seed)
+        ac_dict = all_compliant(rules,self.task,self.env,name,seed=seed,verbose=verbose)
         if verbose:
             print("ac_dict: ", ac_dict)
         ums = list(unless_moves(ac_dict))
@@ -87,7 +90,7 @@ class robot():
         compliant_exec = False
         if random.uniform(0.0,1)<=self.w_nc:
             ## all possible executions
-            all_moves_iter=gen_moves_from_all_compliant_dict(np.random.permutation(objects), ac_dict)
+            all_moves_iter= gen_moves_from_all_compliant_dict(np.random.permutation(objects), ac_dict, seed)
             ## return 1 of all possible executions
             return random.choice(list(all_moves_iter))
         while not compliant_exec:
@@ -96,7 +99,7 @@ class robot():
                 print("permutation: ", p)
             ## gen_moves has all 243 possible execs
             ## TODO Non-compliance can be added directly here
-            for exe in gen_moves_from_all_compliant_dict(p, ac_dict):
+            for exe in gen_moves_from_all_compliant_dict(p, ac_dict, seed):
                 if verbose:
                     print("Considering execution: ", exe)
                 matched_constraint = False
@@ -325,7 +328,7 @@ class robot():
         print ("       Task Completion Index={:.2f}".format(tci_val))
         print ("-------------------------------------------")
         return (task_df)
-def all_compliant(rules,task,env,name,verbose=False):
+def all_compliant(rules,task,env,name,seed=None,verbose=False):
     """ Return all possible compliant action given norms/rules """
     import sys
     from actions import pickup_action,putdown_action
@@ -335,6 +338,9 @@ def all_compliant(rules,task,env,name,verbose=False):
     from numpy import nan,random
     from collections import defaultdict
     from rules_4 import obl_conds
+
+    if isinstance(seed,int):
+        random.seed(seed)
     
     actionable_objects=[]
     (x1,y1)=task.target_area[0].coordinates()
@@ -434,17 +440,19 @@ def lists_to_tuples(x):
     else:
         return x
 
-def gen_moves_from_all_compliant_dict(obj_order, compliant_moves_dict):
+def gen_moves_from_all_compliant_dict(obj_order,compliant_moves_dict, seed=None):
     # What is the use of shuffle ???
     # If we have unless, why are we generating moves ignoring it ???
     move_options_in_order = [list(map(lambda pm: (pm.pickup,pm.putdown),\
-                                      shuffled(compliant_moves_dict[o]))\
+                                      shuffled(compliant_moves_dict[o],seed))\
                                   ) for o in obj_order]
     #print("Move options in order: ", move_options_in_order)
     for execution in product(*move_options_in_order):
         yield execution
         
-def shuffled(seq):
+def shuffled(seq,seed=None):
+    if isinstance(seed,float):
+        random.seed(seed)
     l = list(seq)
     random.shuffle(l)
     return l
