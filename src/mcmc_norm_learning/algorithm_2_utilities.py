@@ -23,7 +23,7 @@ def generate_index(expression,q_dict):
     else:
         sub_expressions=[x for x in expression[1:]]
         return ([i+1]+ list(generate_index(sub_expressions[i],q_dict)) for i in range(len(sub_expressions)))
-    
+
 #b=list(generate_index(rules))
 
 def sub_A(indices,p=[]):
@@ -98,10 +98,10 @@ def sever(a,expression,rule_dict):
             code=code+".__getitem__({})".format(index)
         non_terminal=temp_rule_dict[sub_expression[0]][index-1]
         temp_rule_dict=rule_dict[non_terminal]
-        sub_expression=sub_expression[index]  
+        sub_expression=sub_expression[index]
     eval(code)
     return (non_terminal,exp_copy)
-    
+
 def fill_hole(a,E_hole,E_sub):
     """ Replace HOlE with E_sub in E_hole at node a"""
     from copy import deepcopy
@@ -142,7 +142,7 @@ def violations(norms,env):
                 ob_viol=ob_viol+[(("pickup",obj.obj_id),("putdown",obj.obj_id,zone)) for zone in viol_zones]
             else:
                 if pro_zone != per_zone:
-                   ob_viol=ob_viol+[(("pickup",obj.obj_id),("putdown",obj.obj_id,zone)) for zone in viol_zones] 
+                   ob_viol=ob_viol+[(("pickup",obj.obj_id),("putdown",obj.obj_id,zone)) for zone in viol_zones]
         """ Putdown stage """
         #check for obl and permission
         obl_flag,obl_zone,key=check_obl(obj,obl_norms)
@@ -167,7 +167,7 @@ def violations(norms,env):
                     ob_viol.append((("pickup",obj.obj_id),("putdown",obj.obj_id,int(pro_zone))))
         if len(ob_viol)>0:
             violations[obj.obj_id]=ob_viol
-    return (violations)   
+    return (violations)
 
 
 def Likelihood(expression,task,executions,env,w_normative=1.0):
@@ -176,33 +176,30 @@ def Likelihood(expression,task,executions,env,w_normative=1.0):
     from numpy import log
     log_lik = 0
     ac = all_compliant(expression, task, env, "foo")
-    #print("ac in Likelihood: {}".format(ac))
+    w_normative=float(w_normative)
+    num_zones = len(zones_set())
     for ex in executions:
-        #print("Execution seen by Likelihood: ", ex)
-        w_normative=float(w_normative)
-        num_zones = len(zones_set())
-        for ex in executions:
-            lik_ex_normative = 1
-            for i,move in enumerate(ex):
-                oid = move[0][1]
-                possible_moves = ac[oid]
-                #print("Possible moves at pos. {}: {}".format(i,possible_moves))
-                zone_options = {
-                    pm.putdown[2]
-                    for pm in possible_moves
-                    if pm.unless == None or not history_matches_cond(ex[max(i-len(pm.unless),0):i], pm.unless, env)
-                }
-                num_poss_zones = len(zone_options)
-                #if num_poss_zones < len(possible_moves):
-                    #print("Likelihood: unless constraint reduced num. options to {} (refined options: {})".format(num_poss_zones, zone_options))
-                assert move[1][0]=="putdown"
-                move_zone = move[1][2]
-                violated = not move_zone in zone_options
-                if violated:
-                    #print("Violation: move zone {} not in {}".format(move_zone, zone_options))
-                    return float('-inf')
-                else:
-                    lik_ex_normative *= 1/num_poss_zones
+        lik_ex_normative = 1
+        for i,move in enumerate(ex):
+            oid = move[0][1]
+            possible_moves = ac[oid]
+            #print("Possible moves at pos. {}: {}".format(i,possible_moves))
+            zone_options = {
+                pm.putdown[2]
+                for pm in possible_moves
+                if pm.unless == None or not history_matches_cond(ex[max(i-len(pm.unless),0):i], pm.unless, env)
+            }
+            num_poss_zones = len(zone_options)
+            #if num_poss_zones < len(possible_moves):
+                #print("Likelihood: unless constraint reduced num. options to {} (refined options: {})".format(num_poss_zones, zone_options))
+            assert move[1][0]=="putdown"
+            move_zone = move[1][2]
+            violated = not move_zone in zone_options
+            if violated:
+                #print("Violation: move zone {} not in {}".format(move_zone, zone_options))
+                return float('-inf')
+            else:
+                lik_ex_normative *= 1/num_poss_zones
             lik_ex_non_normative = 1/(num_zones**len(ex)) if w_normative != 1.0 else 0
             lik_ex = w_normative*lik_ex_normative + (1-w_normative)*(lik_ex_non_normative)
             log_lik += log(lik_ex)
@@ -222,4 +219,4 @@ def Likelihood(expression,task,executions,env,w_normative=1.0):
 #                     if obj.shape in robot.task.shape_specific:
 #                         actionable_objects.append(obj)
 #     return(len(actionable_objects),actionable_objects)
-# =============================================================================   
+# =============================================================================
