@@ -178,7 +178,7 @@ def Likelihood(expression,task,executions,env,w_normative=1.0):
     ac = all_compliant(expression, task, env, "foo")
     #print("ac in Likelihood: {}".format(ac))
     #TODO: Why two level of loops ?
-    for ex in executions:
+    for ex in executions[0]: #Redundant Loop
         #print("Execution seen by Likelihood: ", ex)
         w_normative=float(w_normative)
         num_zones = len(zones_set())
