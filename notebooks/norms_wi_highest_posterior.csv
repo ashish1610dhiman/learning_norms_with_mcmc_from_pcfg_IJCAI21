@@ -1,0 +1,37 @@
+,w_nc,trial,norm_wi_max_post,max_posterior_in_chain,true_norm_posterior
+0,0.0,1,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-536.2134778389366,-536.2134778389366
+0,0.0,2,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-527.9478276733562,-527.9478276733562
+0,0.0,3,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-528.4710758171208,-528.4710758171208
+0,0.05,1,"('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-533.0215989819773,-533.0215989819773
+0,0.05,2,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-533.5461239715421,-533.5461239715421
+0,0.05,3,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-535.9791784484081,-535.9791784484081
+0,0.1,1,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-538.8904258720507,-538.8904258720507
+0,0.1,2,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-529.581221235415,-529.581221235415
+0,0.1,3,"('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-530.3369205215705,-530.3369205215705
+0,0.15,1,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-539.8468253826792,-539.8468253826791
+0,0.15,2,"('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-530.0748665748762,-530.0748665748762
+0,0.15,3,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-530.278112898133,-530.278112898133
+0,0.2,1,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-536.1712256307751,-536.1712256307751
+0,0.2,2,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-540.0003626187068,-540.0003626187068
+0,0.2,3,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-538.5427915392902,-538.5427915392901
+0,0.25,1,"('Norm', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'triangle'))), ('Zone', '2')))",-544.5034752341794,-535.7600804338012
+0,0.25,2,"('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')))",-542.3804974761099,-545.1737230218893
+0,0.25,3,"('No-norm', 'true')",-549.9992915146141,-564.0399163750789
+0,0.3,1,"('No-norm', 'true')",-549.9992915146141,-560.5649463628073
+0,0.3,2,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-547.7218371845144,-547.7218371845144
+0,0.3,3,"('No-norm', 'true')",-549.9992915146141,-552.388070651843
+0,0.35,1,"('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-549.173442904733,-549.173442904733
+0,0.35,2,"('No-norm', 'true')",-549.9992915146141,-552.4917305674
+0,0.35,3,"('No-norm', 'true')",-549.9992915146141,-555.5160760423566
+0,0.4,1,"('Norms', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-545.7132329318588,-545.7132329318588
+0,0.4,2,"('No-norm', 'true')",-549.9992915146141,-552.3262054266502
+0,0.4,3,"('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-548.0380496495485,-548.0380496495485
+0,0.45,1,"('Norms', ('Obl', ('Moved', ('Colour', 'r'), ('Shape', 'any'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')), ('Per', ('Action', 'putdown'), ('Colour', 'any'), ('Shape', 'square'), ('PerZone', '3')))",-549.0760559836866,-549.0760559836866
+0,0.45,2,"('No-norm', 'true')",-549.9992915146141,-559.2961539318704
+0,0.45,3,"('Norm', ('Obl', ('Moved', ('Colour', 'any'), ('Shape', 'circle'), ('Zone', '1'), ('Next-Move', ('Colour', 'any'), ('Shape', 'any'))), ('Zone', '2')))",-545.483553177269,-549.542861583334
+0,0.5,1,"('No-norm', 'true')",-549.9992915146141,-558.4775908223204
+0,0.5,2,"('No-norm', 'true')",-549.9992915146141,-552.9015552564407
+0,0.5,3,"('No-norm', 'true')",-549.9992915146141,-560.8038924419317
+0,0.55,1,"('No-norm', 'true')",-549.9992915146141,-553.4521038772559
+0,0.55,2,"('No-norm', 'true')",-549.9992915146141,-557.3244535239595
+0,0.55,3,"('No-norm', 'true')",-549.9992915146141,-559.0539373197404
