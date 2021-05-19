@@ -1,6 +1,6 @@
 MCMC norm learning
 ==================
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4771919.svg)](https://doi.org/10.5281/zenodo.4771919)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4772978.svg)](https://doi.org/10.5281/zenodo.4772978)
 
 This repository contains the source code used for experiments in the paper: #TODO:add doi for paper
 
@@ -29,12 +29,12 @@ Project Organization
     │
     ├── scripts/                <- Scripts used for variouis instances of the process depicted in 
     |   |                          schematic above.
-    │   └── **nc_experiments.py**   <- Binding script used to run various parts of experiment
+    │   └── nc_experiments.py   <- Binding script used to run various parts of experiment
     |
     ├── notebooks               <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                              the creator's initials, and a short `-` delimited description, e.g.
-    │                              `1.0-jqp-initial-data-exploration`. **The notebooks with tag 1.5 mark 
-    |                              the files used for experiment shown in paper.**
+    │                              `1.0-jqp-initial-data-exploration`. The notebooks with tag 1.5 mark 
+    |                              the files used for experiment shown in paper.
     |
     ├── **params_nc.yaml**      <- yaml file detailing parameters for experiments used
     │
