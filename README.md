@@ -2,42 +2,44 @@ MCMC norm learning
 ==================
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4771919.svg)](https://doi.org/10.5281/zenodo.4771919)
 
-This repository contains the source code used for experiments in the paper:
+This repository contains the source code used for experiments in the paper: #TODO:add doi for paper
+
+The project covers the steps:
+![image](https://user-images.githubusercontent.com/23236895/118816860-3eb9bb80-b8d0-11eb-8aac-38e9bf3a1960.png)
+
+
+
 
 Project Organization
 --------------------
 
 
     ├── LICENSE
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump
+    |
+    ├── README.md               <- The top-level README for developers using this project.
+    |
+    ├── data_nc/*               <- Folder with dvc files for various experiments with $p_nn$ > 0
+    |
+    ├── data/*                  <- Folder with dvc files for various experiments with $p_nn$ = 0
+    |
+    ├── src/
+    │   ├── mcmc_norm_*         <- Code files for grammar/Metropolis Hastings Algorithm/convergence
+    |   |                          and preciscion-recall
+    │   └── *.py                <- Small Helper files
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
+    ├── scripts/                <- Scripts used for variouis instances of the process depicted in 
+    |   |                          schematic above.
+    │   └── **nc_experiments.py**   <- Binding script used to run various parts of experiment
+    |
+    ├── notebooks               <- Jupyter notebooks. Naming convention is a number (for ordering),
+    │                              the creator's initials, and a short `-` delimited description, e.g.
+    │                              `1.0-jqp-initial-data-exploration`. **The notebooks with tag 1.5 mark 
+    |                              the files used for experiment shown in paper.**
+    |
+    ├── **params_nc.yaml**      <- yaml file detailing parameters for experiments used
     │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
+    ├── requirements.txt        <- The requirements file for reproducing the analysis environment, e.g.
+    │                              generated with `pip freeze > requirements.txt`
     │
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
     │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+    └── venv/                   <- Virtual environment used for experiments
