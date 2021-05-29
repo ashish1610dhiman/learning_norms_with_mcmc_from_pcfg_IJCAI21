@@ -18,6 +18,8 @@ Project Organization
     |
     ├── README.md               <- The top-level README for developers using this project.
     |
+    ├── *_supp_material.pdf     <- Supplemetary material for paper published in IJCAI-21.
+    |
     ├── data_nc/*               <- Folder with dvc files for various experiments with $p_nn$ > 0
     |
     ├── data/*                  <- Folder with dvc files for various experiments with $p_nn$ = 0
