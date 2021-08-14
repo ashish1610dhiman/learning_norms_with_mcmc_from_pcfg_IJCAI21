@@ -46,10 +46,10 @@ $ git clone https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pc
 $ cd learning_norms_with_mcmc_from_pcfg_IJCAI21
 
 # Install depenencies using pip
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 
-# Install depenencies using conda
-conda create --name <env_name> --file requirements.txt
+# Or install depenencies in a conda env
+$ conda create --name <env_name> --file requirements.txt
 ```
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -97,7 +97,11 @@ conda create --name <env_name> --file requirements.txt
 <!-- DATASET -->
 <h2 id="dataset"> Dataset</h2>
 
-#TODO add data intro/structure and how to checkout with dvc
+The project uses
+
+There are two data folders in the repository:
+
+'data/\*' and 'data_nc/\*' for two workstream of the project
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
