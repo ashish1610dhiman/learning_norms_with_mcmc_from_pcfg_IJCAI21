@@ -52,7 +52,7 @@ pip install -r requirements.txt
 conda create --name <env_name> --file requirements.txt
 ```
 
-
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <!-- FOLDER STRUCTURE -->
 <h2 id="folder-structure"> Project Organization</h2>
@@ -90,3 +90,25 @@ conda create --name <env_name> --file requirements.txt
     │
     └── requirements.txt        <- The requirements file for reproducing the analysis environment
   
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<!-- DATASET -->
+<h2 id="dataset"> Dataset</h2>
+
+#TODO add data intro/structure and how to checkout with dvc
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<!-- ROADMAP -->
+<h2 id="roadmap"> Roadmap</h2>
+
+#TODO add experiment structure, and notebooks used
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<!-- CONTRIBUTORS -->
+<h2 id="contributors"> Contributors</h2>
+#TODO add intro
