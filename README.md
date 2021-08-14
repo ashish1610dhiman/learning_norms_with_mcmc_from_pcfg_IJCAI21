@@ -86,7 +86,7 @@ conda create --name <env_name> --file requirements.txt
     │                              `1.0-jqp-initial-data-exploration`. The notebooks with tag 1.5 mark 
     |                              the files used for experiment shown in paper.
     |
-    ├── params_nc.yaml      <- yaml file detailing parameters for experiments used
+    ├── params_nc.yaml          <- yaml file detailing parameters for experiments used
     │
     └── requirements.txt        <- The requirements file for reproducing the analysis environment
   
