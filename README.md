@@ -9,7 +9,7 @@ MCMC norm learning
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project"> ➤ About The Project</a></li>
-    <li><a href="#prerequisites"> ➤ Installation</a></li>
+    <li><a href="#prerequisites"> ➤ Prerequisites</a></li>
     <li><a href="#folder-structure"> ➤ Project Organsisation</a></li>
     <li><a href="#dataset"> ➤ Dataset</a></li>
     <li><a href="#roadmap"> ➤ Roadmap</a></li>
@@ -30,7 +30,31 @@ The project covers the steps as given in the schematic below:
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+
+
 <!-- PREREQUISITES -->
+<h2 id="prerequisites"> Prerequisites</h2>
+<!--This project is written in Python programming language. <br>-->
+
+To clone and run this application, you'll need to follow the below-mentioned steps:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pcfg_IJCAI21
+
+# Go into the repository
+$ cd learning_norms_with_mcmc_from_pcfg_IJCAI21
+
+# Install depenencies using pip
+pip install -r requirements.txt
+
+# Install depenencies using conda
+conda create --name <env_name> --file requirements.txt
+```
+
+
+
+<!-- FOLDER STRUCTURE -->
 <h2 id="folder-structure"> Project Organization</h2>
 
 
@@ -40,7 +64,7 @@ The project covers the steps as given in the schematic below:
 
     ├── LICENSE
     |
-    ├── README.md               <- The top-level README for developers using this project.
+    ├── README.md               <- The top-level README.
     |
     ├── *_supp_material.pdf     <- Supplemetary material for paper published in IJCAI-21.
     |
@@ -62,10 +86,7 @@ The project covers the steps as given in the schematic below:
     │                              `1.0-jqp-initial-data-exploration`. The notebooks with tag 1.5 mark 
     |                              the files used for experiment shown in paper.
     |
-    ├── **params_nc.yaml**      <- yaml file detailing parameters for experiments used
+    ├── params_nc.yaml      <- yaml file detailing parameters for experiments used
     │
-    ├── requirements.txt        <- The requirements file for reproducing the analysis environment, e.g.
-    │                              generated with `pip freeze > requirements.txt`
-    │
-    │
-    └── venv/                   <- Virtual environment used for experiments
+    └── requirements.txt        <- The requirements file for reproducing the analysis environment
+  
