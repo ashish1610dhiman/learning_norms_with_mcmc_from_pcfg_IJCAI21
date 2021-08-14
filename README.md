@@ -104,7 +104,7 @@ conda create --name <env_name> --file requirements.txt
 <!-- ROADMAP -->
 <h2 id="roadmap"> Roadmap</h2>
 
-#TODO add experiment structure, and notebooks used
+#TODO add experiment structure, and notebooks used, and yaml param files
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
