@@ -4,8 +4,25 @@ MCMC norm learning
 
 This repository contains the source code used for experiments in the paper: #TODO:add doi for paper
 
+<!-- TABLE OF CONTENTS -->
+<h2 id="table-of-contents"> Table of Contents</h2>
+
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#about-the-project"> ➤ About The Project</a></li>
+    <li><a href="#prerequisites"> ➤ Installation</a></li>
+    <li><a href="#folder-structure"> ➤ Folder Structure</a></li>
+    <li><a href="#dataset"> ➤ Dataset</a></li>
+    <li><a href="#roadmap"> ➤ Roadmap</a></li>
+    <li><a href="#contributors"> ➤ Contributors</a></li>
+  </ol>
+</details>
+
 The project covers the steps:
 ![image](https://user-images.githubusercontent.com/23236895/118816860-3eb9bb80-b8d0-11eb-8aac-38e9bf3a1960.png)
+
+
 
 
 
