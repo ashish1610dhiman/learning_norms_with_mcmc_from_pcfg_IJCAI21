@@ -2,8 +2,6 @@ MCMC norm learning
 ==================
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4772978.svg)](https://doi.org/10.5281/zenodo.4772978)
 
-This repository contains the source code used for experiments in the paper: #TODO:add doi for paper
-
 <!-- TABLE OF CONTENTS -->
 <h2 id="table-of-contents"> Table of Contents</h2>
 
@@ -12,22 +10,31 @@ This repository contains the source code used for experiments in the paper: #TOD
   <ol>
     <li><a href="#about-the-project"> ➤ About The Project</a></li>
     <li><a href="#prerequisites"> ➤ Installation</a></li>
-    <li><a href="#folder-structure"> ➤ Folder Structure</a></li>
+    <li><a href="#folder-structure"> ➤ Project Organsisation</a></li>
     <li><a href="#dataset"> ➤ Dataset</a></li>
     <li><a href="#roadmap"> ➤ Roadmap</a></li>
     <li><a href="#contributors"> ➤ Contributors</a></li>
   </ol>
 </details>
 
-The project covers the steps:
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+  
+<!-- ABOUT THE PROJECT -->
+<h2 id="about-the-project"> About The Project</h2>
+
+This repository contains the source code used for experiments in the paper: #TODO:add doi for paper
+
+The project covers the steps as given in the schematic below:
 ![image](https://user-images.githubusercontent.com/23236895/118816860-3eb9bb80-b8d0-11eb-8aac-38e9bf3a1960.png)
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<!-- PREREQUISITES -->
+<h2 id="folder-structure"> Project Organization</h2>
 
 
 
-
-
-Project Organization
 --------------------
 
 
