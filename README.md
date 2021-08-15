@@ -104,19 +104,43 @@ $ conda create --name <env_name> --file requirements.txt
 <!-- DATASET -->
 <h2 id="dataset"> Dataset</h2>
 
-The project uses
+The project uses [dvc](https://dvc.org/doc) for tracking data. There are two data folders in the repository:
+1. data/: houses dvc files for data produced with older experiments
+2. data_nc/: dvc files for data produced with **IJCAI submission experiments**. The dvc files follow naming as per the iteration of experiement, or exp_nc{i}: for i ∈ {1,2,... , 5}
 
-There are two data folders in the repository:
+**[exp_nc5.dvc](https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pcfg_IJCAI21/blob/non_compliance/data_nc/exp_nc5.dvc) is the file corresponding to experiment presented in paper**
 
-'data/\*' and 'data_nc/\*' for two workstream of the project
+Use the following commands to download the data corresponding to a dvc file:
+
+```bash
+# fetch the data
+$ dvc fetch exp_nc5.dvc
+
+# checkout the branch
+$ dvc checkout
+```
+
+
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <!-- ROADMAP -->
 <h2 id="roadmap"> Roadmap</h2>
 
-#TODO add experiment structure, and notebooks used, and yaml param files
+As outlined in the <a href="#about-the-project"> About The Project</a> above, MCMC Norm learning pipleine involves the following steps:  
 
+1. Initialise a Environment and task
+2. Generate obervations
+3. Generate MCMC chains
+4. Analyse MCMC chains
+5. Run Convergence tests on MCMC chains
+6. Get Top Norms from chains
+
+The above steps are outlined in the binding script [nc_experiments.py](https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pcfg_IJCAI21/blob/non_compliance/scripts/nc_experiments.py).
+
+Jupyter notebook is then used as awrapper over nc_experiments.py, to run different experiment iterations. The naming scheme of notebooks is mentioned above in <a href="#folder-structure"> Project Organsisation</a></li>.
+
+**[1.5_nc_exp5.ipynb](https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pcfg_IJCAI21/blob/non_compliance/notebooks/1.5_nc_exp5.ipynb) is the notebook used to run experiment presented in paper**
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
