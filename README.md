@@ -72,9 +72,9 @@ $ conda create --name <env_name> --file requirements.txt
     |
     ├── *_supp_material.pdf     <- Supplemetary material for paper published in IJCAI-21.
     |
-    ├── data_nc/*               <- Folder with dvc files for various experiments with $p_nn$ > 0
+    ├── data_nc/*               <- Folder with dvc files for various experiments with p_nn > 0
     |
-    ├── data/*                  <- Folder with dvc files for various experiments with $p_nn$ = 0
+    ├── data/*                  <- Folder with dvc files for various experiments with p_nn = 0
     |
     ├── src/
     │   ├── mcmc_norm_*         <- Code files for grammar/Metropolis Hastings Algorithm/convergence
@@ -86,8 +86,7 @@ $ conda create --name <env_name> --file requirements.txt
     │   └── nc_experiments.py   <- Binding script used to run various parts of experiment
     |
     ├── notebooks               <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                              the creator's initials, and a short `-` delimited description, e.g.
-    │                              `1.0-jqp-initial-data-exploration`. The notebooks with tag 1.5 mark 
+    │                              the creator's initials, and a short `_` delimited description. The notebooks with tag 1.5 mark 
     |                              the files used for experiment shown in paper.
     |
     ├── params_nc.yaml          <- yaml file detailing parameters for experiments used
