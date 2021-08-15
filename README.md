@@ -77,7 +77,7 @@ $ conda create --name <env_name> --file requirements.txt
     ├── data/*                  <- Folder with dvc files for various experiments with p_nn = 0
     |
     ├── src/
-    │   ├── mcmc_norm_*         <- Code files for grammar/Metropolis Hastings Algorithm/convergence
+    │   ├── mcmc_norm_*/        <- Code files for grammar/Metropolis Hastings Algorithm/convergence
     |   |                          and preciscion-recall
     │   └── *.py                <- Small Helper files
     │
@@ -85,7 +85,7 @@ $ conda create --name <env_name> --file requirements.txt
     |   |                          schematic above.
     │   └── nc_experiments.py   <- Binding script used to run various parts of experiment
     |
-    ├── notebooks               <- Jupyter notebooks. Naming convention is a number (for ordering),
+    ├── notebooks/              <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                              the creator's initials, and a short `_` delimited description. The notebooks with tag 1.5 mark 
     |                              the files used for experiment shown in paper.
     |
@@ -145,7 +145,7 @@ Jupyter notebook is then used as awrapper over nc_experiments.py, to run differe
 
 1. Stephen Cranefield  
   Department of Information Science, University of Otago  
-  [![Google Scholar](https://img.icons8.com/color/48/000000/google-scholar--v3.png) Google Scholar](hhttps://scholar.google.com/citations?user=IVcTzugAAAAJ)  
+  [![Google Scholar](https://img.icons8.com/color/48/000000/google-scholar--v3.png) Google Scholar](https://scholar.google.com/citations?user=IVcTzugAAAAJ)  
     
 
 2. Ashish Dhiman  
