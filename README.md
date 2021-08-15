@@ -144,9 +144,10 @@ Jupyter notebook is then used as awrapper over nc_experiments.py, to run differe
 <h2 id="contributors"> Contributors</h2>
 
 1. Stephen Cranefield  
-  Department of Information Science, University of Otago  
+  Department of Information Science, University of Otago (Professor)  
   [![Google Scholar](https://img.icons8.com/color/48/000000/google-scholar--v3.png) Google Scholar](https://scholar.google.com/citations?user=IVcTzugAAAAJ)  
     
 
 2. Ashish Dhiman  
+Department of Aerospace Engineering, Indian Institute of Technology, Kharagpur (B-Tech, 2019)  
   Connect on [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/ashish1610dhiman/)
