@@ -1,6 +1,12 @@
 MCMC norm learning
 ==================
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4772978.svg)](https://doi.org/10.5281/zenodo.4772978)
+
+[![DVC](https://img.shields.io/badge/-Data_Version_Control-white.svg?logo=data-version-control&style=social)](https://dvc.org/?utm_campaign=badge)
+
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
 <!-- TABLE OF CONTENTS -->
 <h2 id="table-of-contents"> Table of Contents</h2>
@@ -35,6 +41,7 @@ The project covers the steps as given in the schematic below:
 <!-- PREREQUISITES -->
 <h2 id="prerequisites"> Prerequisites</h2>
 <!--This project is written in Python programming language. <br>-->
+
 
 To clone and run this application, you'll need to follow the below-mentioned steps:
 
@@ -115,4 +122,11 @@ There are two data folders in the repository:
 
 <!-- CONTRIBUTORS -->
 <h2 id="contributors"> Contributors</h2>
-#TODO add intro
+
+1. Stephen Cranefield  
+  Department of Information Science, University of Otago  
+  [![Google Scholar](https://img.icons8.com/color/48/000000/google-scholar--v3.png) Google Scholar](hhttps://scholar.google.com/citations?user=IVcTzugAAAAJ)  
+    
+
+2. Ashish Dhiman  
+  Connect on [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/ashish1610dhiman/)
