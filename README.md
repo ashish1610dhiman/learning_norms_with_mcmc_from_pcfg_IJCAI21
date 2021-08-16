@@ -54,7 +54,7 @@ $ cd learning_norms_with_mcmc_from_pcfg_IJCAI21
 # Ensure the repository is in the correct branch for the IJCAI experiments
 $ git checkout non_compliance
 
-# Install depenencies using pip
+# Install dependencies using pip
 $ pip install -r requirements.txt
 
 # Or install dependencies in a virtual environment, e.g. for conda:
