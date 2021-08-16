@@ -23,7 +23,13 @@ MCMC norm learning
 <!-- ABOUT THE PROJECT -->
 <h2 id="about-the-project"> About The Project</h2>
 
-This repository contains the source code used for experiments in the paper: #TODO:add doi for paper
+This repository contains the source code used for experiments in the paper: 
+
+Cranefield, Stephen and Dhiman, Ashish.  
+Identifying Norms from Observation Using MCMC Sampling,  
+Proceedings of the Thirtieth International Joint Conference on Artificial Intelligence,  
+International Joint Conferences on Artificial Intelligence, 118-124, 2021.  
+!(https://doi.org/10.24963/ijcai.2021/17)
 
 The project covers the steps as given in the schematic below:
 ![image](https://user-images.githubusercontent.com/23236895/118816860-3eb9bb80-b8d0-11eb-8aac-38e9bf3a1960.png)
@@ -134,7 +140,7 @@ As outlined in the <a href="#about-the-project"> About The Project</a> above, MC
 
 The above steps are outlined in the binding script [nc_experiments.py](https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pcfg_IJCAI21/blob/non_compliance/scripts/nc_experiments.py).
 
-Jupyter notebook is then used as awrapper over nc_experiments.py, to run different experiment iterations. The naming scheme of notebooks is mentioned above in <a href="#folder-structure"> Project Organsisation</a></li>.
+Jupyter notebook is then used as a wrapper over nc_experiments.py, to run different experiment iterations. The naming scheme of notebooks is mentioned above in <a href="#folder-structure"> Project Organsisation</a></li>.
 
 **[1.5_nc_exp5.ipynb](https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pcfg_IJCAI21/blob/non_compliance/notebooks/1.5_nc_exp5.ipynb) is the notebook used to run experiment presented in paper**
 
