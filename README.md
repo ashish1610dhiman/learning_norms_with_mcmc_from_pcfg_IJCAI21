@@ -51,10 +51,13 @@ $ git clone https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pc
 # Go into the repository
 $ cd learning_norms_with_mcmc_from_pcfg_IJCAI21
 
+# Ensure the repository is in the correct branch for the IJCAI experiments
+$ git checkout non_compliance
+
 # Install depenencies using pip
 $ pip install -r requirements.txt
 
-# Or install depenencies in a conda env
+# Or install dependencies in a virtual environment, e.g. for conda:
 $ conda create --name <env_name> --file requirements.txt
 ```
 
@@ -104,9 +107,9 @@ $ conda create --name <env_name> --file requirements.txt
 
 The project uses [dvc](https://dvc.org/doc) for tracking data. There are two data folders in the repository:
 1. data/: houses dvc files for data produced with older experiments
-2. data_nc/: dvc files for data produced with **IJCAI submission experiments**. The dvc files follow naming as per the iteration of experiement, or exp_nc{i}: for i ∈ {1,2,... , 5}
+2. data_nc/: dvc files for data produced with **IJCAI submission experiments**. The dvc files follow naming as per the iteration of experiment, or exp_nc{i}: for i ∈ {1,2,... , 5}
 
-**[exp_nc5.dvc](https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pcfg_IJCAI21/blob/non_compliance/data_nc/exp_nc5.dvc) is the file corresponding to experiment presented in paper**
+**[exp_nc5.dvc](https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pcfg_IJCAI21/blob/non_compliance/data_nc/exp_nc5.dvc) is the file corresponding to experiment presented in paper**. Earlier experiments were for testing code changes.
 
 Use the following commands to download the data corresponding to a dvc file:
 
