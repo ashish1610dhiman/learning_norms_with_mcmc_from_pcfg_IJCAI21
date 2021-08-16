@@ -25,7 +25,7 @@ MCMC norm learning
 
 This repository contains the source code used for experiments in the following paper: 
 
-Cranefield, Stephen and Dhiman, Ashish. Identifying Norms from Observation Using MCMC Sampling, Proceedings of the Thirtieth International Joint Conference on Artificial Intelligence, International Joint Conferences on Artificial Intelligence, 118-124, 2021. <https://doi.org/10.24963/ijcai.2021/17> (![BibTeX](https://www.ijcai.org/proceedings/2021/bibtex/17)
+Cranefield, Stephen and Dhiman, Ashish. Identifying Norms from Observation Using MCMC Sampling, Proceedings of the Thirtieth International Joint Conference on Artificial Intelligence, International Joint Conferences on Artificial Intelligence, 118-124, 2021. <https://doi.org/10.24963/ijcai.2021/17> ([BibTeX](https://www.ijcai.org/proceedings/2021/bibtex/17))
 
 The project covers the steps as given in the schematic below:
 ![image](https://user-images.githubusercontent.com/23236895/118816860-3eb9bb80-b8d0-11eb-8aac-38e9bf3a1960.png)
