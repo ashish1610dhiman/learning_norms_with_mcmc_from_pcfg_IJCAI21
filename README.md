@@ -27,10 +27,10 @@ This repository contains the source code used for experiments in the following p
 
 Cranefield, Stephen and Dhiman, Ashish. Identifying Norms from Observation Using MCMC Sampling, Proceedings of the Thirtieth International Joint Conference on Artificial Intelligence, International Joint Conferences on Artificial Intelligence, 118-124, 2021. <https://doi.org/10.24963/ijcai.2021/17> ([BibTeX](https://www.ijcai.org/proceedings/2021/bibtex/17))
 
+**The supplementary material for the paper can be found at [Learning_Norms_with_MCMC_supp_material.pdf](https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pcfg_IJCAI21/raw/non_compliance/Learning_Norms_with_MCMC_supp_material.pdf)**
+
 The project covers the steps as given in the schematic below:
 ![image](https://user-images.githubusercontent.com/23236895/118816860-3eb9bb80-b8d0-11eb-8aac-38e9bf3a1960.png)
-
-**The supplementary material for IJCAI paper can be found at [Learning_Norms_with_MCMC_supp_material.pdf](https://github.com/ashish1610dhiman/learning_norms_with_mcmc_from_pcfg_IJCAI21/raw/non_compliance/Learning_Norms_with_MCMC_supp_material.pdf)**
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
